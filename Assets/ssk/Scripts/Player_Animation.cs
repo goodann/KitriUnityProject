@@ -20,7 +20,7 @@ public partial class Player : MonoBehaviour {
     }
     void AniUpdate()
     {
-        if (CompCharCon.isGrounded)
+        if (isGrounded)
         {
             if(sqrtVel > 0.001f)
             {
@@ -35,19 +35,21 @@ public partial class Player : MonoBehaviour {
         {
                 CompAnimator.SetBool("Moving", false);
         }
-
-
-        if (CompAnimator.GetBool("Jump"))
+        bool isJumping = CompAnimator.GetBool("Jump");
+        if (isJumping)
         {
-            if(CompCharCon.isGrounded)
+            if (isGrounded && moveDirection.y < 0.2f)
+            {
                 CompAnimator.SetBool("Jump", false);
+            }
         }
         isJumpKicking = CompAnimator.GetBool("JumpKick");
         if (isJumpKicking)
         {
-            if (CompCharCon.isGrounded)
+            if (isGrounded)
             {
                 CompAnimator.SetBool("JumpKick", false);
+                CompAnimator.SetBool("Jump", false);
                 isJumpKicking = false;
                 isJumpKickDowning = false;
                 transform.rotation = jumpKickQuaOrign;
@@ -59,6 +61,39 @@ public partial class Player : MonoBehaviour {
 
         }
     }
+
+    void AniAttack(bool isHand)
+    {
+        CompAnimator.SetBool("Moving", false);
+        if (isLeft)
+        {
+            //애니메이션L
+            if (isHand)
+            {
+                //애니메이션LP
+                CompAnimator.SetTrigger("LeftPunch");
+            }
+            else
+            {
+                //애니메이션LK
+                CompAnimator.SetTrigger("LeftKick");
+            }
+        }
+        else
+        {
+            //애니메이션R
+            if (isHand)
+            {
+                //애니메이션RP
+                CompAnimator.SetTrigger("RightPunch");
+            }
+            else
+            {
+                //애니메이션RK
+                CompAnimator.SetTrigger("RightKick");
+            }
+        }
+    }
     void AniJump()
     {
         CompAnimator.SetBool("Jump", true);
@@ -68,7 +103,7 @@ public partial class Player : MonoBehaviour {
     {
         
         CompAnimator.SetBool("JumpKick", true);
-        CompAnimator.SetBool("Jump", false);
+        //CompAnimator.SetBool("Jump", false);
 
 
     }

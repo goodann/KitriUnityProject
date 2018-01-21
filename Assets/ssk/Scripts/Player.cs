@@ -14,10 +14,22 @@ public enum EquipmentState
 [RequireComponent(typeof(CharacterController))]
 public partial class Player : MonoBehaviour {
 
+    //debug
+    public List<float> DebugFloat;
+    public List<Vector3> DebugVector;
+    public List<bool> DebugBool;
+
+    public bool[] isG;
+    public bool isGrounded;
     //ani state
     EquipmentState NowEq;
 
 
+    //attack
+
+    protected bool isAttacking;
+
+    public bool IsAttacking { get { return isAttacking; } set { isAttacking = value; } }
     protected bool isLeft;
     protected bool isJumpKicking;
     protected bool isJumpKickDowning;
@@ -38,7 +50,7 @@ public partial class Player : MonoBehaviour {
     public List<RuntimeAnimatorController> CompAnimators;
 
 
-    protected float JumpForce = 8;
+    protected float JumpForce = 10;
     protected float MoveSpeed = 3;
     protected float RotateSpeed = 2;
     // Use this for initialization
@@ -47,6 +59,7 @@ public partial class Player : MonoBehaviour {
     }
     protected void Init()
     {
+        isG = new bool[2];
         ComboInit();
         GetComponentsInit();
         AnimatorInit();
@@ -69,24 +82,27 @@ public partial class Player : MonoBehaviour {
     //업데이트
     protected void UpdatePlayer()
     {
+        
 
         if (CompCharCon.isGrounded)
         {
+            
             if (moveDirection.y < 0)
-                moveDirection.y = 0;
+                moveDirection.y = -0.001f;
         }
         else
         {
             // Apply gravity    
-            moveDirection += Physics.gravity * Time.deltaTime;
+            moveDirection += Physics.gravity* Time.deltaTime;
+
             if (isJumpKicking)
             {
-                moveDirection += Physics.gravity * Time.deltaTime * 1.5f;
+                moveDirection += Physics.gravity *1.5f* Time.deltaTime;
             }
             if (isJumpKickDowning)
             {
 
-                moveDirection += Physics.gravity * Time.deltaTime * 1f;
+                moveDirection += Physics.gravity * 1f * Time.deltaTime;
                 Vector3 dir2 = transform.forward;
                 dir2.y = 0;
                 moveDirection += dir2 * Time.deltaTime * 300f;
@@ -94,26 +110,47 @@ public partial class Player : MonoBehaviour {
 
         }
 
+        
         // Move the controller    
-        Vector3 dir = moveDirection * Time.fixedDeltaTime;
-        CompCharCon.Move(dir);
-        sqrtVel = moveDirection.sqrMagnitude;
-        print("sqrtVel" + sqrtVel);
-        if (ComboTimer > 2.0f)
+        Vector3 dir = moveDirection * Time.deltaTime;
+
+        isG[0]=CompCharCon.isGrounded;
+        //if (dir.y == 0)
+        //{
+        //    isG = true;
+        //}
+        Vector3 mry = moveDirection;
+        mry.y = 0;
+        sqrtVel = mry.sqrMagnitude;
+
+        AniUpdate();
+        //print(moveDirection);
+        
+        if (sqrtVel > 0.1f)
+            //print("sqrtVel" + sqrtVel);
+            if (ComboTimer > 2.0f)
         {
             ComboTimer = 0;
             ComboInit();
         }
 
+        //print("dir="+ moveDirection);
+        //moveDirection -= dir;
+        DebugVector[0] = CompCharCon.velocity;
+        DebugVector[1] = moveDirection;
 
-        moveDirection -= dir;
+        DebugBool[0] = CompCharCon.isGrounded;
+        CompCharCon.Move(dir);
+        DebugBool[1] = CompCharCon.isGrounded;
+        isG[1] = CompCharCon.isGrounded;
+        isGrounded = isG[0] | isG[1];
+
         moveDirection.x = 0;
         moveDirection.z = 0;
         ComboTimer += Time.deltaTime;
+        DebugBool[2] = isAttacking;
 
 
-
-        AniUpdate();
     }
 
     //fixed업데이트
@@ -122,7 +159,6 @@ public partial class Player : MonoBehaviour {
     }
     public void Move(Vector3 vec)
     {
-        //CompCharCon.Move(vec);
         moveDirection += transform.TransformDirection(vec)* MoveSpeed;
     }
     public void Rotate(Vector3 angle)
@@ -131,62 +167,73 @@ public partial class Player : MonoBehaviour {
     }
     public void Jump()
     {
-        //CompCharCon.Move(Vector3.up);
         moveDirection += Vector3.up* JumpForce;
         AniJump();
     }
     public void Attack(bool isHand)
     {
-        if (CompCharCon.isGrounded)
+        if (isAttacking)
         {
-            if (isLeft)
-            {
-                //애니메이션L
-                if (isHand)
-                {
-                    //애니메이션LH
-                }
-                else
-                {
-                    //애니메이션LF
-                }
-            }
-            else
-            {
-                //애니메이션R
-                if (isHand)
-                {
-                    //애니메이션RH
-                }
-                else
-                {
-                    //애니메이션RF
-                }
-            }
-
-
-            //손 번갈아공격
-            isLeft = !isLeft;
-
-            //combo 저장
-            ComboSignal += (uint)(isHand ? 1 : 0);
-            ComboSignal = ComboSignal << 1;
-            ComboTimer = 0;
+            
         }
         else
         {
-            //공중공격
-            if (isHand)
+            isAttacking = true;
+            
+            if (isGrounded)
             {
-                //점프손
+                moveDirection = Vector3.zero;
+                if (isLeft)
+                {
+                    //애니메이션L
+                    if (isHand)
+                    {
+                        //애니메이션LH
+
+                    }
+                    else
+                    {
+                        //애니메이션LF
+                    }
+                }
+                else
+                {
+                    //애니메이션R
+                    if (isHand)
+                    {
+                        //애니메이션RH
+                    }
+                    else
+                    {
+                        //애니메이션RF
+                    }
+                }
+
+                AniAttack(isHand);
+
+                //손 번갈아공격
+                isLeft = !isLeft;
+
+                //combo 저장
+                ComboSignal += (uint)(isHand ? 1 : 0);
+                ComboSignal = ComboSignal << 1;
+                ComboTimer = 0;
             }
             else
             {
-                moveDirection += Vector3.up * JumpForce*0.5f+Vector3.forward*10;
-                AniJumpKick();
-                //점프킥
+                //공중공격
+                if (isHand)
+                {
+                    //점프손
+                }
+                else
+                {
+                    moveDirection += Vector3.up * JumpForce * 0.5f + Vector3.forward * 10;
+                    AniJumpKick();
+                    //점프킥
 
 
+                }
             }
         }
     }

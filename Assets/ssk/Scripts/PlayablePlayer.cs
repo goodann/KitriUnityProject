@@ -4,16 +4,18 @@ using UnityEngine;
 
 //입력을 받는 플레이어
 //싱글턴
-public partial class PlayablePlayer : Player {
+public partial class PlayablePlayer : Player
+{
 
     //singleton
-    private static PlayablePlayer Instance=null;
+    private static PlayablePlayer Instance = null;
     public PlayablePlayer GetInstance()
     {
         if (Instance == null)
         {
             //lock
-            if (Instance == null) {
+            if (Instance == null)
+            {
                 Instance = new PlayablePlayer();
             }
         }
@@ -37,54 +39,87 @@ public partial class PlayablePlayer : Player {
 
     }
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         Init();
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         ControllInput();
         UpdatePlayer();
-        
+        DebugFloat[0] = hInput;
+        DebugFloat[1] = vInput;
+        DebugFloat[2] = attack1;
+        DebugFloat[3] = attack2;
+        DebugFloat[4] = jump;
     }
     private void FixedUpdate()
     {
-        
+
         FixedUpdatePlayer();
     }
     void ControllInput()
     {
         if (CompCharCon.isGrounded)
         {
-           hInput = Input.GetAxis("Horizontal");
-           vInput = Input.GetAxis("Vertical");
-           attack1 = Input.GetAxis("Fire1");
-           attack2 = Input.GetAxis("Fire2");
-           jump = Input.GetAxis("Jump");
+            if (!isAttacking)
+            {
+                hInput = Input.GetAxis("Horizontal");
+                vInput = Input.GetAxis("Vertical");
 
-           attack1 = 0;
-           attack2 = 0;
-           jump = 0;
+            }
+            else
+            {
+                hInput = 0;
+                vInput = 0;
+            }
+            attack1 = Input.GetAxis("Fire1");
+            attack2 = Input.GetAxis("Fire2");
+            jump = Input.GetAxis("Jump");
+
+            attack1 = 0;
+            attack2 = 0;
+            jump = 0;
         }
-        if(Input.GetKeyDown(KeyCode.Space)){
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
             jump = 1;
+        }
+        else
+        {
+            jump = 0;
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
             attack2 = 1;
         }
+        else
+        {
+            attack2 = 0;
+        }
 
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            attack1 = 1;
+        }
+        else
+        {
+            attack1 = 0;
+        }
 
         Vector3 moveVec = new Vector3();
         //moveVec = Vector3.right * hInput;
-        moveVec = Vector3.forward * vInput;
-        Move(moveVec);
+        moveVec = Vector3.forward * vInput * MoveSpeed;
+        //Move(moveVec);
+        moveDirection += moveVec;
         Rotate(new Vector3(0, hInput, 0));
         if (jump != 0)
         {
             Jump();
         }
-        if (attack1!=0)
+        if (attack1 != 0)
         {
             Attack(true);
         }
