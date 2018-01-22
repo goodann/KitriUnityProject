@@ -99,6 +99,14 @@ public partial class Player : MonoBehaviour {
         CompAnimator.SetBool("Jump", true);
         
     }
+    void AniFlipKick()
+    {
+        CompAnimator.SetTrigger("FlipKick");
+    }
+    void AniSpacialKick()
+    {
+        CompAnimator.SetTrigger("SpacialKick");
+    }
     void AniJumpKick()
     {
         

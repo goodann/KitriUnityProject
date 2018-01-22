@@ -8,6 +8,13 @@ public enum EquipmentState
     Eq_Fight = 0,
     Eq_Sword = 1
 };
+public enum AttackColliderIndex
+{
+    ACI_LeftFoot=0,
+    ACI_RightFoot = 1,
+    ACI_LeftHand = 2,
+    ACI_RightHand = 3,
+}
 
 
 [RequireComponent(typeof(Animator))]
@@ -48,22 +55,55 @@ public partial class Player : MonoBehaviour {
     //[Serializable]
     //public Animator[] CompAnimators;
     public List<RuntimeAnimatorController> CompAnimators;
+    public List<Collider> ListAttackColliders;
 
 
-    protected float JumpForce = 10;
-    protected float MoveSpeed = 3;
-    protected float RotateSpeed = 2;
+    public float JumpForce = 7;
+    public float MoveSpeed = 2;
+    
     // Use this for initialization
     void Start () {
         Init();
     }
+    public Transform FindTrans(string name)
+    {
+        return _FindTrans(name, transform);
+    }
+    public Transform _FindTrans(string name,Transform trans)
+    {
+        if (name == trans.name)
+            return trans;
+        if (trans.childCount == 0)
+        {
+            return null;
+        }
+        else
+        {
+            for (int i = 0; i < trans.childCount; ++i)
+            {
+                Transform reTrans = _FindTrans(name, trans.GetChild(i));
+                if (reTrans != null)
+                    return reTrans;
+            }
+        }
+        return null;
+    }
     protected void Init()
     {
+        isLeft = true;
         isG = new bool[2];
         ComboInit();
         GetComponentsInit();
         AnimatorInit();
+        ListAttackColliders = new List<Collider>();
+        
+        ListAttackColliders.Add(FindTrans("Character1_LeftFoot").GetComponent<Collider>());
+        ListAttackColliders.Add(FindTrans("Character1_RightFoot").GetComponent<Collider>());
+        ListAttackColliders.Add(FindTrans("Character1_LeftHand").GetComponent<Collider>());
+        ListAttackColliders.Add(FindTrans("Character1_RightHand").GetComponent<Collider>());
     }
+
+
 
     protected void GetComponentsInit()
     {
@@ -126,9 +166,8 @@ public partial class Player : MonoBehaviour {
         AniUpdate();
         //print(moveDirection);
         
-        if (sqrtVel > 0.1f)
             //print("sqrtVel" + sqrtVel);
-            if (ComboTimer > 2.0f)
+        if (ComboTimer > 10.0f)
         {
             ComboTimer = 0;
             ComboInit();
@@ -148,9 +187,23 @@ public partial class Player : MonoBehaviour {
         moveDirection.x = 0;
         moveDirection.z = 0;
         ComboTimer += Time.deltaTime;
+        DebugFloat[5] = ComboTimer;
         DebugBool[2] = isAttacking;
 
 
+    }
+    public void EndAttack()
+    {
+        isAttacking = false;
+        foreach( var  i in ListAttackColliders)
+        {
+            i.enabled = false;
+        }
+
+    }
+    public void AttackColliderEnable(AttackColliderIndex index)
+    {
+        ListAttackColliders[(int)index].enabled = true;
     }
 
     //fixed업데이트
@@ -159,11 +212,11 @@ public partial class Player : MonoBehaviour {
     }
     public void Move(Vector3 vec)
     {
-        moveDirection += transform.TransformDirection(vec)* MoveSpeed;
+        moveDirection += vec * MoveSpeed; //transform.TransformDirection(vec)* MoveSpeed;
     }
     public void Rotate(Vector3 angle)
     {
-        transform.Rotate(angle* RotateSpeed);
+        //transform.Rotate(angle* RotateSpeed);
     }
     public void Jump()
     {
@@ -183,41 +236,71 @@ public partial class Player : MonoBehaviour {
             if (isGrounded)
             {
                 moveDirection = Vector3.zero;
-                if (isLeft)
-                {
-                    //애니메이션L
-                    if (isHand)
-                    {
-                        //애니메이션LH
+                //combo
 
-                    }
-                    else
-                    {
-                        //애니메이션LF
-                    }
+
+                //combo 저장
+                ComboSignal = ComboSignal << 1;
+                ComboSignal += (uint)(isHand ? 1 : 0);
+
+                ComboTimer = 0;
+                ComboCount++;
+                DebugFloat[6] = ComboSignal;
+                DebugFloat[7] = ComboCount;
+                if (ComboCount == 6 && ComboSignal == 0x3C)
+                {
+                    AniFlipKick();
+                    AttackColliderEnable(AttackColliderIndex.ACI_LeftFoot);
+                    AttackColliderEnable(AttackColliderIndex.ACI_RightFoot);
+
+                }
+                else if (ComboCount == 7 && ComboSignal == 0x78)
+                {
+                    //print(ComboCount + ", " + ComboSignal.ToString("x"));
+                    //spacialKick
+                    AttackColliderEnable(AttackColliderIndex.ACI_LeftFoot);
+                    AttackColliderEnable(AttackColliderIndex.ACI_RightFoot);
+                    AniSpacialKick();
+                    ComboInit();
                 }
                 else
                 {
-                    //애니메이션R
-                    if (isHand)
+                    if (isLeft)
                     {
-                        //애니메이션RH
+                        //애니메이션L
+                        if (isHand)
+                        {
+
+                            //애니메이션LH
+                            AttackColliderEnable(AttackColliderIndex.ACI_LeftHand);
+                        }
+                        else
+                        {
+                            //애니메이션LF
+                            AttackColliderEnable(AttackColliderIndex.ACI_LeftFoot);
+                        }
                     }
                     else
                     {
-                        //애니메이션RF
+                        //애니메이션R
+                        if (isHand)
+                        {
+                            //애니메이션RH
+                            AttackColliderEnable(AttackColliderIndex.ACI_RightHand);
+                        }
+                        else
+                        {
+                            //애니메이션RF
+                            AttackColliderEnable(AttackColliderIndex.ACI_RightFoot);
+                        }
                     }
+
+                    AniAttack(isHand);
+
+                    //손 번갈아공격
+                    isLeft = !isLeft;
+
                 }
-
-                AniAttack(isHand);
-
-                //손 번갈아공격
-                isLeft = !isLeft;
-
-                //combo 저장
-                ComboSignal += (uint)(isHand ? 1 : 0);
-                ComboSignal = ComboSignal << 1;
-                ComboTimer = 0;
             }
             else
             {
@@ -252,5 +335,6 @@ public partial class Player : MonoBehaviour {
         ComboSignal = 0;
         ComboCount = 0;
         ComboTimer = 0.0f;
+        isLeft = true;
     }
 }

@@ -79,7 +79,7 @@ public partial class PlayablePlayer : Player
             attack2 = Input.GetAxis("Fire2");
             jump = Input.GetAxis("Jump");
 
-
+            
 
             attack1 = 0;
             attack2 = 0;
@@ -114,9 +114,13 @@ public partial class PlayablePlayer : Player
         Vector3 moveVec = new Vector3();
         //moveVec = Vector3.right * hInput;
 
+
+
         //transform.transform.rotation = Quaternion.Euler(Vector3.up * hInput*90);
+        
         moveVec = Vector3.right * hInput * MoveSpeed;
         moveVec += Vector3.forward * vInput * MoveSpeed;
+        transform.transform.LookAt(transform.transform.position + moveVec);
         Move(moveVec);
         //moveDirection += moveVec;
         //Rotate(new Vector3(0, hInput, 0));
