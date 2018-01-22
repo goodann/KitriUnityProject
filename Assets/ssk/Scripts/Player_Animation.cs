@@ -20,7 +20,7 @@ public partial class Player : MonoBehaviour {
     }
     void AniUpdate()
     {
-        if (isGrounded)
+        if (isGrounded && !isAttacking)
         {
             if(sqrtVel > 0.001f)
             {
