@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackCollider : MonoBehaviour {
+public class EnemyBehavior : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -13,10 +13,8 @@ public class AttackCollider : MonoBehaviour {
 	void Update () {
 		
 	}
-    private void OnTriggerEnter(Collider other)
+    void onHit()
     {
-        print("Hit!");
-        EnemyBehavior enemy= other.GetComponent<EnemyBehavior>();
-        
+
     }
 }
