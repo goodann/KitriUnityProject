@@ -8,15 +8,15 @@ public class CamFollow : MonoBehaviour {
 
     private Transform thisTransform = null;
 
-    public float distanceFromTarget = 10.0f;
+    public float distanceFromTarget = 4.0f;
 
-    public float camHeight = 1f;
+    public float camHeight = 4.0f;
 
     
 
     //제한치
-    public float rotationDamp = 4f;
-    public float posDamp = 4f;
+    public float rotationDamp = 0;
+    public float posDamp = 1.0f;
 
     void Awake()
     {
