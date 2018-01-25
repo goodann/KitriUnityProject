@@ -10,4 +10,15 @@ public class ItemGeneInit : MonoBehaviour {
     {
         geneOn = true;
     }
+
+
+    public bool GetGeneOn()
+    {
+        return geneOn;
+    }
+
+    public void SetGeneOn(bool value)
+    {
+        geneOn = value;
+    }
 }

@@ -6,8 +6,7 @@ public class ItemGenerator : MonoBehaviour {
 
     public GameObject[] itemObjects;
 
-    [SerializeField]
-    Transform[] points;
+    public Transform[] points;
 
     public List<GameObject> itemObjPool = new List<GameObject>();
     GameObject _objectPool;
@@ -48,13 +47,14 @@ public class ItemGenerator : MonoBehaviour {
 
                     int idx = Random.Range(1, points.Length);
 
-                    bool geneOn = points[idx].GetComponent<ItemGeneInit>().geneOn;
+                    //geneOn == false면 건너뜀
+                    if (points[idx].GetComponent<ItemGeneInit>().GetGeneOn() == false) continue;
 
-                    if (!geneOn) continue;
-
-                    item.transform.position = points[idx].position + new Vector3(0, 0.5f, 0);
+                    item.transform.position = points[idx].position;
                     item.SetActive(true);
-                    points[idx].GetComponent<ItemGeneInit>().geneOn = false;
+                    item.GetComponent<ItemRotate>().itemGenePointIndex = idx;
+                    points[idx].GetComponent<ItemGeneInit>().SetGeneOn(false);
+                    
                 }
             }
         }

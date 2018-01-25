@@ -4,18 +4,34 @@ using UnityEngine;
 
 public class ItemRotate : MonoBehaviour {
 
-    public float itemInitUpY = 0.5f;
+    public float itemInitUpY = 1.0f;
     public float rotationSpeed = 60.0f;
+
+    public bool isPickedUp;
+
+    ItemGenerator itemGeneator;
+    public int itemGenePointIndex = 0;
 
 	// Use this for initialization
 	void Start ()
     {
         transform.position += new Vector3(0, itemInitUpY, 0);
-	}
+        itemGeneator = GameObject.Find("ItemSpawnPoints").GetComponent<ItemGenerator>();
+        isPickedUp = false;
+
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        transform.Rotate(new Vector3(0, rotationSpeed * Time.deltaTime, 0));
-	}
+        if (!isPickedUp)
+            transform.Rotate(new Vector3(0, rotationSpeed * Time.deltaTime, 0));
+
+    }
+
+    public void ItemGenePointReset()
+    {
+        isPickedUp = true;
+        itemGeneator.points[itemGenePointIndex].GetComponent<ItemGeneInit>().SetGeneOn(true);
+    }
 }

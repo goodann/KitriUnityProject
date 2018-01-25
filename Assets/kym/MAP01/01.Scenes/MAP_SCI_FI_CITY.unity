@@ -513,7 +513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 81548387}
   m_Layer: 0
-  m_Name: LeftHand_MiniGun_Pos
+  m_Name: LeftHand_Minigun_Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -525,7 +525,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 81548386}
-  m_LocalRotation: {x: -0.65819246, y: -0.6699292, z: -0.13478391, w: -0.31592876}
+  m_LocalRotation: {x: -0.6581924, y: -0.66992915, z: -0.1347839, w: -0.31592873}
   m_LocalPosition: {x: -0.14587678, y: -0.0722928, z: -0.09678063}
   m_LocalScale: {x: 0.5000004, y: 0.5000013, z: 0.5000013}
   m_Children: []
@@ -2175,13 +2175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388bab156d3eb04e90e9cedc9bb47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs: []
-  MobID: 0
-  GenCycle: 0
-  Auto: 0
-  AreaXLength: 0
-  AreaYLength: 0
-  AreaZLength: 0
 --- !u!1001 &356242804
 Prefab:
   m_ObjectHideFlags: 0
@@ -2288,13 +2281,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388bab156d3eb04e90e9cedc9bb47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs: []
-  MobID: 0
-  GenCycle: 0
-  Auto: 0
-  AreaXLength: 0
-  AreaYLength: 0
-  AreaZLength: 0
 --- !u!1 &364808612
 GameObject:
   m_ObjectHideFlags: 0
@@ -4094,13 +4080,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388bab156d3eb04e90e9cedc9bb47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs: []
-  MobID: 0
-  GenCycle: 0
-  Auto: 0
-  AreaXLength: 0
-  AreaYLength: 0
-  AreaZLength: 0
 --- !u!1 &615225685
 GameObject:
   m_ObjectHideFlags: 0
@@ -6983,13 +6962,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388bab156d3eb04e90e9cedc9bb47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs: []
-  MobID: 0
-  GenCycle: 0
-  Auto: 0
-  AreaXLength: 0
-  AreaYLength: 0
-  AreaZLength: 0
 --- !u!1001 &966886749
 Prefab:
   m_ObjectHideFlags: 0
@@ -7138,7 +7110,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 974261168}
-  m_LocalRotation: {x: 0.7071077, y: 0.00028154056, z: -0.70710576, w: 0.00028154135}
+  m_LocalRotation: {x: 0.7071078, y: 0.0002815406, z: -0.7071058, w: 0.00028154138}
   m_LocalPosition: {x: -0.10417484, y: -0.047148883, z: 0.026731417}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8348,13 +8320,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388bab156d3eb04e90e9cedc9bb47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs: []
-  MobID: 0
-  GenCycle: 0
-  Auto: 0
-  AreaXLength: 0
-  AreaYLength: 0
-  AreaZLength: 0
 --- !u!1001 &1224346248
 Prefab:
   m_ObjectHideFlags: 0
@@ -9179,7 +9144,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1347440837}
-  m_LocalRotation: {x: 0.7071077, y: 0.00028154056, z: 0.70710576, w: -0.00028154135}
+  m_LocalRotation: {x: 0.7071078, y: 0.0002815406, z: 0.7071058, w: -0.00028154138}
   m_LocalPosition: {x: -0.10417484, y: -0.047148738, z: -0.02673168}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9598,13 +9563,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388bab156d3eb04e90e9cedc9bb47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs: []
-  MobID: 0
-  GenCycle: 0
-  Auto: 0
-  AreaXLength: 0
-  AreaYLength: 0
-  AreaZLength: 0
 --- !u!1 &1419440164
 GameObject:
   m_ObjectHideFlags: 0
@@ -10357,13 +10315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388bab156d3eb04e90e9cedc9bb47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs: []
-  MobID: 0
-  GenCycle: 0
-  Auto: 0
-  AreaXLength: 0
-  AreaYLength: 0
-  AreaZLength: 0
 --- !u!1 &1586298433
 GameObject:
   m_ObjectHideFlags: 0
@@ -11099,13 +11050,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388bab156d3eb04e90e9cedc9bb47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs: []
-  MobID: 0
-  GenCycle: 0
-  Auto: 0
-  AreaXLength: 0
-  AreaYLength: 0
-  AreaZLength: 0
 --- !u!1001 &1665326852
 Prefab:
   m_ObjectHideFlags: 0
@@ -11646,7 +11590,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1736859335}
-  m_LocalRotation: {x: -0.0059114047, y: -0.67944837, z: 0.7336993, w: -0.00066563475}
+  m_LocalRotation: {x: -0.0059113964, y: -0.6794483, z: 0.73369926, w: -0.0006656347}
   m_LocalPosition: {x: -0.14276123, y: 0.032653574, z: 0.13977996}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_Children: []
@@ -11809,6 +11753,7 @@ GameObject:
   - component: {fileID: 1788556867}
   - component: {fileID: 1788556866}
   - component: {fileID: 1788556865}
+  - component: {fileID: 1788556869}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -11907,6 +11852,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1788556869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1788556864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7461528c4edff384aa148dd5dbd2d28e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lefthand_MacePos: {fileID: 0}
+  lefthand_SwordPos: {fileID: 0}
+  lefthand_MinigunPos: {fileID: 0}
+  lefthand_ShieldPos: {fileID: 0}
+  lefthand_PistolPos: {fileID: 0}
+  takeItem: 0
 --- !u!1 &1790021751
 GameObject:
   m_ObjectHideFlags: 0
@@ -12650,13 +12612,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388bab156d3eb04e90e9cedc9bb47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs: []
-  MobID: 0
-  GenCycle: 0
-  Auto: 0
-  AreaXLength: 0
-  AreaYLength: 0
-  AreaZLength: 0
 --- !u!1 &1892834112
 GameObject:
   m_ObjectHideFlags: 0
@@ -13871,13 +13826,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388bab156d3eb04e90e9cedc9bb47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs: []
-  MobID: 0
-  GenCycle: 0
-  Auto: 0
-  AreaXLength: 0
-  AreaYLength: 0
-  AreaZLength: 0
 --- !u!1 &2036170834
 GameObject:
   m_ObjectHideFlags: 0
@@ -14339,13 +14287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388bab156d3eb04e90e9cedc9bb47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs: []
-  MobID: 0
-  GenCycle: 0
-  Auto: 0
-  AreaXLength: 0
-  AreaYLength: 0
-  AreaZLength: 0
 --- !u!1 &2099712092
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class FallingDieTrigger : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player")
         {
-            Debug.Log("trigger on");
+           // Debug.Log("trigger on");
             startPos.SendMessage("ResetPlayerPos", SendMessageOptions.DontRequireReceiver);
         }
     }
