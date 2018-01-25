@@ -5,20 +5,28 @@ using UnityEngine;
 public class AniStateAttack : StateMachineBehaviour {
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-    //
-    //}
+    Player CompPlayer;
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        CompPlayer = animator.transform.GetComponent<Player>();
+    }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-    //
-    //}
+    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        if (stateInfo.normalizedTime > 1.0f && CompPlayer.Combat.IsAttacking)
+        {
+            
+            CompPlayer.Combat.EndAttack();
+            
+        }
+    }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Player CompPlayer = animator.transform.GetComponent<Player>();
-        CompPlayer.EndAttack();
+        
+        CompPlayer.Combat.EndAttack();
         
         //Debug.Log("AttackEnd!");
     }

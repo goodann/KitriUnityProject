@@ -89,6 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 0
 --- !u!196 &5
@@ -835,7 +836,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36ddc1ee89afa74ca83cbcd80f199d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geneOn: 0
 --- !u!65 &148323297
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1341,7 +1341,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36ddc1ee89afa74ca83cbcd80f199d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geneOn: 0
 --- !u!65 &224852661
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2147,13 +2146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388bab156d3eb04e90e9cedc9bb47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs: []
-  MobID: 0
-  GenCycle: 0
-  Auto: 0
-  AreaXLength: 0
-  AreaYLength: 0
-  AreaZLength: 0
 --- !u!1001 &356242804
 Prefab:
   m_ObjectHideFlags: 0
@@ -2260,13 +2252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388bab156d3eb04e90e9cedc9bb47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs: []
-  MobID: 0
-  GenCycle: 0
-  Auto: 0
-  AreaXLength: 0
-  AreaYLength: 0
-  AreaZLength: 0
 --- !u!1 &364808612
 GameObject:
   m_ObjectHideFlags: 0
@@ -3985,7 +3970,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36ddc1ee89afa74ca83cbcd80f199d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geneOn: 0
 --- !u!65 &595751908
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4038,13 +4022,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388bab156d3eb04e90e9cedc9bb47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs: []
-  MobID: 0
-  GenCycle: 0
-  Auto: 0
-  AreaXLength: 0
-  AreaYLength: 0
-  AreaZLength: 0
 --- !u!1 &615225685
 GameObject:
   m_ObjectHideFlags: 0
@@ -6866,13 +6843,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388bab156d3eb04e90e9cedc9bb47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs: []
-  MobID: 0
-  GenCycle: 0
-  Auto: 0
-  AreaXLength: 0
-  AreaYLength: 0
-  AreaZLength: 0
 --- !u!1001 &966886749
 Prefab:
   m_ObjectHideFlags: 0
@@ -7461,9 +7431,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 83ef8ed530c53194a8f1d72749c5acc6, type: 3}
 --- !u!23 &1060872555
@@ -7712,7 +7682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36ddc1ee89afa74ca83cbcd80f199d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geneOn: 0
 --- !u!65 &1115629943
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8039,22 +8008,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c962164edf696ab4790fb79d90308d4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemObjects:
-  - {fileID: 1256138637678296, guid: e633b0ee72e3ed943944f6c1d325d40d, type: 2}
-  - {fileID: 1256138637678296, guid: e633b0ee72e3ed943944f6c1d325d40d, type: 2}
-  - {fileID: 1256138637678296, guid: e633b0ee72e3ed943944f6c1d325d40d, type: 2}
-  - {fileID: 1256138637678296, guid: e633b0ee72e3ed943944f6c1d325d40d, type: 2}
-  - {fileID: 1256138637678296, guid: e633b0ee72e3ed943944f6c1d325d40d, type: 2}
-  - {fileID: 1256138637678296, guid: e633b0ee72e3ed943944f6c1d325d40d, type: 2}
-  - {fileID: 1256138637678296, guid: e633b0ee72e3ed943944f6c1d325d40d, type: 2}
-  - {fileID: 1256138637678296, guid: e633b0ee72e3ed943944f6c1d325d40d, type: 2}
-  - {fileID: 1256138637678296, guid: e633b0ee72e3ed943944f6c1d325d40d, type: 2}
-  - {fileID: 1256138637678296, guid: e633b0ee72e3ed943944f6c1d325d40d, type: 2}
-  points: []
-  itemObjPool: []
-  maxItemCnt: 15
-  createTime: 3
-  isGameOver: 0
 --- !u!1 &1185131610
 GameObject:
   m_ObjectHideFlags: 0
@@ -8203,13 +8156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388bab156d3eb04e90e9cedc9bb47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs: []
-  MobID: 0
-  GenCycle: 0
-  Auto: 0
-  AreaXLength: 0
-  AreaYLength: 0
-  AreaZLength: 0
 --- !u!1001 &1224346248
 Prefab:
   m_ObjectHideFlags: 0
@@ -8864,12 +8810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70412dbfbdccd4f478f21e3dbfe1903b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyObjects:
-  - {fileID: 1404397868530810, guid: c96b5a9fd4f0c964a8e8b14b4f21a2c3, type: 2}
-  points: []
-  enemyObjPool: []
-  createTime: 0
-  isGameOver: 0
 --- !u!1 &1310477369
 GameObject:
   m_ObjectHideFlags: 0
@@ -9453,13 +9393,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388bab156d3eb04e90e9cedc9bb47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs: []
-  MobID: 0
-  GenCycle: 0
-  Auto: 0
-  AreaXLength: 0
-  AreaYLength: 0
-  AreaZLength: 0
 --- !u!1 &1419440164
 GameObject:
   m_ObjectHideFlags: 0
@@ -10212,13 +10145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388bab156d3eb04e90e9cedc9bb47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs: []
-  MobID: 0
-  GenCycle: 0
-  Auto: 0
-  AreaXLength: 0
-  AreaYLength: 0
-  AreaZLength: 0
 --- !u!1 &1586298433
 GameObject:
   m_ObjectHideFlags: 0
@@ -10954,13 +10880,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388bab156d3eb04e90e9cedc9bb47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs: []
-  MobID: 0
-  GenCycle: 0
-  Auto: 0
-  AreaXLength: 0
-  AreaYLength: 0
-  AreaZLength: 0
 --- !u!1001 &1665326852
 Prefab:
   m_ObjectHideFlags: 0
@@ -11501,7 +11420,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1736859335}
-  m_LocalRotation: {x: -0.0059114257, y: -0.67944837, z: 0.7336993, w: -0.00066563475}
+  m_LocalRotation: {x: -0.005911425, y: -0.67944837, z: 0.7336993, w: -0.00066563475}
   m_LocalPosition: {x: -0.14276123, y: 0.032653574, z: 0.13977996}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_Children: []
@@ -11680,7 +11599,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1788556864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a0fda9007ecd6b4fab93a2a4d0bb5c4, type: 3}
+  m_Script: {fileID: 11500000, guid: c84be230f547217428e36b49030c73fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DebugFloat:
@@ -11693,21 +11612,16 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  DebugVector:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  DebugBool: 0000000000
-  isG: 0000000000
+  - 0
+  DebugVector: []
+  DebugBool: 
+  isG: 
   isGrounded: 0
   CompAnimators:
-  - {fileID: 9100000, guid: 29200aed4de10e4409d307c35ef98699, type: 2}
-  ListAttackColliders:
-  - {fileID: 0}
-  JumpForce: 10
-  MoveSpeed: 3
+  - {fileID: 9100000, guid: c52d1c9c48f6c5c409bf71e5a55054d9, type: 2}
+  ListAttackColliders: []
+  JumpForce: 7
+  MoveSpeed: 2
 --- !u!143 &1788556866
 CharacterController:
   m_ObjectHideFlags: 0
@@ -12339,9 +12253,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 1bfc06661b4d86a43a21037540c05643, type: 3}
 --- !u!23 &1852158659
@@ -12505,13 +12419,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388bab156d3eb04e90e9cedc9bb47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs: []
-  MobID: 0
-  GenCycle: 0
-  Auto: 0
-  AreaXLength: 0
-  AreaYLength: 0
-  AreaZLength: 0
 --- !u!1 &1892834112
 GameObject:
   m_ObjectHideFlags: 0
@@ -12854,6 +12761,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -12992,7 +12900,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36ddc1ee89afa74ca83cbcd80f199d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geneOn: 0
 --- !u!65 &1926382007
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13047,9 +12954,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 1bfc06661b4d86a43a21037540c05643, type: 3}
 --- !u!23 &1926614694
@@ -13721,13 +13628,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388bab156d3eb04e90e9cedc9bb47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs: []
-  MobID: 0
-  GenCycle: 0
-  Auto: 0
-  AreaXLength: 0
-  AreaYLength: 0
-  AreaZLength: 0
 --- !u!1 &2036170834
 GameObject:
   m_ObjectHideFlags: 0
@@ -14189,13 +14089,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388bab156d3eb04e90e9cedc9bb47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs: []
-  MobID: 0
-  GenCycle: 0
-  Auto: 0
-  AreaXLength: 0
-  AreaYLength: 0
-  AreaZLength: 0
 --- !u!1 &2099712092
 GameObject:
   m_ObjectHideFlags: 0
@@ -14322,8 +14215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d45af5aefbec34780be9b50ac714a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObject: {fileID: 1788556864}
-  startPosition: {fileID: 2113658070}
 --- !u!4 &2113658070
 Transform:
   m_ObjectHideFlags: 0
