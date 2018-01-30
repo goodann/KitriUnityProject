@@ -24,12 +24,12 @@ public class Player : Actor
 
 
     //유저 케릭터의 공격 클래스
-    protected BaseCombat combat;
-    public BaseCombat Combat
+    protected BaseBehavior behavior;
+    public BaseBehavior Behavior
     {
         get
         {
-            return combat;
+            return behavior;
         }
     }
 
@@ -60,8 +60,8 @@ public class Player : Actor
         base.Init();
         
         isG = new bool[2];
-        
 
+        beforePos = gameObject.transform.position;
         ListAttackColliders = new List<Collider>();
         ListAttackColliders.Add(FindTrans("Character1_LeftFoot").GetComponent<Collider>());
         ListAttackColliders.Add(FindTrans("Character1_RightFoot").GetComponent<Collider>());
@@ -69,13 +69,18 @@ public class Player : Actor
         ListAttackColliders.Add(FindTrans("Character1_RightHand").GetComponent<Collider>());
 
         CompAnimator = gameObject.GetComponent<Animator>();
-        combat = gameObject.AddComponent<FightCombat>();
-        combat.Init(this, CompAnimator);
+        behavior = gameObject.AddComponent<FightBehavior>();
+        behavior.Init(this, CompAnimator);
         GetComponentsInit();
 
     }
-
-
+    Vector3 beforePos;
+    public override Vector3 Velocity
+    {
+        //get { print(moveDirection + "<=>" + CompCharCon.velocity); return moveDirection + CompCharCon.velocity; }
+        get {Vector3 vel= (transform.position- beforePos);print(vel); return vel; }
+        set { moveDirection = value; }
+    }
 
     protected void GetComponentsInit()
     {
@@ -84,7 +89,14 @@ public class Player : Actor
     }
 	// Update is called once per frame
 	void Update () {
+
+        
         UpdatePlayer();
+        beforePos = gameObject.transform.position;
+    }
+    private void LateUpdate()
+    {
+        
     }
     void FixedUpdate()
     {
@@ -103,7 +115,10 @@ public class Player : Actor
         else
         {
             // Apply gravity    
-            moveDirection += Physics.gravity* Time.deltaTime;
+            if(moveDirection.y>0)
+                moveDirection += Physics.gravity* Time.deltaTime;
+            
+            //moveDirection.y = 0;
         }
 
         
@@ -115,12 +130,8 @@ public class Player : Actor
         Vector3 mry = moveDirection;
         mry.y = 0;
         sqrtVel = mry.sqrMagnitude;
-
-        BaseAnimation animation = combat.Animatoion;
-
-        animation.AniUpdate();
-
         CompCharCon.Move(dir);
+
 
         isG[1] = CompCharCon.isGrounded;
         isGrounded = isG[0] | isG[1];
@@ -139,22 +150,36 @@ public class Player : Actor
     public override void Move(Vector3 vec)
     {
         moveDirection += vec * MoveSpeed; //transform.TransformDirection(vec)* MoveSpeed;
+        if (vec.y < 0.1f && IsGrounded)
+        {
+            if (vec.sqrMagnitude < 0.1f)
+                behavior.Stop();
+            else
+                behavior.Move();
+        }
+    }
+    public void Stop()
+    {
+        moveDirection = Vector3.zero;
+        behavior.Stop();
+        
     }
     public void AttackA()
     {
-        combat.AttackA();
+        behavior.AttackA();
     }
     public void AttackB()
     {
-        combat.AttackB();
+        behavior.AttackB();
     }
     public void Skill(int charged)
     {
-        combat.Skill(charged);
+        behavior.Skill(charged);
     }
     public override void onDamaged()
     {
         base.onDamaged();
+        
     }
     public override void onDead()
     {
@@ -167,8 +192,11 @@ public class Player : Actor
     }
     public void Jump()
     {
-        moveDirection += Vector3.up* JumpForce;
-        combat.Jump();
+        if (!behavior.IsAttacking && !behavior.IsJumping)
+        {
+            moveDirection += Vector3.up * JumpForce;
+            behavior.Jump();
+        }
         
     }
     void AniSwitchEq()

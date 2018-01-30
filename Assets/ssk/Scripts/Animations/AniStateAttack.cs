@@ -14,19 +14,19 @@ public class AniStateAttack : StateMachineBehaviour {
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (stateInfo.normalizedTime > 1.0f && CompPlayer.Combat.IsAttacking)
-        {
+        //if (stateInfo.normalizedTime > 1.0f && CompPlayer.Behavior.IsAttacking)
+        //{
             
-            CompPlayer.Combat.EndAttack();
+        //    CompPlayer.Behavior.EndAttack();
             
-        }
+        //}
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         
-        CompPlayer.Combat.EndAttack();
+        //CompPlayer.Behavior.EndAttack();
         
         //Debug.Log("AttackEnd!");
     }

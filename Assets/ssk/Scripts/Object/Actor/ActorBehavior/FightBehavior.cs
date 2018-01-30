@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FightCombat : BaseCombat {
-    new protected FightAnimation CompAnimation;
-    override public BaseAnimation Animatoion
-    {
-        get
-        {
-            return CompAnimation;
-        }
-    }
+public class FightBehavior : BaseBehavior {
+    //new protected FightAnimation ani;
+    //override public BaseAnimation Ani
+    //{
+    //    get
+    //    {
+    //        return ani;
+    //    }
+    //}
     protected bool isLeft;
     public bool NextAttackIsLeft
     {
@@ -60,28 +60,77 @@ public class FightCombat : BaseCombat {
         base.Init(target,animator);
         
 
-        CompAnimation = gameObject.AddComponent<FightAnimation>();
-        CompAnimation.AnimatorInit(target, this, animator);
+        ani = gameObject.AddComponent<FightAnimation>();
+        ani.AnimatorInit(target, this, animator);
         EndAttack();
 
     }
-    public override void Attack1()
+    public override void AttackA()
     {
-        Attack(true);
-        base.Attack1();
+        if (!IsJumping && !isAttacking)
+        {
+            nextAttack = null;
+            Attack(true);
+        }
     }
-    public override void Attack2()
+    public override void AttackB()
     {
-        Attack(false);
-        base.Attack2();
+        if (!isAttacking)
+        {
+            nextAttack = null;
+            Attack(false);
+        }
+    }
+    public override void Damaged(int damage)
+    {
+        
+    }
+    public override void Dead()
+    {
+        
     }
 
+    public override void Skill(int charged)
+    {
+
+    }
+    public override void Stop()
+    {
+        isJumpKickDowning = false;
+        isJumpKicking = false;
+        isJumping = false;
+        isDownnig = false;
+        ani.AniStop();
+    }
+
+    bool isDownnig = false;
     protected override void Update()
     {
         base.Update();
+        if (isJumping)
+        {
+            //print(targetObject.Velocity);
+
+            if (isDownnig && targetObject.IsGrounded)
+            {
+                ani.AniJumpEnd();
+                //isJumping = false;
+                //isDownnig = false;
+                Stop();
+            }
+            if (targetObject.Velocity.y < -0.1f)
+            {
+                isDownnig = true;
+            }
+        }
         if (isJumpKicking)
         {
             targetObject.Move(Physics.gravity * 1.5f * Time.deltaTime);
+            if (targetObject.IsGrounded)
+            {
+                Stop();
+                
+            }
         }
         if (isJumpKickDowning)
         {
@@ -89,7 +138,12 @@ public class FightCombat : BaseCombat {
             targetObject.Move(Physics.gravity * 1f * Time.deltaTime);
             Vector3 dir2 = transform.forward;
             dir2.y = 0;
-            targetObject.Move(dir2 * Time.deltaTime * 300f);
+            targetObject.Move(dir2 * Time.deltaTime * 100f);
+            if (targetObject.IsGrounded)
+            {
+                
+                Stop();
+            }
         }
         if (ComboTimer > 2.0f)
         {
@@ -121,20 +175,20 @@ public class FightCombat : BaseCombat {
 
     public void Attack(bool isHand)
     {
-        if (isAttacking)
+        if (isAttacking && nextAttack == null)
         {
-
+            nextAttack = new NextAttack (isHand);
         }
         else
         {
             isAttacking = true;
 
-            if (targetObject.IsGrounded)
+            if (!IsJumping)
             {
                 targetObject.Velocity = Vector3.zero;
                 //combo
 
-                print("signal : " + comboSignal.ToString("x") + " counCount = " + comboCount);
+                print("signal : " + comboSignal.ToString("x") + " counCount = " + comboCount + "isleft"+ isLeft);
                 //combo 저장
                 comboSignal = comboSignal << 1;
                 comboSignal += (uint)(isHand ? 1 : 0);
@@ -143,7 +197,8 @@ public class FightCombat : BaseCombat {
                 comboCount++;
                 if (comboCount == 6 && comboSignal == 0x3C)
                 {
-                    CompAnimation.AniFlipKick();
+                    //ani.AniFlipKick();
+                    ani.SendMessage("AniFlipKick");
                     AttackColliderEnable(EAttackColliderIndex.ACI_LeftFoot);
                     AttackColliderEnable(EAttackColliderIndex.ACI_RightFoot);
 
@@ -154,7 +209,8 @@ public class FightCombat : BaseCombat {
                     //spacialKick
                     AttackColliderEnable(EAttackColliderIndex.ACI_LeftFoot);
                     AttackColliderEnable(EAttackColliderIndex.ACI_RightFoot);
-                    CompAnimation.AniSpacialKick();
+                    //ani.AniSpacialKick();
+                    ani.SendMessage("AniSpacialKick");
                     ComboInit();
                 }
                 else
@@ -188,11 +244,12 @@ public class FightCombat : BaseCombat {
                             AttackColliderEnable(EAttackColliderIndex.ACI_RightFoot);
                         }
                     }
-
-                    CompAnimation.AniAttack(isHand);
+                    isLeft = !isLeft;
+                    //ani.AniAttack(isHand);
+                    ani.SendMessage("AniAttack",isHand);
 
                     //손 번갈아공격
-                    isLeft = !isLeft;
+                    
 
                 }
             }
@@ -205,8 +262,9 @@ public class FightCombat : BaseCombat {
                 }
                 else
                 {
-                    targetObject.Move(Vector3.up * targetObject.JumpForce * 0.5f + Vector3.forward * 10);
-                    CompAnimation.AniJumpKick();
+                    targetObject.Move(Vector3.up * targetObject.JumpForce * 0.05f + Vector3.forward );
+                    //ani.AniJumpKick();
+                    ani.SendMessage("AniJumpKick");
                     //점프킥
 
 
@@ -215,10 +273,10 @@ public class FightCombat : BaseCombat {
         }
     }
 
-    public override void Jump()
-    {
-        CompAnimation.AniJump();
-    }
+    //public override void Jump()
+    //{
+    //    ani.AniJump();
+    //}
 
 
 }

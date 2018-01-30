@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class AniStateIdle : StateMachineBehaviour {
 
+    Player CompPlayer;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.GetComponent<Player>().Combat.IsAttacking = false;
+        if (CompPlayer == null)
+            CompPlayer = animator.GetComponent<Player>();
+        CompPlayer.Behavior.IsAttacking = false;
+        CompPlayer.Behavior.EndAttack();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

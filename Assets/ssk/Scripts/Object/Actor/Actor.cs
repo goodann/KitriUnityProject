@@ -8,16 +8,16 @@ using System;
 public class Actor : MyBaseObejct {
     //public 변수
 
-    public float JumpForce = 7;
+    public float JumpForce = 100;
     public float MoveSpeed = 2;
 
     //공격판정 컬라이더 목록
     public List<Collider> ListAttackColliders;
 
     //protected 변수
-
-    protected Vector3 moveDirection;
     protected Animator CompAnimator;
+    protected Vector3 moveDirection;
+    
     protected float sqrtVel;
 
     //지상 공중 판정
@@ -49,7 +49,7 @@ public class Actor : MyBaseObejct {
     }
 
     //property
-    public Vector3 Velocity
+    public virtual Vector3 Velocity
     {
         get{ return moveDirection; }
         set{moveDirection = value;}
@@ -62,6 +62,7 @@ public class Actor : MyBaseObejct {
     public bool IsGrounded
     {
         get{return isGrounded;}
+        
     }
 
 
@@ -86,7 +87,8 @@ public class Actor : MyBaseObejct {
     }
     public virtual void onDamaged()
     {
-
+        hp--;
+        
     }
     public virtual void onDead()
     {

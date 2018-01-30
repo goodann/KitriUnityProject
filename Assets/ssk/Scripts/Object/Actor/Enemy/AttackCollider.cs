@@ -22,7 +22,7 @@ public class AttackCollider : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         print("Hit!");
-        EnemyBehavior enemy= other.GetComponent<EnemyBehavior>();
+        
         if (attackState == 0)
         {
             other.transform.position += (other.transform.position - transform.position)*0.1f;

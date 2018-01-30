@@ -3,61 +3,69 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FightAnimation : BaseAnimation {
-    new protected FightCombat targetCombat;
+    //new protected FightBehavior targetBehavior;
 
-    public void AnimatorInit(Actor target, FightCombat combat, Animator animator)
+    public void AnimatorInit(Actor target, FightBehavior combat, Animator animator)
     {
         base.AnimatorInit(target, combat, animator);
-        targetCombat = combat;
+        targetBehavior = combat;
         targetObject = target;
         CompAnimator = animator;
     }
-    public override void AniUpdate()
+    public override void AniMove()
     {
-        if (targetObject.IsGrounded && !targetCombat.IsAttacking)
-        {
-            if (targetObject.SqrtVel > 0.001f)
-            {
-                CompAnimator.SetBool("Moving", true);
-            }
-            else
-            {
-                CompAnimator.SetBool("Moving", false);
-            }
-        }
-        else
-        {
-            CompAnimator.SetBool("Moving", false);
-        }
-        bool isJumping = CompAnimator.GetBool("Jump");
-        if (isJumping)
-        {
-            if (targetObject.IsGrounded && targetObject.Velocity.y < 0.2f)
-            {
-                CompAnimator.SetBool("Jump", false);
-            }
-        }
-        targetCombat.IsJumpKicking = CompAnimator.GetBool("JumpKick");
-        if (targetCombat.IsJumpKicking)
-        {
-            if (targetObject.IsGrounded)
-            {
-                CompAnimator.SetBool("JumpKick", false);
-                CompAnimator.SetBool("Jump", false);
-                targetCombat.jumpKickEnd();
-            }
-        }
-        if (targetCombat.IsJumpKickDowning)
-        {
-            targetCombat.jumpKicking();
-
-        }
+        CompAnimator.SetBool("Moving", true);
     }
+    public override void AniJump()
+    {
+        CompAnimator.SetBool("Jump", true);
+    }
+    //public override void AniUpdate()
+    //{
+    //    if (targetObject.IsGrounded && !targetBehavior.IsAttacking)
+    //    {
+    //        if (targetObject.SqrtVel > 0.001f)
+    //        {
+    //            CompAnimator.SetBool("Moving", true);
+    //        }
+    //        else
+    //        {
+    //            CompAnimator.SetBool("Moving", false);
+    //        }
+    //    }
+    //    else
+    //    {
+    //        CompAnimator.SetBool("Moving", false);
+    //    }
+    //    bool isJumping = CompAnimator.GetBool("Jump");
+    //    if (isJumping)
+    //    {
+    //        if (targetObject.IsGrounded && targetObject.Velocity.y < 0.2f)
+    //        {
+    //            CompAnimator.SetBool("Jump", false);
+    //        }
+    //    }
+    //    targetBehavior.IsJumpKicking = CompAnimator.GetBool("JumpKick");
+    //    if (targetBehavior.IsJumpKicking)
+    //    {
+    //        if (targetObject.IsGrounded)
+    //        {
+    //            CompAnimator.SetBool("JumpKick", false);
+    //            CompAnimator.SetBool("Jump", false);
+    //            targetBehavior.jumpKickEnd();
+    //        }
+    //    }
+    //    if (targetBehavior.IsJumpKickDowning)
+    //    {
+    //        targetBehavior.jumpKicking();
+
+    //    }
+    //}
 
     public void AniAttack(bool isHand)
     {
         CompAnimator.SetBool("Moving", false);
-        if (targetCombat.NextAttackIsLeft)
+        if ((targetBehavior as FightBehavior ).NextAttackIsLeft)
         {
             //애니메이션L
             if (isHand)
@@ -98,10 +106,17 @@ public class FightAnimation : BaseAnimation {
     public void AniJumpKick()
     {
 
-        print("AniJumpKick()");
+        //print("AniJumpKick()");
         CompAnimator.SetBool("JumpKick", true);
         //CompAnimator.SetBool("Jump", false);
 
 
+    }
+    public override void AniStop()
+    {
+        CompAnimator.SetBool("Moving", false);
+        CompAnimator.SetBool("Jump", false);
+        CompAnimator.SetBool("JumpKick", false);
+        base.AniStop();
     }
 }
