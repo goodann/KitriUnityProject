@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class CamFollow : MonoBehaviour {
 
-    public Transform target = null;
-
     private Transform thisTransform = null;
+    Transform target = null;
 
     public float distanceFromTarget = 4.0f;
-
     public float camHeight = 4.0f;
-
-    
 
     //제한치
     public float rotationDamp = 0;
@@ -21,6 +17,7 @@ public class CamFollow : MonoBehaviour {
     void Awake()
     {
         thisTransform = GetComponent<Transform>();
+        target = GameObject.Find("Player").transform;
     }
 
     void LateUpdate()

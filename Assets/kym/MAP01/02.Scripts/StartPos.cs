@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class StartPos : MonoBehaviour {
 
-    public GameObject playerObject = null;
+    GameObject playerObject;
+    Transform startPosition;
 
-    public Transform startPosition = null;
+    private void Awake()
+    {
+        playerObject = GameObject.Find("Player");
+        startPosition = this.transform;
+    }
 
     void Start()
     {
