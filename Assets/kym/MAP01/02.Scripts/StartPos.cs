@@ -9,7 +9,7 @@ public class StartPos : MonoBehaviour {
 
     private void Awake()
     {
-        playerObject = GameObject.Find("Player");
+        playerObject = GameObject.FindWithTag("Player");
         startPosition = this.transform;
     }
 
