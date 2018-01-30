@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ItemRotate : MonoBehaviour {
 
-    public float itemInitUpY = 1.0f;
-    public float rotationSpeed = 60.0f;
+    public float itemInitUpY = 0.5f;
+    public float rotationSpeed = 120.0f;
 
     public bool isPickedUp;
 
@@ -33,5 +33,7 @@ public class ItemRotate : MonoBehaviour {
     {
         isPickedUp = true;
         itemGeneator.points[itemGenePointIndex].GetComponent<ItemGeneInit>().SetGeneOn(true);
+        itemGeneator.effObjPool[itemGenePointIndex - 1].SetActive(false);
+        itemGeneator.RemoveIndexList(itemGenePointIndex);
     }
 }
