@@ -110,6 +110,22 @@ public partial class PlayablePlayer : Player
             attack1 = 0;
         }
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //skillstart
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            //charge
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            //skill
+            //Skill(charged);
+        }
+
+
+
         Vector3 moveVec = new Vector3();
         //moveVec = Vector3.right * hInput;
 
@@ -130,11 +146,11 @@ public partial class PlayablePlayer : Player
         if (attack1 != 0)
         {
             //combat.Attack(true);
-            combat.Attack1();
+            combat.AttackA();
         }
         if (attack2 != 0)
         {
-            combat.Attack2();
+            combat.AttackB();
         }
 
     }

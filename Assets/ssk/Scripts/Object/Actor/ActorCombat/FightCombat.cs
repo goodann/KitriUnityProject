@@ -65,15 +65,18 @@ public class FightCombat : BaseCombat {
         EndAttack();
 
     }
-    public override void Attack1()
+    public override void AttackA()
     {
         Attack(true);
-        base.Attack1();
     }
-    public override void Attack2()
+    public override void AttackB()
     {
         Attack(false);
-        base.Attack2();
+    }
+
+    public virtual void Skill(int charged)
+    {
+
     }
 
     protected override void Update()

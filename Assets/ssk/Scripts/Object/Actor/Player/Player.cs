@@ -37,8 +37,6 @@ public class Player : Actor
     //public List<float> DebugFloat;
     //public List<Vector3> DebugVector;
     //public List<bool> DebugBool;
-
-
     //ani state
     EEquipmentState NowEq;
 
@@ -53,8 +51,6 @@ public class Player : Actor
     //public Animator[] CompAnimators;
     public List<RuntimeAnimatorController> CompAnimators;
     
-
-
     // Use this for initialization
     void Start () {
         Init();
@@ -65,10 +61,8 @@ public class Player : Actor
         
         isG = new bool[2];
         
-        
-        
+
         ListAttackColliders = new List<Collider>();
-        
         ListAttackColliders.Add(FindTrans("Character1_LeftFoot").GetComponent<Collider>());
         ListAttackColliders.Add(FindTrans("Character1_RightFoot").GetComponent<Collider>());
         ListAttackColliders.Add(FindTrans("Character1_LeftHand").GetComponent<Collider>());
@@ -117,17 +111,14 @@ public class Player : Actor
         Vector3 dir = moveDirection * Time.deltaTime;
 
         isG[0]=CompCharCon.isGrounded;
-        //if (dir.y == 0)
-        //{
-        //    isG = true;
-        //}
+
         Vector3 mry = moveDirection;
         mry.y = 0;
         sqrtVel = mry.sqrMagnitude;
 
         BaseAnimation animation = combat.Animatoion;
+
         animation.AniUpdate();
-        //combat.Animation.AniUpdate();
 
         CompCharCon.Move(dir);
 
@@ -144,10 +135,32 @@ public class Player : Actor
     protected void FixedUpdatePlayer()
     {
     }
+
     public override void Move(Vector3 vec)
     {
         moveDirection += vec * MoveSpeed; //transform.TransformDirection(vec)* MoveSpeed;
     }
+    public void AttackA()
+    {
+        combat.AttackA();
+    }
+    public void AttackB()
+    {
+        combat.AttackB();
+    }
+    public void Skill(int charged)
+    {
+        combat.Skill(charged);
+    }
+    public override void onDamaged()
+    {
+        base.onDamaged();
+    }
+    public override void onDead()
+    {
+        base.onDead();
+    }
+
     public void Rotate(Vector3 angle)
     {
         //transform.Rotate(angle* RotateSpeed);
@@ -162,5 +175,6 @@ public class Player : Actor
     {
         CompAnimator.runtimeAnimatorController = CompAnimators[(int)NowEq];
     }
+   
 
 }

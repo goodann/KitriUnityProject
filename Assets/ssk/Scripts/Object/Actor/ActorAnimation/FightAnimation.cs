@@ -86,11 +86,7 @@ public class FightAnimation : BaseAnimation {
             }
         }
     }
-    public void AniJump()
-    {
-        CompAnimator.SetBool("Jump", true);
-
-    }
+    
     public void AniFlipKick()
     {
         CompAnimator.SetTrigger("FlipKick");

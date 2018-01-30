@@ -17,4 +17,9 @@ public class BaseAnimation : MyBaseObejct {
     {
 
     }
+    public virtual void AniJump()
+    {
+        CompAnimator.SetBool("Jump", true);
+
+    }
 }

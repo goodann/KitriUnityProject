@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseCombat : MyBaseObejct
+public abstract class BaseCombat : MyBaseObejct
 {
-    protected Actor targetObject;
-
+    //public 
     public BaseAnimation CompAnimation;
-    protected Animator CompAnimator;
 
-    public virtual BaseAnimation Animatoion
-    {
-        get { return CompAnimation; }
-    }
+    //protected
+    protected Actor targetObject;
+    protected Animator CompAnimator;
     protected bool isAttacking;
+
+    protected float ComboTimer;
+
+
+    //property
+    public virtual BaseAnimation Animatoion{get { return CompAnimation; }}
+    public bool IsAttacking { get { return isAttacking; } set { isAttacking = value; } }
 
     public virtual void Init(Actor target,Animator animator)
     {
@@ -21,25 +25,16 @@ public class BaseCombat : MyBaseObejct
         CompAnimator = animator;
         EndAttack();
     }
-    public bool IsAttacking { get { return isAttacking; } set { isAttacking = value; } }
-    protected float ComboTimer;
+    
+    
     protected virtual void Update()
     {
         ComboTimer += Time.deltaTime;
     }
-    public virtual void Attack1()
-    {
-        
-    }
-    public virtual void Attack2()
-    {
+    public abstract void AttackA();
+    public abstract void AttackB();
 
-    }
-    public virtual void Attack3()
-    {
-
-    }
-    public virtual void Attack4()
+    public virtual void Skill(int charged)
     {
 
     }
@@ -56,7 +51,7 @@ public class BaseCombat : MyBaseObejct
 
     public virtual void Jump()
     {
-
+        CompAnimation.AniJump();
     }
 
 }
