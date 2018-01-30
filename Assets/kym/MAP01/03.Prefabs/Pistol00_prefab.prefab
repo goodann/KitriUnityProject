@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4951518472927878}
   - component: {fileID: 114013128244952374}
-  - component: {fileID: 54150747857613864}
   - component: {fileID: 65962605263556424}
+  - component: {fileID: 54150747857613864}
   m_Layer: 11
   m_Name: Pistol00_prefab
   m_TagString: Item
@@ -153,6 +153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInitUpY: 1
-  rotationSpeed: 90
+  rotationSpeed: 120
   isPickedUp: 0
   itemGenePointIndex: 1

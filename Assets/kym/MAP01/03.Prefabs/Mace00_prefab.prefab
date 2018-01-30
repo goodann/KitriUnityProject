@@ -153,6 +153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInitUpY: 0.5
-  rotationSpeed: 90
+  rotationSpeed: 120
   isPickedUp: 0
   itemGenePointIndex: 1
