@@ -4,25 +4,16 @@ using UnityEngine;
 
 public class GetItem : MonoBehaviour {
 
-    public Transform lefthand_MacePos;
-    public Transform lefthand_SwordPos;
-    public Transform lefthand_MinigunPos;
-    public Transform lefthand_ShieldPos;
-    public Transform lefthand_PistolPos;
+    Transform leftHand_Weapon_Pos;
 
     public bool takeItem;
 
     private void Start()
     {
-        lefthand_MacePos = GameObject.Find("LeftHand_Mace_Pos").transform;
-        lefthand_SwordPos = GameObject.Find("LeftHand_Sword_Pos").transform;
-        lefthand_MinigunPos = GameObject.Find("LeftHand_Minigun_Pos").transform;
-        lefthand_ShieldPos = GameObject.Find("LeftHand_Shield_Pos").transform;
-        lefthand_PistolPos = GameObject.Find("LeftHand_Pistol_Pos").transform;
+        leftHand_Weapon_Pos = GameObject.Find("LeftHand_Weapon_Pos").transform;
 
         takeItem = false;
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,36 +21,39 @@ public class GetItem : MonoBehaviour {
         {
             if (takeItem) return;
 
-            switch(LayerMask.LayerToName(other.gameObject.layer))
+            other.transform.parent = leftHand_Weapon_Pos;
+
+            switch (LayerMask.LayerToName(other.gameObject.layer))
             {
-                case "Mace":
-                    other.transform.parent = lefthand_MacePos;
-                    other.transform.localPosition = new Vector3(0.1f, 0.2f, 0);
-                    other.transform.localRotation = Quaternion.Euler(0, 0, 20);
+                
+                case "Mace":                    
+                    other.transform.localPosition = new Vector3(-0.048f, 0.069f, 0.124f);
+                    other.transform.localRotation = Quaternion.Euler(-57, -145, 167);
+                    other.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                     break;
 
                 case "Sword":
-                    other.transform.parent = lefthand_SwordPos;
-                    other.transform.localPosition = new Vector3(-0.04f, 0.4f, -0.25f);
-                    other.transform.localRotation = Quaternion.Euler(8, -67, 5);
+                    other.transform.localPosition = new Vector3(-0.029f, 0.075f, 0.106f);
+                    other.transform.localRotation = Quaternion.Euler(12, -60, 114);
+                    other.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                     break;
 
                 case "Pistol":
-                    other.transform.parent = lefthand_PistolPos;
-                    other.transform.localPosition = new Vector3(0.35f, 0, 0.3f);
-                    other.transform.localRotation = Quaternion.Euler(0, -17, 0);
+                    other.transform.localPosition = new Vector3(-0.281f, -0.169f, 0.054f);
+                    other.transform.localRotation = Quaternion.Euler(118, 253, 59);
+                    other.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                     break;
 
                 case "Minigun":
-                    other.transform.parent = lefthand_MinigunPos;
-                    other.transform.localPosition = new Vector3(-0.1f, 0.1f, -0.1f);
-                    other.transform.localRotation = Quaternion.Euler(30, 0, 50);
+                    other.transform.localPosition = new Vector3(-0.189f, -0.075f, 0.098f);
+                    other.transform.localRotation = Quaternion.Euler(150, 113, -61);
+                    other.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                     break;
 
                 case "Shield":
-                    other.transform.parent = lefthand_ShieldPos;
-                    other.transform.localPosition = new Vector3(0.1f, -0.3f, 0);
-                    other.transform.localRotation = Quaternion.identity;
+                    other.transform.localPosition = new Vector3(-0.11f, 0.108f, 0.213f);
+                    other.transform.localRotation = Quaternion.Euler(56, 58, -130);
+                    other.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
                     break;
 
             }

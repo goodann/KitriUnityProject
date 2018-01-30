@@ -16,7 +16,7 @@ public class StartPos : MonoBehaviour {
     void ResetPlayerPos()
     {
         playerObject.transform.position = startPosition.position + new Vector3(0, 0.1f, 0);
-        playerObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+        playerObject.transform.rotation = Quaternion.identity;
     }
     
 }
