@@ -21,12 +21,24 @@ using System;
 [RequireComponent(typeof(CharacterController))]
 public class Player : Actor
 {
+
+
+    //유저 케릭터의 공격 클래스
+    protected BaseCombat combat;
+    public BaseCombat Combat
+    {
+        get
+        {
+            return combat;
+        }
+    }
+
     //debug
     //public List<float> DebugFloat;
     //public List<Vector3> DebugVector;
     //public List<bool> DebugBool;
 
-    
+
     //ani state
     EEquipmentState NowEq;
 
