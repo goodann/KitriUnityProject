@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackCollider : MonoBehaviour {
-
+public class AttackCollider : MyBaseObejct {
+    Actor actor;
     public int attackState;
     public int AttackState
     {
@@ -12,8 +12,8 @@ public class AttackCollider : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
-		
-	}
+        actor = FindInParentComp<Actor>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -25,7 +25,11 @@ public class AttackCollider : MonoBehaviour {
         
         if (attackState == 0)
         {
+            //밀침
             other.transform.position += (other.transform.position - transform.position)*0.1f;
+            //onmhit 실행
+
+            other.SendMessage("onDamaged",actor.POWER);
         }
         
     }

@@ -100,6 +100,42 @@ public class MyBaseObejct : MonoBehaviour {
         }
     }
 
+
+    public Transform FindInParent(string strName)
+    {
+        return _FindInParent(strName, SelfTransform);
+    }
+    public Transform _FindInParent(string strName, Transform trans)
+    {
+        if (trans == null)
+            return null;
+        if (trans.name == strName)
+            return trans;
+        else
+        {
+            return _FindInParent(strName, trans.parent);
+            
+        }
+    }
+    
+    public T FindInParentComp<T>()
+    {
+        return _FindInParentComp<T>(SelfTransform);
+    }
+    public T _FindInParentComp<T>(Transform trans)
+    {
+        if (trans == null)
+            return default(T);
+        T comp = GetComponent<T>();
+        if (comp!=null)
+            return comp;
+        else
+        {
+            return _FindInParentComp<T>(trans.parent);
+
+        }
+    }
+
     EBaseObjectState _ObjectState = EBaseObjectState.objectState_Normal;
 
     public EBaseObjectState ObjectState

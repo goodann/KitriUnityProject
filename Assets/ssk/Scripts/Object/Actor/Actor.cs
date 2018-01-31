@@ -15,7 +15,7 @@ public class Actor : MyBaseObejct {
     public List<Collider> ListAttackColliders;
 
     //protected 변수
-    protected Animator CompAnimator;
+    //protected Animator CompAnimator;
     protected Vector3 moveDirection;
     
     protected float sqrtVel;
@@ -85,9 +85,9 @@ public class Actor : MyBaseObejct {
     {
 
     }
-    public virtual void onDamaged()
+    public virtual void onDamaged(int damage)
     {
-        hp--;
+        hp-=damage;
         
     }
     public virtual void onDead()

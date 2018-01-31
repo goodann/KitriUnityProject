@@ -13,7 +13,7 @@ public class NextAttack
         isHand = false;
     }
 }
-public abstract class BaseBehavior : MyBaseObejct
+public abstract class BaseBehavior:MyBaseObejct
 {
     //public 
 
@@ -82,6 +82,10 @@ public abstract class BaseBehavior : MyBaseObejct
         isJumping = true;
         ani.AniStop();
         ani.AniJump();
+    }
+    public virtual void switchEq(EEquipmentState NowEq)
+    {
+        ani.AniSwitchEq( (targetObject as Player).CompAnimators[(int)NowEq]);
     }
 
 }

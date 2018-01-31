@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseAnimation : MyBaseObejct {
+public class BaseAnimation:MyBaseObejct  {
     protected BaseBehavior targetBehavior;
     protected Actor targetObject;
     protected Animator CompAnimator;
@@ -50,6 +50,10 @@ public class BaseAnimation : MyBaseObejct {
     public virtual void AniStop()
     {
 
+    }
+    public virtual void AniSwitchEq(RuntimeAnimatorController newAnimatior)
+    {
+        CompAnimator.runtimeAnimatorController = newAnimatior;
     }
 
 }

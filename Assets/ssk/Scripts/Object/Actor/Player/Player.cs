@@ -68,7 +68,7 @@ public class Player : Actor
         ListAttackColliders.Add(FindTrans("Character1_LeftHand").GetComponent<Collider>());
         ListAttackColliders.Add(FindTrans("Character1_RightHand").GetComponent<Collider>());
 
-        CompAnimator = gameObject.GetComponent<Animator>();
+        Animator CompAnimator = gameObject.GetComponent<Animator>();
         behavior = gameObject.AddComponent<FightBehavior>();
         behavior.Init(this, CompAnimator);
         GetComponentsInit();
@@ -176,9 +176,9 @@ public class Player : Actor
     {
         behavior.Skill(charged);
     }
-    public override void onDamaged()
+    public override void onDamaged(int damage)
     {
-        base.onDamaged();
+        base.onDamaged(damage);
         
     }
     public override void onDead()
@@ -199,10 +199,7 @@ public class Player : Actor
         }
         
     }
-    void AniSwitchEq()
-    {
-        CompAnimator.runtimeAnimatorController = CompAnimators[(int)NowEq];
-    }
+    
    
 
 }

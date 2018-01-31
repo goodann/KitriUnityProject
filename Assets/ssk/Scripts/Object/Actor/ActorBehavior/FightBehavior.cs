@@ -188,7 +188,7 @@ public class FightBehavior : BaseBehavior {
                 targetObject.Velocity = Vector3.zero;
                 //combo
 
-                print("signal : " + comboSignal.ToString("x") + " counCount = " + comboCount + "isleft"+ isLeft);
+                //print("signal : " + comboSignal.ToString("x") + " counCount = " + comboCount + "isleft"+ isLeft);
                 //combo 저장
                 comboSignal = comboSignal << 1;
                 comboSignal += (uint)(isHand ? 1 : 0);
