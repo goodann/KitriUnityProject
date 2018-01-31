@@ -119,4 +119,21 @@ public class FightAnimation : BaseAnimation {
         CompAnimator.SetBool("JumpKick", false);
         base.AniStop();
     }
+
+    public override void AniSkill(int charged)
+    {
+        AniStop();
+        if (charged > 100 && charged<200)
+        {
+            CompAnimator.SetTrigger("Skill1");
+        }
+        else if (charged >= 200 && charged<300)
+        {
+            CompAnimator.SetTrigger("Skill2");
+        }
+        else if (charged > 300)
+        {
+            CompAnimator.SetTrigger("Skill3");
+        }
+    }
 }

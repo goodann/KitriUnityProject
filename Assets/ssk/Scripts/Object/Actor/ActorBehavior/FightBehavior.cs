@@ -92,7 +92,21 @@ public class FightBehavior : BaseBehavior {
 
     public override void Skill(int charged)
     {
+        Stop();
+        ani.AniSkill(charged);
+        if (charged > 100)
+        {
+            //1필
 
+        }else if (charged > 200)
+        {
+            //2필
+
+        }else if (charged > 300)
+        {
+            //3필
+
+        }
     }
     public override void Stop()
     {
@@ -244,12 +258,12 @@ public class FightBehavior : BaseBehavior {
                             AttackColliderEnable(EAttackColliderIndex.ACI_RightFoot);
                         }
                     }
-                    isLeft = !isLeft;
+                    
                     //ani.AniAttack(isHand);
                     ani.SendMessage("AniAttack",isHand);
-
+                    isLeft = !isLeft;
                     //손 번갈아공격
-                    
+
 
                 }
             }

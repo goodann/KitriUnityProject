@@ -108,7 +108,7 @@ public class Enemy : Actor
         base.Init();
     }
     
-    public override void onDamaged()
+    public override void onDamaged(int damage)
     {
         
     }

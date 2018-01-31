@@ -24,6 +24,14 @@ public enum EAttackColliderIndex
 }
 public enum EBaseObjectState
 {
-    objectState_Normal,
+    ObjectState_Normal,
     ObjectState_Die,
+}
+
+public enum EButtonList
+{
+    EBL_AttackA,
+    EBL_AttackB,
+    EBL_Skill,
+    EBL_Jump,
 }
