@@ -1772,7 +1772,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1670217660357472}
-  m_LocalRotation: {x: 0.7071078, y: 0.0002815406, z: 0.7071058, w: -0.00028154138}
+  m_LocalRotation: {x: 0.7071077, y: 0.00028154056, z: 0.70710576, w: -0.00028154135}
   m_LocalPosition: {x: -0.10417484, y: -0.047148738, z: -0.02673168}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2248,7 +2248,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1473351161366716}
-  m_LocalRotation: {x: -0.005911434, y: -0.6794483, z: 0.73369926, w: -0.0006656347}
+  m_LocalRotation: {x: -0.005911434, y: -0.67944837, z: 0.7336993, w: -0.00066563475}
   m_LocalPosition: {x: -0.14276123, y: 0.032653574, z: 0.13977996}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_Children: []
@@ -2289,9 +2289,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1470452413468204}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.51, y: 21.25, z: -15.96}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.1968137, y: 0.6566495, z: -0.4183857}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4637201879995354}
   - {fileID: 4164884335165698}
@@ -2802,7 +2802,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1742824963973710}
-  m_LocalRotation: {x: 0.7071078, y: 0.0002815406, z: -0.7071058, w: 0.00028154138}
+  m_LocalRotation: {x: 0.7071077, y: 0.00028154056, z: -0.70710576, w: 0.00028154135}
   m_LocalPosition: {x: -0.10417484, y: -0.047148883, z: 0.026731417}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3107,11 +3107,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c84be230f547217428e36b49030c73fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ListAttackColliders: []
   JumpForce: 10
   MoveSpeed: 3
+  ListAttackColliders: []
   CompAnimators:
-  - {fileID: 0}
+  - {fileID: 9100000, guid: c52d1c9c48f6c5c409bf71e5a55054d9, type: 2}
 --- !u!114 &114984537635096552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3449,8 +3449,8 @@ CharacterController:
   serializedVersion: 2
   m_Height: 1
   m_Radius: 0.2
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_SlopeLimit: 90
+  m_StepOffset: 0.15
+  m_SkinWidth: 0.04
+  m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0.5, z: 0}
