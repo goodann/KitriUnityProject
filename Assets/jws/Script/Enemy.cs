@@ -15,8 +15,6 @@ public class Enemy : Actor
     private Transform playerTR;
     private Animator animator;
 
-    private EnemyCollider[] enemyColliders;
-
     private IState currentState;
     private FollowState followState;
     private IdleState idleState;
@@ -61,18 +59,16 @@ public class Enemy : Actor
 
     void Start()
     {
+        Init();
+
         mobTR = GetComponent<Transform>();
         playerTR = GameObject.FindWithTag("Player").GetComponent<Transform>();
         animator = GetComponent<Animator>();
         navAgent = GetComponent<NavMeshAgent>();
 
-        //enemyColliders = new EnemyCollider[ListAttackColliders.Count];
-
-        //for (int i = 0; i < ListAttackColliders.Count; i++)
-        //{
-        //    enemyColliders[i] = ListAttackColliders[i].GetComponent<EnemyCollider>();
-        //    enemyColliders[i].Enemy = this;
-        //}                
+        ListAttackColliders = new List<Collider>();
+        ListAttackColliders.Add(FindInChild("AttackColliderLeftArm").GetComponent<Collider>());
+        ListAttackColliders.Add(FindInChild("AttackColliderRightArm").GetComponent<Collider>());
 
         ChangeState(idleState);
     }
@@ -105,12 +101,32 @@ public class Enemy : Actor
 
     public override void Init()
     {
-        base.Init();
+        hp = 10;
+        mp = 0;
+        power = 3;
     }
-    
+
     public override void onDamaged(int damage)
     {
+        Debug.Log("onDamaged : " + damage);
+        hp -= damage;
         
+        if(hp <= 0)
+        {
+            hp = 0;
+            ChangeState(StunState);
+        }
+        else
+        {
+            if(damage >= 5)
+            {
+                animator.SetTrigger("CriticalHit");
+            }
+            else
+            {
+                animator.SetTrigger("Hit");
+            }
+        }    
     }
 
     public override void onDead()
@@ -130,7 +146,21 @@ public class Enemy : Actor
 
     public void Hit()
     {
-        Debug.Log("Hit");
+        foreach (Collider coll in ListAttackColliders)
+        {
+            coll.gameObject.SetActive(true);
+        }
+
+        return;
+    }
+
+    public void HitEnd()
+    {
+        foreach (Collider coll in ListAttackColliders)
+        {
+            coll.gameObject.SetActive(false);
+        }
+
         return;
     }
 }
