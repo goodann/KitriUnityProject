@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIButtonController : MonoBehaviour
-{
+public class UIButtonController : MonoBehaviour {
 
     PlayablePlayer playable;
     GetItem getItem;
@@ -22,7 +21,7 @@ public class UIButtonController : MonoBehaviour
         {
             getItem.isGetItemBtnDown = false;
             StartCoroutine("PunchCoroutine");
-        }
+        }       
     }
 
     public void OnKickBtnDown()
@@ -44,33 +43,33 @@ public class UIButtonController : MonoBehaviour
 
     IEnumerator PunchCoroutine()
     {
-        playable.ButtonClick(EButtonList.EBL_AttackA);
+        playable.attack1 = 1;
 
         yield return new WaitForSeconds(0.3f);
-        playable.ButtonRelease(EButtonList.EBL_AttackA);
+        playable.attack1 = 0;
 
         yield break;
     }
 
     IEnumerator KickCoroutine()
     {
-        playable.ButtonClick(EButtonList.EBL_AttackB);
+        playable.attack2 = 1;
 
         yield return new WaitForSeconds(0.3f);
-        playable.ButtonRelease(EButtonList.EBL_AttackB);
+        playable.attack2 = 0;
 
         yield break;
     }
 
     IEnumerator JumpCoroutine()
     {
-        playable.ButtonClick(EButtonList.EBL_Jump);
+        playable.jump = 1;
 
         yield return new WaitForEndOfFrame();
-        playable.ButtonRelease(EButtonList.EBL_Jump);
+        playable.jump = 0;
 
         yield break;
     }
 
-
+    
 }

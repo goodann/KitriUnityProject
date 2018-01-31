@@ -33,9 +33,6 @@ public partial class PlayablePlayer : Player
     float jump = 0;
     float skill = 0;
 
-    float timeScale = 1;
-    float lerpTime = 0;
-    bool isDark;
     private PlayablePlayer()
     {
 
@@ -44,7 +41,6 @@ public partial class PlayablePlayer : Player
     void Start()
     {
         Init();
-        
     }
 
     // Update is called once per frame
@@ -77,7 +73,7 @@ public partial class PlayablePlayer : Player
             transform.transform.LookAt(transform.transform.position + moveVec);
             if (moveVec.sqrMagnitude > 0.1f)
                 Move(moveVec);
-            else if (isGrounded && !behavior.IsJumping)
+            else if (isGrounded&&!behavior.IsJumping)
                 Stop();
         }
         else
@@ -90,18 +86,18 @@ public partial class PlayablePlayer : Player
         attack2 = Input.GetAxis("Fire2");
         jump = Input.GetAxis("Jump");
 
-
+            
 
         attack1 = 0;
         attack2 = 0;
         jump = 0;
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            ButtonClick(EButtonList.EBL_Jump);
+            jump = 1;
         }
         else
         {
-            ButtonRelease(EButtonList.EBL_Jump);
+            jump = 0;
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
@@ -121,44 +117,27 @@ public partial class PlayablePlayer : Player
         {
             attack1 = 0;
         }
-        
+
         if (Input.GetKeyDown(KeyCode.C))
         {
             //skillstart
             skill = 0;
             //time느려짐
-            timeScale = 1;
-            
-
-
+            Time.timeScale = 0.1f;
+            //암전
+            LightColor = StageManager.MainLight.color;
+            StageManager.MainLight.color = new Color(1f, 0.1f, 0.1f);
+            StageManager.MainLight.intensity = 2;
 
         }
-        
         if (Input.GetKey(KeyCode.C))
         {
-            //lerpTime = ;
-            if (skill > 100)
-            {
-                //암전
-                if (isDark == false)
-                {
-                    LightColor = StageManager.MainLight.color;
-                    StageManager.MainLight.color = new Color(1f, 0.1f, 0.1f);
-                    StageManager.MainLight.intensity = 3;
-                    isDark = true;
-                }
-
-                timeScale = Mathf.Lerp(timeScale, 0.01f, Time.unscaledDeltaTime * 3f);
-                Time.timeScale = timeScale;
-            }
             //charge
-            skill += Time.unscaledDeltaTime * 300;
+            skill += Time.deltaTime * 300;
         }
         if (Input.GetKeyUp(KeyCode.C))
         {
             //skill
-            timeScale = 1;
-            Time.timeScale = timeScale;
             print(skill);
             behavior.Skill((int)skill);
             skill = 0;
@@ -166,7 +145,6 @@ public partial class PlayablePlayer : Player
             Time.timeScale = 1;
             StageManager.MainLight.color = LightColor;
             StageManager.MainLight.intensity = 1;
-            isDark = false;
         }
 
         //moveVec = Vector3.right * hInput;
@@ -189,46 +167,5 @@ public partial class PlayablePlayer : Player
         }
 
 
-    }
-
-    public void ButtonClick(EButtonList eButtonList)
-    {
-        switch (eButtonList)
-        {
-            case EButtonList.EBL_AttackA:
-                attack1 = 1;
-                break;
-            case EButtonList.EBL_AttackB:
-                attack2 = 1;
-                break;
-            case EButtonList.EBL_Skill:
-                skill = 1;
-                break;
-            case EButtonList.EBL_Jump:
-                jump = 1;
-                break;
-            default:
-                break;
-        }
-    }
-    public void ButtonRelease(EButtonList eButtonList)
-    {
-        switch (eButtonList)
-        {
-            case EButtonList.EBL_AttackA:
-                attack1 = 0;
-                break;
-            case EButtonList.EBL_AttackB:
-                attack2 = 0;
-                break;
-            case EButtonList.EBL_Skill:
-                skill = 0;
-                break;
-            case EButtonList.EBL_Jump:
-                jump = 0;
-                break;
-            default:
-                break;
-        }
     }
 }

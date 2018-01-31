@@ -96,7 +96,7 @@ public class MyBaseObejct : MonoBehaviour {
     }
     
 
-    EBaseObjectState _ObjectState = EBaseObjectState.ObjectState_Normal;
+    EBaseObjectState _ObjectState = EBaseObjectState.objectState_Normal;
 
     public EBaseObjectState ObjectState
     {
