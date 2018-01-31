@@ -39,7 +39,7 @@ public class BaseAnimation:MyBaseObejct  {
     {
 
     }
-    public virtual void AniSkill()
+    public virtual void AniSkill(int charged)
     {
 
     }
