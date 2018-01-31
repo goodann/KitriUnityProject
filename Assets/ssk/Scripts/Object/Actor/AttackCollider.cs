@@ -12,7 +12,8 @@ public class AttackCollider : MyBaseObejct {
     }
 	// Use this for initialization
 	void Start () {
-        actor = FindInParentComp<Actor>();
+        //actor = FindInParentComp<Actor>();
+        actor = GetComponentInParent<Actor>();
     }
 	
 	// Update is called once per frame

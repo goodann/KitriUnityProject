@@ -54,31 +54,7 @@ public class MyBaseObejct : MonoBehaviour {
     {
         //transform.fin
     }
-
-
-    public Transform FindTrans(string name)
-    {
-        return _FindTrans(name, transform);
-    }
-    public Transform _FindTrans(string name, Transform trans)
-    {
-        if (name == trans.name)
-            return trans;
-        if (trans.childCount == 0)
-        {
-            return null;
-        }
-        else
-        {
-            for (int i = 0; i < trans.childCount; ++i)
-            {
-                Transform reTrans = _FindTrans(name, trans.GetChild(i));
-                if (reTrans != null)
-                    return reTrans;
-            }
-        }
-        return null;
-    }
+    
 
     public Transform FindInChild(string strName)
     {
@@ -101,6 +77,7 @@ public class MyBaseObejct : MonoBehaviour {
     }
 
 
+
     public Transform FindInParent(string strName)
     {
         return _FindInParent(strName, SelfTransform);
@@ -118,23 +95,6 @@ public class MyBaseObejct : MonoBehaviour {
         }
     }
     
-    public T FindInParentComp<T>()
-    {
-        return _FindInParentComp<T>(SelfTransform);
-    }
-    public T _FindInParentComp<T>(Transform trans)
-    {
-        if (trans == null)
-            return default(T);
-        T comp = GetComponent<T>();
-        if (comp!=null)
-            return comp;
-        else
-        {
-            return _FindInParentComp<T>(trans.parent);
-
-        }
-    }
 
     EBaseObjectState _ObjectState = EBaseObjectState.objectState_Normal;
 

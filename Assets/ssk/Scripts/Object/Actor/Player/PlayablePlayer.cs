@@ -6,7 +6,7 @@ using UnityEngine;
 //싱글턴
 public partial class PlayablePlayer : Player
 {
-
+    Color LightColor;
     //singleton
     private static PlayablePlayer Instance = null;
     public PlayablePlayer GetInstance()
@@ -27,13 +27,12 @@ public partial class PlayablePlayer : Player
 
     float hInput = 0;
     float vInput = 0;
-    //float attack
-    //float attack
-    //float jump =
 
     float attack1 = 0;
     float attack2 = 0;
     float jump = 0;
+    float skill = 0;
+
     private PlayablePlayer()
     {
 
@@ -119,18 +118,33 @@ public partial class PlayablePlayer : Player
             attack1 = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             //skillstart
+            skill = 0;
+            //time느려짐
+            Time.timeScale = 0.1f;
+            //암전
+            LightColor = StageManager.MainLight.color;
+            StageManager.MainLight.color = new Color(1f, 0.1f, 0.1f);
+            StageManager.MainLight.intensity = 2;
+
         }
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.C))
         {
             //charge
+            skill += Time.deltaTime * 300;
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.C))
         {
             //skill
-            //Skill(charged);
+            print(skill);
+            behavior.Skill((int)skill);
+            skill = 0;
+            //원상복구
+            Time.timeScale = 1;
+            StageManager.MainLight.color = LightColor;
+            StageManager.MainLight.intensity = 1;
         }
 
         //moveVec = Vector3.right * hInput;
@@ -151,6 +165,7 @@ public partial class PlayablePlayer : Player
         {
             behavior.AttackB();
         }
+
 
     }
 }

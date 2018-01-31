@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+public struct Status
+{
+    public int hp;
+    public int mp;
+    public int power;
+}
 
 [RequireComponent(typeof(Animator))]
 public class Actor : MyBaseObejct {
@@ -64,7 +70,12 @@ public class Actor : MyBaseObejct {
         get{return isGrounded;}
         
     }
-
+    public virtual void StatusInit(Status st)
+    {
+        hp = st.hp;
+        mp = st.mp;
+        power = st.power;
+    }
 
 
     public virtual void Init()
@@ -88,13 +99,11 @@ public class Actor : MyBaseObejct {
     public virtual void onDamaged(int damage)
     {
         hp-=damage;
-        
+        if (hp < 0)
+            onDead();
     }
     public virtual void onDead()
     {
 
     }
-
-
-    
 }

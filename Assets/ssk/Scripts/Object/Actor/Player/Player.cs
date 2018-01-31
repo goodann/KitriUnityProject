@@ -63,10 +63,10 @@ public class Player : Actor
 
         beforePos = gameObject.transform.position;
         ListAttackColliders = new List<Collider>();
-        ListAttackColliders.Add(FindTrans("Character1_LeftFoot").GetComponent<Collider>());
-        ListAttackColliders.Add(FindTrans("Character1_RightFoot").GetComponent<Collider>());
-        ListAttackColliders.Add(FindTrans("Character1_LeftHand").GetComponent<Collider>());
-        ListAttackColliders.Add(FindTrans("Character1_RightHand").GetComponent<Collider>());
+        ListAttackColliders.Add(FindInChild("Character1_LeftFoot").GetComponent<Collider>());
+        ListAttackColliders.Add(FindInChild("Character1_RightFoot").GetComponent<Collider>());
+        ListAttackColliders.Add(FindInChild("Character1_LeftHand").GetComponent<Collider>());
+        ListAttackColliders.Add(FindInChild("Character1_RightHand").GetComponent<Collider>());
 
         Animator CompAnimator = gameObject.GetComponent<Animator>();
         behavior = gameObject.AddComponent<FightBehavior>();
