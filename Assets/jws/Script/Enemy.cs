@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+class EnemyCollider
+{
+
+}
 public class Enemy : Actor
 {
     public float aggroRadius;
@@ -108,7 +112,7 @@ public class Enemy : Actor
         base.Init();
     }
     
-    public override void onDamaged()
+    public override void onDamaged(int damage)
     {
         
     }
