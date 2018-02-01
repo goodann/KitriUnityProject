@@ -18,6 +18,7 @@ public class FightBehavior : BaseBehavior {
     }
     protected bool isJumpKicking;
     protected bool isJumpKickDowning;
+    protected bool isJumpPunching;
     protected int comboCount;
     protected uint comboSignal;
 
@@ -67,7 +68,7 @@ public class FightBehavior : BaseBehavior {
     }
     public override void AttackA()
     {
-        if (!IsJumping && !isAttacking)
+        if (!isAttacking)
         {
             nextAttack = null;
             Attack(true);
@@ -114,6 +115,7 @@ public class FightBehavior : BaseBehavior {
         isJumpKicking = false;
         isJumping = false;
         isDownnig = false;
+        isJumpPunching = false;
         ani.AniStop();
     }
 
@@ -135,6 +137,15 @@ public class FightBehavior : BaseBehavior {
             if (targetObject.Velocity.y < -0.1f)
             {
                 isDownnig = true;
+            }
+        }
+        if (isJumpPunching)
+        {
+            //targetObject.Move(Physics.gravity * 1.5f * Time.deltaTime);
+            if (targetObject.IsGrounded)
+            {
+                Stop();
+
             }
         }
         if (isJumpKicking)
@@ -273,12 +284,15 @@ public class FightBehavior : BaseBehavior {
                 if (isHand)
                 {
                     //점프손
+                    targetObject.Move(Vector3.up * targetObject.JumpForce * 0.1f + Vector3.forward);
+                    ani.SendMessage("AniJumpPunch");
                 }
                 else
                 {
                     targetObject.Move(Vector3.up * targetObject.JumpForce * 0.05f + Vector3.forward );
                     //ani.AniJumpKick();
                     ani.SendMessage("AniJumpKick");
+                    
                     //점프킥
 
 

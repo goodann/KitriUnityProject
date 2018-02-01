@@ -103,6 +103,11 @@ public class FightAnimation : BaseAnimation {
     {
         CompAnimator.SetTrigger("SpacialKick");
     }
+    public void AniJumpPunch()
+    {
+        CompAnimator.SetBool("JumpPunch", true);
+        print("점프펀치");
+    }
     public void AniJumpKick()
     {
 
@@ -117,6 +122,7 @@ public class FightAnimation : BaseAnimation {
         CompAnimator.SetBool("Moving", false);
         CompAnimator.SetBool("Jump", false);
         CompAnimator.SetBool("JumpKick", false);
+        CompAnimator.SetBool("JumpPunch", false);
         base.AniStop();
     }
 
@@ -135,5 +141,11 @@ public class FightAnimation : BaseAnimation {
         {
             CompAnimator.SetTrigger("Skill3");
         }
+    }
+    public override void AniDamaged()
+    {
+        
+        base.AniDamaged();
+        CompAnimator.SetTrigger("Hit1");
     }
 }

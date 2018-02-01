@@ -53,6 +53,7 @@ public class Player : Actor
     
     // Use this for initialization
     void Start () {
+        
         Init();
     }
     public override void Init()
@@ -72,13 +73,13 @@ public class Player : Actor
         behavior = gameObject.AddComponent<FightBehavior>();
         behavior.Init(this, CompAnimator);
         GetComponentsInit();
-
+        power = 1;
     }
     Vector3 beforePos;
     public override Vector3 Velocity
     {
         //get { print(moveDirection + "<=>" + CompCharCon.velocity); return moveDirection + CompCharCon.velocity; }
-        get {Vector3 vel= (transform.position- beforePos);print(vel); return vel; }
+        get {Vector3 vel= (transform.position- beforePos);return vel; }
         set { moveDirection = value; }
     }
 
@@ -178,6 +179,7 @@ public class Player : Actor
     }
     public override void onDamaged(int damage)
     {
+        behavior.onDamaged(damage);
         base.onDamaged(damage);
         
     }

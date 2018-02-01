@@ -20,7 +20,7 @@ public class Enemy : Actor
     private IdleState idleState;
     private StunState stunState;
     private AttackState attackState;
-
+    
     private NavMeshAgent navAgent;
 
     public Transform MobTR

@@ -21,7 +21,7 @@ public abstract class BaseBehavior:MyBaseObejct
     //protected
     
     protected Actor targetObject;
-    protected Animator CompAnimator;
+    //protected Animator CompAnimator;
     protected BaseAnimation ani;
     protected bool isAttacking;
     protected float ComboTimer;
@@ -35,7 +35,7 @@ public abstract class BaseBehavior:MyBaseObejct
     public virtual void Init(Actor target, Animator animator)
     {
         targetObject = target;
-        CompAnimator = animator;
+        //CompAnimator = animator;
         EndAttack();
     }
 
@@ -49,7 +49,10 @@ public abstract class BaseBehavior:MyBaseObejct
     public abstract void Dead();
     public abstract void AttackA();
     public abstract void AttackB();
-
+    public virtual  void onDamaged(int damage)
+    {
+        ani.AniDamaged();
+    }
     public virtual void Stop()
     {
         ani.AniStop();
@@ -61,9 +64,11 @@ public abstract class BaseBehavior:MyBaseObejct
     }
     public void EndAttack()
     {
+
         isAttacking = false;
         foreach (var i in targetObject.ListAttackColliders)
         {
+            i.GetComponent<AttackCollider>().EndAttack();
             i.enabled = false;
         }
         if (nextAttack!=null)

@@ -106,6 +106,11 @@ public class GeroBeam : MonoBehaviour {
 					HitObj.transform.rotation = Quaternion.AngleAxis(180.0f,transform.up)* this.transform.rotation;
                     //HitObj.transform.localScale = HitObjSize * Width * BP.Scale * 10.0f;
                     bHitNow = true;
+                    //custom Effect
+
+                    hitobj.SendMessage("onDamaged", 10);
+                    hitobj.transform.position += F_Vec[i].normalized * 0.05f;
+
 					break;
 				}
 			}
