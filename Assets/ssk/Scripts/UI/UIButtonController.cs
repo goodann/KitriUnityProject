@@ -43,33 +43,33 @@ public class UIButtonController : MonoBehaviour {
 
     IEnumerator PunchCoroutine()
     {
-        playable.attack1 = 1;
+        playable.ButtonClick(EButtonList.EBL_AttackA);
 
         yield return new WaitForSeconds(0.3f);
-        playable.attack1 = 0;
+        playable.ButtonRelease(EButtonList.EBL_AttackA);
 
         yield break;
     }
 
     IEnumerator KickCoroutine()
     {
-        playable.attack2 = 1;
+        playable.ButtonClick(EButtonList.EBL_AttackB);
 
         yield return new WaitForSeconds(0.3f);
-        playable.attack2 = 0;
+        playable.ButtonRelease(EButtonList.EBL_AttackB);
 
         yield break;
     }
 
     IEnumerator JumpCoroutine()
     {
-        playable.jump = 1;
+        playable.ButtonClick(EButtonList.EBL_Jump);
 
         yield return new WaitForEndOfFrame();
-        playable.jump = 0;
+        playable.ButtonRelease(EButtonList.EBL_Jump);
 
         yield break;
     }
 
-    
+
 }
