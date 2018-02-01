@@ -12,6 +12,9 @@ public class ItemRotate : MonoBehaviour {
     ItemGenerator itemGeneator;
     public int itemGenePointIndex = 0;
 
+   
+
+
 	// Use this for initialization
 	void Start ()
     {
@@ -36,4 +39,22 @@ public class ItemRotate : MonoBehaviour {
         itemGeneator.effObjPool[itemGenePointIndex - 1].SetActive(false);
         itemGeneator.RemoveIndexList(itemGenePointIndex);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Stage")
+        {
+            Invoke("HoldColliderStatement", 2.0f);
+        }
+    }
+
+    
+    void HoldColliderStatement()
+    {
+        GetComponent<BoxCollider>().isTrigger = true;
+        GetComponent<Rigidbody>().isKinematic = true;
+        GetComponent<Rigidbody>().useGravity = false;
+    }
+
+
 }

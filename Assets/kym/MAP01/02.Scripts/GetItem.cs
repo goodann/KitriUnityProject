@@ -15,12 +15,14 @@ public class GetItem : MonoBehaviour {
 
     Rigidbody itemRigidbody;
     public float throwItemSpeed = 100;
+    public float throwPower = 100;
 
     private void Start()
     {
         leftHand_Weapon_Pos = GameObject.Find("LeftHand_Weapon_Pos").transform;
 
-        takeItem = false;        
+        takeItem = false;
+
     }
 
     private void Update()
@@ -34,22 +36,50 @@ public class GetItem : MonoBehaviour {
 
     void ThrowObject()
     {
-        takeItemObj.transform.parent = null;
-
+        //초기화
         itemRigidbody.isKinematic = false;
         itemRigidbody.useGravity = true;
-        itemRigidbody.AddForce(takeItemObj.transform.forward * throwItemSpeed);
+        isTriggerStaying = false;
+
+
+        //아이템을 날린다
+        itemRigidbody.AddForce(transform.forward * throwItemSpeed);
+        itemRigidbody.AddTorque(transform.forward * throwPower);
+        itemRigidbody.freezeRotation = false;
+       
+
+        //부모연결을 끊는다 -> 오브젝트풀로 리턴
+        takeItemObj.transform.parent = GameObject.Find("ObjectPool").transform;
+
+        takeItemObj.GetComponent<BoxCollider>().isTrigger = false;
+
+        //정보리셋
+        takeItemObj = null;
+        itemRigidbody = null;
+
+        //상태처리
         isThrowingItemBtnDown = false;
         isGetItemBtnDown = false;
         takeItem = false;
+
     }
+
 
     private void OnTriggerStay(Collider other)
     {
         
         if (other.gameObject.tag == "Item")
         {
-            //아이템을 줍지 않았을 때
+            //아이템 정보를 저장
+            takeItemObj = other.gameObject;
+            itemRigidbody = takeItemObj.GetComponent<Rigidbody>();
+
+            itemRigidbody.isKinematic = true;
+            itemRigidbody.useGravity = false;
+            itemRigidbody.freezeRotation = true;
+
+
+            //아이템을 주운 상태면 리턴
             if (takeItem) return;
 
             //픽킹가능 상태로 만든다
@@ -58,10 +88,12 @@ public class GetItem : MonoBehaviour {
             //픽킹버튼을 눌렀을 때
             if (isGetItemBtnDown == false) return;
 
-            //아이템을 줍는다            
+            //아이템을 줍는다(부모연결)
             other.transform.parent = leftHand_Weapon_Pos;
-            takeItemObj = other.gameObject;
-            itemRigidbody = other.GetComponent<Rigidbody>();
+
+
+            //아이템을 들었다
+            takeItem = true;
 
             //픽킹 불가능한 상태로 만든다
             isTriggerStaying = false;
@@ -73,13 +105,13 @@ public class GetItem : MonoBehaviour {
                 
                 case "Mace":                    
                     other.transform.localPosition = new Vector3(-0.05f, 0.07f, 0.12f);
-                    other.transform.localRotation = Quaternion.Euler(-57, -145, 167);
+                    other.transform.localRotation = Quaternion.Euler(-57, -150, 170);
                     other.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                     break;
 
                 case "Sword":
                     other.transform.localPosition = new Vector3(-0.03f, 0.07f, 0.1f);
-                    other.transform.localRotation = Quaternion.Euler(12, -60, 114);
+                    other.transform.localRotation = Quaternion.Euler(-32, -60, 114);
                     other.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                     break;
 
@@ -102,24 +134,15 @@ public class GetItem : MonoBehaviour {
                     break;
 
             }
-          
 
-            //아이템 제너레이터 갱신시킨다
+            //다시 주운 아이템이면 제너레이터 작동 패스
+            if (takeItemObj.GetComponent<ItemRotate>().isPickedUp) return;
+
+            //아이템 제너레이터를 갱신시킨다
             other.gameObject.GetComponent<ItemRotate>().ItemGenePointReset();
 
-            //아이템을 들었다
-            takeItem = true;
-
-            //other.isTrigger = false;
         }
     }
 
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Item")
-        {
-            isTriggerStaying = false;
-        }
-    }
 }
