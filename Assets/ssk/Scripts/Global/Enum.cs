@@ -35,3 +35,24 @@ public enum EButtonList
     EBL_Skill,
     EBL_Jump,
 }
+
+public enum EEnemyType
+{
+    Enemy_Melee,
+    Enemy_Archor,
+    Enemy_Boss,
+}
+
+public enum EEnemyState
+{
+    State_Idle,
+    State_Attack,
+    State_Hit,
+    State_CriticalHit,
+    State_Stun,
+    State_Die,
+    State_Follow,
+    State_Runaway,
+    State_Wander,
+    MAX
+}
