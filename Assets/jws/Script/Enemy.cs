@@ -63,7 +63,9 @@ public class Enemy : Actor
         playerTR = GameObject.FindWithTag("Player").GetComponent<Transform>();
         animator = GetComponent<Animator>();
         navAgent = GetComponent<NavMeshAgent>();
-
+		
+		Init();
+		
         ChangeState(idleState);
     }
 
