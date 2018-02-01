@@ -7,6 +7,7 @@ using UnityEngine;
 public partial class PlayablePlayer : Player
 {
     Color LightColor;
+    bool LightSet = false;
     //singleton
     private static PlayablePlayer Instance = null;
     public PlayablePlayer GetInstance()
@@ -142,7 +143,11 @@ public partial class PlayablePlayer : Player
                 //암전
                 if (isDark == false)
                 {
-                    LightColor = StageManager.MainLight.color;
+                    if (LightSet == false)
+                    {
+                        LightColor = StageManager.MainLight.color;
+                        LightSet = true;
+                    }
                     StageManager.MainLight.color = new Color(1f, 0.1f, 0.1f);
                     StageManager.MainLight.intensity = 3;
                     isDark = true;
@@ -163,10 +168,13 @@ public partial class PlayablePlayer : Player
             behavior.Skill((int)skill);
             skill = 0;
             //원상복구
-            Time.timeScale = 1;
-            StageManager.MainLight.color = LightColor;
-            StageManager.MainLight.intensity = 1;
-            isDark = false;
+            if (isDark)
+            {
+                Time.timeScale = 1;
+                StageManager.MainLight.color = LightColor;
+                StageManager.MainLight.intensity = 1;
+                isDark = false;
+            }
         }
 
         //moveVec = Vector3.right * hInput;

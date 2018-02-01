@@ -64,6 +64,8 @@ public class Enemy : Actor
         animator = GetComponent<Animator>();
         navAgent = GetComponent<NavMeshAgent>();
 
+        Init();
+
         ChangeState(idleState);
     }
 
