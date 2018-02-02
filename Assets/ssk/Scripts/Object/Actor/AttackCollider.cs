@@ -41,6 +41,9 @@ public class AttackCollider : MyBaseObejct {
     }
     private void OnTriggerEnter(Collider other)
     {
+
+        print("Hit다 hit! 맞은놈 : " + other.ToString() + "데미지 : " + actor.NowPOWER * actor.NowAttackPower + " 밀리는 방향 " + actor.AttackDirction);
+        other.SendMessage("onDamaged", actor.NowPOWER * actor.NowAttackPower);
         if (other.CompareTag("Enemy"))
         {
             bool isinAttacked=false;
@@ -65,12 +68,17 @@ public class AttackCollider : MyBaseObejct {
                 GameObject.Instantiate(StarParticlePrefab, other.transform.position, Quaternion.Euler(-45, 0, 0));
                 GameObject.Instantiate(fightAttackParticlePrefab, other.transform.position + Vector3.up * 0.5f, Quaternion.identity);
                 other.transform.position += actor.AttackDirction;
-                print("Hit다 hit! 맞은놈 : " + other.ToString() + "데미지 : " + actor.NowPOWER * actor.NowAttackPower + " 밀리는 방향 " + actor.AttackDirction);
-                other.SendMessage("onDamaged", actor.NowPOWER * actor.NowAttackPower);
+                //print("Hit다 hit! 맞은놈 : " + other.ToString() + "데미지 : " + actor.NowPOWER * actor.NowAttackPower + " 밀리는 방향 " + actor.AttackDirction);
+                //other.SendMessage("onDamaged", actor.NowPOWER * actor.NowAttackPower);
 
             }
         }
+        else
+        {
+            
+        }
         
+
     }
     void ReturnTime()
     {

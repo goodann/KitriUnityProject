@@ -40,7 +40,7 @@ public class BaseAnimation:MyBaseObejct  {
     }
     public virtual void AniDead()
     {
-
+        CompAnimator.SetTrigger("Dying");
     }
     public virtual void AniSkill(int charged)
     {

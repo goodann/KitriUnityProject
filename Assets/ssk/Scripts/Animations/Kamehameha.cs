@@ -10,6 +10,7 @@ public class Kamehameha : StateMachineBehaviour {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        //animator.SendMessage("AniPlayStart");
         if(beamPrefab==null)
             beamPrefab = Resources.Load("ssk/prefabs/GeroBeam1") as GameObject;
         
@@ -19,18 +20,26 @@ public class Kamehameha : StateMachineBehaviour {
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        StageManager.mainPlayer.Behavior.IsAnimationPlaing = false;
         timer += Time.deltaTime;
         if(timer>=0.3f && instBeam == null)
         {
+            
+
+            animator.SendMessage("AniPlayStart");
             //instBeam = Instantiate(beamPrefab, animator.transform.position + beamPosition, animator.transform.rotation);
-            Vector3 pos = animator.transform.position + animator.transform.forward*0.5f;
-            instBeam = Instantiate(beamPrefab, pos, animator.transform.rotation);
-            instBeam.transform.position += animator.transform.up*0.5f;
+            instBeam = Instantiate(beamPrefab,StageManager.mainPlayer.transform);
+            //instBeam.transform.position += animator.transform.up*0.5f+ animator.transform.forward * 0.5f;
             
         }
-        if (timer >= 4.85f)
+        if (timer >= 5.0f)
         {
             instBeam.GetComponent<BeamParam>().bEnd = true;
+            
+        }
+        if (timer >= 6.5f)
+        {
+            StageManager.mainPlayer.NowMoveSpeed = StageManager.mainPlayer.MoveSpeed;
         }
     }
 

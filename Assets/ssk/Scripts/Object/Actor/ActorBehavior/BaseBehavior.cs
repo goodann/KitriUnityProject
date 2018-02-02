@@ -31,7 +31,7 @@ public abstract class BaseBehavior:MyBaseObejct
     protected bool isJumping;
     //property
     public virtual BaseAnimation Ani { get { return ani; } }
-    public bool IsAttacking { get { return isAnimationPlaing; } set { isAnimationPlaing = value; } }
+    public bool IsAnimationPlaing { get { return isAnimationPlaing; } set { isAnimationPlaing = value; } }
     public bool IsJumping { get { return isJumping; } }
 
     public virtual void Init(Actor target, Animator animator)

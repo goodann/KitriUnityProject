@@ -35,7 +35,7 @@ public partial class PlayablePlayer : Player
     float skill = 0;
 
     float timeScale = 1;
-    float lerpTime = 0;
+    //float lerpTime = 0;
     bool isDark;
     private PlayablePlayer()
     {
@@ -66,20 +66,36 @@ public partial class PlayablePlayer : Player
     }
     void ControllInput()
     {
-        if (!behavior.IsAttacking)
+        if (isAlive == false)
+            return;
+        if (!behavior.IsAnimationPlaing)
         {
             //hInput = Input.GetAxis("Horizontal");
             //vInput = Input.GetAxis("Vertical");
             hInput = UIJoyStick.InputValue.x;
             vInput = UIJoyStick.InputValue.y;
-            Vector3 moveVec = new Vector3();
-            moveVec = Vector3.right * hInput * MoveSpeed;
-            moveVec += Vector3.forward * vInput * MoveSpeed;
-            transform.transform.LookAt(transform.transform.position + moveVec);
-            if (moveVec.sqrMagnitude > 0.1f)
-                Move(moveVec);
-            else if (isGrounded && !behavior.IsJumping)
-                Stop();
+            if (NowMoveSpeed == 0)
+            {
+                Vector3 moveVec = new Vector3();
+                moveVec = Vector3.right * hInput * MoveSpeed;
+                moveVec += Vector3.forward * vInput * MoveSpeed;
+                Quaternion rot = transform.rotation;
+                
+                transform.transform.LookAt(transform.transform.position + moveVec);
+                Quaternion rot2 = transform.rotation;
+                transform.rotation = Quaternion.Slerp(rot, rot2, Time.deltaTime*0.1f);
+            }
+            else
+            {
+                Vector3 moveVec = new Vector3();
+                moveVec = Vector3.right * hInput * MoveSpeed;
+                moveVec += Vector3.forward * vInput * MoveSpeed;
+                transform.transform.LookAt(transform.transform.position + moveVec);
+                if (moveVec.sqrMagnitude > 0.1f)
+                    Move(moveVec);
+                else if (isGrounded && !behavior.IsJumping)
+                    Stop();
+            }
         }
         else
         {

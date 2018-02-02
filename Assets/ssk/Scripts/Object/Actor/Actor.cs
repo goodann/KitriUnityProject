@@ -16,7 +16,9 @@ public class Actor : MyBaseObejct {
     //public 변수
     
     public float JumpForce = 100;
+
     public float MoveSpeed = 2;
+    public float NowMoveSpeed = 2;
 
     //공격판정 컬라이더 목록
     public List<Collider> ListAttackColliders;
@@ -45,8 +47,15 @@ public class Actor : MyBaseObejct {
     protected int nowMp;
     protected int nowPower;
 
+    protected bool isAlive;
     //중복공격 방지
     public Dictionary<GameObject, bool> attackedObject= new Dictionary<GameObject, bool>();
+
+
+    public bool IsAlive
+    {
+        get { return isAlive; }
+    }
 
     public float NowAttackPower
     {
@@ -109,12 +118,14 @@ public class Actor : MyBaseObejct {
         hp = st.hp;
         mp = st.mp;
         power = st.power;
+        isAlive = true;
     }
 
 
     public virtual void Init()
     {
-        
+        isAlive = true;
+        NowMoveSpeed = MoveSpeed;
     }
 
     public virtual void Move(Vector3 dir)
@@ -124,7 +135,7 @@ public class Actor : MyBaseObejct {
 
     public virtual void Attack()
     {
-
+        
     }
     public virtual void Skill()
     {
@@ -132,12 +143,16 @@ public class Actor : MyBaseObejct {
     }
     public virtual void onDamaged(int damage)
     {
+        
         nowHp-=damage;
+        print(gameObject.ToString() + "의 HP = " + nowHp);
         if (nowHp < 0)
             onDead();
     }
     public virtual void onDead()
     {
+        isAlive = false;
+        //죽음 처리
 
     }
     public virtual void PowerUp(float coefficient)
@@ -148,6 +163,7 @@ public class Actor : MyBaseObejct {
     {
         nowPower = power;
     }
+
 
     public void EndAttack()
     {

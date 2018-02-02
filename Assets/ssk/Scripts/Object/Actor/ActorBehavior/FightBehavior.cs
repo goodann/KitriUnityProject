@@ -21,7 +21,7 @@ public class FightBehavior : BaseBehavior {
     protected bool isJumpPunching;
     protected int comboCount;
     protected uint comboSignal;
-
+    
     public bool IsJumpKicking
     {
         get { return isJumpKicking; }
@@ -36,6 +36,10 @@ public class FightBehavior : BaseBehavior {
     Quaternion jumpKickQua;
     Quaternion jumpKickQuaOrign;
     
+    public void AniPlayStart()
+    {
+        isAnimationPlaing = true;
+    }
     public void jumpKickStart()
     {
 
@@ -97,17 +101,20 @@ public class FightBehavior : BaseBehavior {
     public override void Skill(int charged)
     {
         Stop();
-        isAnimationPlaing = true;
+        
         ani.AniSkill(charged);
+        isAnimationPlaing = true;
         if (charged >=300)
         {
             //3필
             targetObject.NowAttackPower = 1.0f;
-            
-            
+            targetObject.NowMoveSpeed = 0;
+
+
         }
         else if (charged >= 200)
         {
+            
             //2필
             targetObject.PowerUp(2f);
             targetObject.Invoke("PowerReset", 10.0f);

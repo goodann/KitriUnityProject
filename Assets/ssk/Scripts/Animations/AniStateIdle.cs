@@ -10,7 +10,7 @@ public class AniStateIdle : StateMachineBehaviour {
     {
         if (CompPlayer == null)
             CompPlayer = animator.GetComponent<Player>();
-        CompPlayer.Behavior.IsAttacking = false;
+        CompPlayer.Behavior.IsAnimationPlaing = false;
         CompPlayer.Behavior.EndAttack();
     }
 

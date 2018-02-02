@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bullet
   - Enemy
+  - Item
+  - Stage
   layers:
   - Default
   - TransparentFX
@@ -21,12 +23,12 @@ TagManager:
   - PlayerAttackCollider
   - 
   - Enemy
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - EnemyAttackCollider
+  - Sword
+  - Mace
+  - Minigun
+  - Pistol
+  - Shield
   - 
   - 
   - 

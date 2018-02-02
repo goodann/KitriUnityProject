@@ -125,6 +125,7 @@ public class Player : Actor
     protected virtual void UpdatePlayer()
     {
         //print("Power:" + nowPower);
+        
         vel = (transform.position - beforePos) / Time.deltaTime;
         beforePos = transform.position;
         if (CompCharCon.isGrounded)
@@ -172,7 +173,7 @@ public class Player : Actor
 
     public override void Move(Vector3 vec)
     {
-        moveDirection += vec * MoveSpeed; //transform.TransformDirection(vec)* MoveSpeed;
+        moveDirection += vec * NowMoveSpeed; //transform.TransformDirection(vec)* MoveSpeed;
         if (vel.y < 0.1f && IsGrounded)
         {
             if (vec.sqrMagnitude < 0.1f)
@@ -221,7 +222,7 @@ public class Player : Actor
     }
     public void Jump()
     {
-        if (!behavior.IsAttacking && !behavior.IsJumping)
+        if (!behavior.IsAnimationPlaing && !behavior.IsJumping)
         {
             moveDirection += Vector3.up * JumpForce;
             behavior.Jump();

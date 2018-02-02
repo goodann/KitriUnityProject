@@ -14,7 +14,7 @@ public class AniStateAttack : StateMachineBehaviour {
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        //if (stateInfo.normalizedTime > 1.0f && CompPlayer.Behavior.IsAttacking)
+        //if (stateInfo.normalizedTime > 1.0f && CompPlayer.Behavior.IsAnimationPlaing)
         //{
             
         //    CompPlayer.Behavior.EndAttack();

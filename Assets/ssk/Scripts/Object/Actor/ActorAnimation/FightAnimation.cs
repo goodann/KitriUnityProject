@@ -24,7 +24,7 @@ public class FightAnimation : BaseAnimation {
     }
     //public override void AniUpdate()
     //{
-    //    if (targetObject.IsGrounded && !targetBehavior.IsAttacking)
+    //    if (targetObject.IsGrounded && !targetBehavior.IsAnimationPlaing)
     //    {
     //        if (targetObject.SqrtVel > 0.001f)
     //        {
