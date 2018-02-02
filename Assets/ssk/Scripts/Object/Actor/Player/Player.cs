@@ -75,12 +75,13 @@ public class Player : Actor
         GetComponentsInit();
         power = 1;
     }
-    Vector3 beforePos;
+    protected Vector3 beforePos;
+    protected Vector3 vel; 
     public override Vector3 Velocity
     {
         //get { print(moveDirection + "<=>" + CompCharCon.velocity); return moveDirection + CompCharCon.velocity; }
         get {
-            Vector3 vel = (transform.position - beforePos)/Time.deltaTime;
+            
                 print(vel);
                 return vel; }
         set { moveDirection = value; }
@@ -104,14 +105,16 @@ public class Player : Actor
     }
     protected virtual void FixedUpdate()
     {
-
+        
         FixedUpdatePlayer();
-        beforePos = transform.position;
+        
     }
 
     //업데이트
-    protected void UpdatePlayer()
+    protected virtual void UpdatePlayer()
     {
+        vel = (transform.position - beforePos) / Time.deltaTime;
+        beforePos = transform.position;
         if (CompCharCon.isGrounded)
         {
             
@@ -144,13 +147,15 @@ public class Player : Actor
 
         moveDirection.x = 0;
         moveDirection.z = 0;
+        
     }
 
     
 
     //fixed업데이트
-    protected void FixedUpdatePlayer()
+    protected virtual void FixedUpdatePlayer()
     {
+        
     }
 
     public override void Move(Vector3 vec)

@@ -59,9 +59,9 @@ public partial class PlayablePlayer : Player
         //DebugFloat[3] = attack2;
         //DebugFloat[4] = jump;
     }
-    private void FixedUpdate()
+    protected override void FixedUpdate()
     {
-
+        
         FixedUpdatePlayer();
     }
     void ControllInput()
