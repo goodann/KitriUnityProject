@@ -45,7 +45,7 @@ public partial class PlayablePlayer : Player
     void Start()
     {
         Init();
-        
+
     }
 
     // Update is called once per frame
@@ -61,7 +61,7 @@ public partial class PlayablePlayer : Player
     }
     protected override void FixedUpdate()
     {
-        
+
         FixedUpdatePlayer();
     }
     void ControllInput()
@@ -91,7 +91,15 @@ public partial class PlayablePlayer : Player
         attack2 = Input.GetAxis("Fire2");
         jump = Input.GetAxis("Jump");
 
+        if (Input.GetKey(KeyCode.V))
+        {
+            Time.timeScale = 0.1f;
+        }
+        else
+        {
+            Time.timeScale = timeScale;
 
+        }
 
         attack1 = 0;
         attack2 = 0;
@@ -122,65 +130,29 @@ public partial class PlayablePlayer : Player
         {
             attack1 = 0;
         }
-        
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            //skillstart
-            skill = 0;
-            //time느려짐
-            timeScale = 1;
-            
+
+        //if (Input.GetKeyDown(KeyCode.C))
+        //{
+        //    //skillstart
+        //    skill = 0;
+        //    //time느려짐
+        //    timeScale = 1;
 
 
 
-        }
-        
+
+        //}
+
         if (Input.GetKey(KeyCode.C))
         {
-            //lerpTime = ;
-            if (skill > 100)
-            {
-                //암전
-                if (isDark == false)
-                {
-                    if (LightSet == false)
-                    {
-                        LightColor = StageManager.MainLight.color;
-                        LightSet = true;
-                    }
-                    StageManager.MainLight.color = new Color(1f, 0.1f, 0.1f);
-                    StageManager.MainLight.intensity = 3;
-                    isDark = true;
-                }
-
-                timeScale = Mathf.Lerp(timeScale, 0.01f, Time.unscaledDeltaTime * 3f);
-                Time.timeScale = timeScale;
-            }
-            //charge
-            skill += Time.unscaledDeltaTime * 300;
+            ButtonClick(EButtonList.EBL_Skill);
         }
         if (Input.GetKeyUp(KeyCode.C))
         {
-            //skill
-            timeScale = 1;
-            Time.timeScale = timeScale;
-            print(skill);
-            behavior.Skill((int)skill);
-            skill = 0;
-            //원상복구
-            if (isDark)
-            {
-                Time.timeScale = 1;
-                StageManager.MainLight.color = LightColor;
-                StageManager.MainLight.intensity = 1;
-                isDark = false;
-            }
+            ButtonRelease(EButtonList.EBL_Skill);
         }
+        //lerpTime = ;
 
-        //moveVec = Vector3.right * hInput;
-        //transform.transform.rotation = Quaternion.Euler(Vector3.up * hInput*90);
-        //moveDirection += moveVec;
-        //Rotate(new Vector3(0, hInput, 0));
 
         if (jump != 0)
         {
@@ -198,6 +170,55 @@ public partial class PlayablePlayer : Player
 
 
     }
+    void SkillKeyDown()
+    {
+        //charge
+        skill += Time.unscaledDeltaTime * 300;
+        if (skill > 100)
+        {
+            //암전
+            if (isDark == false)
+            {
+                if (LightSet == false)
+                {
+                    LightColor = StageManager.MainLight.color;
+                    LightSet = true;
+                }
+                StageManager.MainLight.color = new Color(1f, 0.1f, 0.1f);
+                StageManager.MainLight.intensity = 3;
+                isDark = true;
+            }
+
+            timeScale = Mathf.Lerp(timeScale, 0.01f, Time.unscaledDeltaTime * 3f);
+            Time.timeScale = timeScale;
+        }
+    }
+    void SkillKeyUp() { 
+        if (Input.GetKeyUp(KeyCode.C))
+        {
+            //skill
+            timeScale = 1;
+            Time.timeScale = timeScale;
+            print(skill);
+            behavior.Skill((int)skill);
+            skill = 0;
+            //원상복구
+            if (isDark)
+            {
+                Time.timeScale = 1;
+                StageManager.MainLight.color = LightColor;
+                StageManager.MainLight.intensity = 1;
+                isDark = false;
+            }
+        }
+    }
+
+    //moveVec = Vector3.right * hInput;
+    //transform.transform.rotation = Quaternion.Euler(Vector3.up * hInput*90);
+    //moveDirection += moveVec;
+    //Rotate(new Vector3(0, hInput, 0));
+
+
 
     public void ButtonClick(EButtonList eButtonList)
     {
@@ -210,7 +231,8 @@ public partial class PlayablePlayer : Player
                 attack2 = 1;
                 break;
             case EButtonList.EBL_Skill:
-                skill = 1;
+                //skill = 1;
+                SkillKeyDown();
                 break;
             case EButtonList.EBL_Jump:
                 jump = 1;
@@ -230,7 +252,8 @@ public partial class PlayablePlayer : Player
                 attack2 = 0;
                 break;
             case EButtonList.EBL_Skill:
-                skill = 0;
+                //skill = 0;
+                SkillKeyUp();
                 break;
             case EButtonList.EBL_Jump:
                 jump = 0;

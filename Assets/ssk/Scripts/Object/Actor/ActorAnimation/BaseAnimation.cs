@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//애니메이션에 관한 것을 처리하는 클래스
 public class BaseAnimation:MyBaseObejct  {
     protected BaseBehavior targetBehavior;
     protected Actor targetObject;
@@ -16,11 +17,13 @@ public class BaseAnimation:MyBaseObejct  {
 
     public virtual void AniJump()
     {
+        print("AniJump!!");
         CompAnimator.SetBool("Jump", true);
 
     }
     public virtual void AniJumpEnd()
     {
+        print("AniJumpEnd!!");
         CompAnimator.SetBool("Jump", false);
     }
     public virtual void AniAttackA()
@@ -33,7 +36,7 @@ public class BaseAnimation:MyBaseObejct  {
     }
     public virtual void AniMove()
     {
-
+        CompAnimator.SetBool("Moving", true);
     }
     public virtual void AniDead()
     {

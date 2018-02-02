@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 public struct Status
 {
@@ -13,12 +14,13 @@ public struct Status
 [RequireComponent(typeof(Animator))]
 public class Actor : MyBaseObejct {
     //public 변수
-
+    
     public float JumpForce = 100;
     public float MoveSpeed = 2;
 
     //공격판정 컬라이더 목록
     public List<Collider> ListAttackColliders;
+    public List<AttackCollider> ListAttackCollidersComp;
 
     //protected 변수
     //protected Animator CompAnimator;
@@ -30,13 +32,32 @@ public class Actor : MyBaseObejct {
     protected bool[] isG;
     protected bool isGrounded;
 
+    //공격으로 밀쳐질 방향
+    protected Vector3 attackDirction;
 
-
-    //status
+    // init status
     protected int hp;
     protected int mp;
     protected int power;
+    protected float nowAttackPower;
 
+    protected int nowHp;
+    protected int nowMp;
+    protected int nowPower;
+
+    //중복공격 방지
+    public Dictionary<GameObject, bool> attackedObject= new Dictionary<GameObject, bool>();
+
+    public float NowAttackPower
+    {
+        get { return nowAttackPower; }
+        set { nowAttackPower = value; }
+    }
+    public Vector3 AttackDirction
+    {
+        get { return attackDirction; }
+        set { attackDirction = value; }
+    }
 
     public int HP
     {
@@ -52,6 +73,19 @@ public class Actor : MyBaseObejct {
     {
         get { return power; }
         set { power = value; }
+    }
+
+    public int NowHP
+    {
+        get { return nowHp; }
+    }
+    public int NowMP
+    {
+        get { return nowMp; }
+    }
+    public int NowPOWER
+    {
+        get { return nowPower; }
     }
 
     //property
@@ -94,16 +128,35 @@ public class Actor : MyBaseObejct {
     }
     public virtual void Skill()
     {
-
+        
     }
     public virtual void onDamaged(int damage)
     {
-        hp-=damage;
-        if (hp < 0)
+        nowHp-=damage;
+        if (nowHp < 0)
             onDead();
     }
     public virtual void onDead()
     {
 
+    }
+    public virtual void PowerUp(float coefficient)
+    {
+        nowPower = (int)(power * coefficient);
+    }
+    public virtual void PowerReset()
+    {
+        nowPower = power;
+    }
+
+    public void EndAttack()
+    {
+        List<GameObject> attacked = attackedObject.Keys.ToList<GameObject>();
+        for (int i = 0; i < attacked.Count; i++)
+        {
+            attackedObject[attacked[i]] = false;
+        }
+
+        //print("Attackend!");
     }
 }

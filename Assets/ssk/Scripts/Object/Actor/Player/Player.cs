@@ -68,12 +68,23 @@ public class Player : Actor
         ListAttackColliders.Add(FindInChild("Character1_RightFoot").GetComponent<Collider>());
         ListAttackColliders.Add(FindInChild("Character1_LeftHand").GetComponent<Collider>());
         ListAttackColliders.Add(FindInChild("Character1_RightHand").GetComponent<Collider>());
+        ListAttackCollidersComp = new List<AttackCollider>();
+        ListAttackCollidersComp.Add(FindInChild("Character1_LeftFoot").GetComponent<AttackCollider>());
+        ListAttackCollidersComp.Add(FindInChild("Character1_RightFoot").GetComponent<AttackCollider>());
+        ListAttackCollidersComp.Add(FindInChild("Character1_LeftHand").GetComponent<AttackCollider>());
+        ListAttackCollidersComp.Add(FindInChild("Character1_RightHand").GetComponent<AttackCollider>());
+
 
         Animator CompAnimator = gameObject.GetComponent<Animator>();
         behavior = gameObject.AddComponent<FightBehavior>();
         behavior.Init(this, CompAnimator);
         GetComponentsInit();
-        power = 1;
+        power = 100;
+        hp = 10000;
+        mp = 300;
+        nowPower = power;
+        nowHp = hp;
+        nowMp = mp;
     }
     protected Vector3 beforePos;
     protected Vector3 vel; 
@@ -82,7 +93,7 @@ public class Player : Actor
         //get { print(moveDirection + "<=>" + CompCharCon.velocity); return moveDirection + CompCharCon.velocity; }
         get {
             
-                print(vel);
+                //print(vel);
                 return vel; }
         set { moveDirection = value; }
     }
@@ -113,6 +124,7 @@ public class Player : Actor
     //업데이트
     protected virtual void UpdatePlayer()
     {
+        //print("Power:" + nowPower);
         vel = (transform.position - beforePos) / Time.deltaTime;
         beforePos = transform.position;
         if (CompCharCon.isGrounded)
@@ -161,7 +173,7 @@ public class Player : Actor
     public override void Move(Vector3 vec)
     {
         moveDirection += vec * MoveSpeed; //transform.TransformDirection(vec)* MoveSpeed;
-        if (vec.y < 0.1f && IsGrounded)
+        if (vel.y < 0.1f && IsGrounded)
         {
             if (vec.sqrMagnitude < 0.1f)
                 behavior.Stop();
@@ -185,7 +197,12 @@ public class Player : Actor
     }
     public void Skill(int charged)
     {
-        behavior.Skill(charged);
+        int useMp = charged% 100;
+        if (nowMp > useMp)
+        {
+            nowMp -= useMp;
+            behavior.Skill(charged);
+        }
     }
     public override void onDamaged(int damage)
     {
@@ -211,7 +228,6 @@ public class Player : Actor
         }
         
     }
-    
    
 
 }

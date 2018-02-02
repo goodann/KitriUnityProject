@@ -14,11 +14,13 @@ public class FightAnimation : BaseAnimation {
     }
     public override void AniMove()
     {
-        CompAnimator.SetBool("Moving", true);
+        base.AniMove();
+        //CompAnimator.SetBool("Moving", true);
     }
     public override void AniJump()
     {
-        CompAnimator.SetBool("Jump", true);
+        base.AniJump();
+        //CompAnimator.SetBool("Jump", true);
     }
     //public override void AniUpdate()
     //{
@@ -132,6 +134,7 @@ public class FightAnimation : BaseAnimation {
         if (charged > 100 && charged<200)
         {
             CompAnimator.SetTrigger("Skill1");
+            
         }
         else if (charged >= 200 && charged<300)
         {

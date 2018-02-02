@@ -13,6 +13,8 @@ public class NextAttack
         isHand = false;
     }
 }
+//애니메이션을 가지고있는 행동 클래스
+//공격 판정Collider관리
 public abstract class BaseBehavior:MyBaseObejct
 {
     //public 
@@ -23,13 +25,13 @@ public abstract class BaseBehavior:MyBaseObejct
     protected Actor targetObject;
     //protected Animator CompAnimator;
     protected BaseAnimation ani;
-    protected bool isAttacking;
+    protected bool isAnimationPlaing;
     protected float ComboTimer;
     protected NextAttack nextAttack;
     protected bool isJumping;
     //property
     public virtual BaseAnimation Ani { get { return ani; } }
-    public bool IsAttacking { get { return isAttacking; } set { isAttacking = value; } }
+    public bool IsAttacking { get { return isAnimationPlaing; } set { isAnimationPlaing = value; } }
     public bool IsJumping { get { return isJumping; } }
 
     public virtual void Init(Actor target, Animator animator)
@@ -65,12 +67,14 @@ public abstract class BaseBehavior:MyBaseObejct
     public void EndAttack()
     {
 
-        isAttacking = false;
-        foreach (var i in targetObject.ListAttackColliders)
+        isAnimationPlaing = false;
+        for(int i=0; i<targetObject.ListAttackCollidersComp.Count;++i)
         {
-            i.GetComponent<AttackCollider>().EndAttack();
-            i.enabled = false;
+            targetObject.EndAttack();
+            targetObject.ListAttackColliders[i].enabled = false;
+            
         }
+
         if (nextAttack!=null)
         {
             if (nextAttack.isHand)
@@ -79,6 +83,7 @@ public abstract class BaseBehavior:MyBaseObejct
                 AttackB();
             
         }
+        targetObject.AttackDirction = transform.forward*0.1f;
 
 
     }

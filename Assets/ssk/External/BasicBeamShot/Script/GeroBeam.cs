@@ -108,8 +108,9 @@ public class GeroBeam : MonoBehaviour {
                     bHitNow = true;
                     //custom Effect
 
-                    hitobj.SendMessage("onDamaged", 10);
-                    hitobj.transform.position += F_Vec[i].normalized * 0.05f;
+                    hitobj.SendMessage("onDamaged",StageManager.mainPlayer.NowPOWER* StageManager.mainPlayer.NowAttackPower);
+                    hitobj.transform.position += F_Vec[i].normalized * 0.02f;
+                    
 
 					break;
 				}

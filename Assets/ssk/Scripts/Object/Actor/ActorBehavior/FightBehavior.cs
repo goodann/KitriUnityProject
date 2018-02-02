@@ -68,7 +68,7 @@ public class FightBehavior : BaseBehavior {
     }
     public override void AttackA()
     {
-        if (!isAttacking)
+        if (!isAnimationPlaing)
         {
             nextAttack = null;
             Attack(true);
@@ -76,7 +76,7 @@ public class FightBehavior : BaseBehavior {
     }
     public override void AttackB()
     {
-        if (!isAttacking)
+        if (!isAnimationPlaing)
         {
             nextAttack = null;
             Attack(false);
@@ -90,23 +90,33 @@ public class FightBehavior : BaseBehavior {
     {
         
     }
-
+    public void Upper()
+    {
+        targetObject.Move(Vector3.up * targetObject.JumpForce * 0.1f + Vector3.forward);
+    }
     public override void Skill(int charged)
     {
         Stop();
+        isAnimationPlaing = true;
         ani.AniSkill(charged);
-        if (charged > 100)
-        {
-            //1필
-
-        }else if (charged > 200)
-        {
-            //2필
-
-        }else if (charged > 300)
+        if (charged >=300)
         {
             //3필
-
+            targetObject.NowAttackPower = 1.0f;
+            
+            
+        }
+        else if (charged >= 200)
+        {
+            //2필
+            targetObject.PowerUp(2f);
+            targetObject.Invoke("PowerReset", 10.0f);
+        }
+        else if (charged >= 100)
+        {
+            //1필
+            targetObject.NowAttackPower = 5.0f;
+            AttackColliderEnable(EAttackColliderIndex.ACI_LeftHand);
         }
     }
     public override void Stop()
@@ -123,18 +133,20 @@ public class FightBehavior : BaseBehavior {
     protected override void Update()
     {
         base.Update();
+        //print( "isJumping , isDowing : " + isJumping +isDownnig);
         if (isJumping)
         {
             //print(targetObject.Velocity);
 
             if (isDownnig && targetObject.IsGrounded)
             {
+                Stop();
                 ani.AniJumpEnd();
                 //isJumping = false;
                 //isDownnig = false;
-                Stop();
+
             }
-            if (targetObject.Velocity.y < -0.1f)
+            else if (targetObject.Velocity.y < -0.1f)
             {
                 isDownnig = true;
             }
@@ -160,10 +172,10 @@ public class FightBehavior : BaseBehavior {
         if (isJumpKickDowning)
         {
 
-            targetObject.Move(Physics.gravity * 1f * Time.deltaTime);
+            targetObject.Move(Physics.gravity * 2f * Time.deltaTime);
             Vector3 dir2 = transform.forward;
             dir2.y = 0;
-            targetObject.Move(dir2 * Time.deltaTime * 100f);
+            targetObject.Move(dir2 * Time.deltaTime * 200f);
             if (targetObject.IsGrounded)
             {
                 
@@ -200,13 +212,13 @@ public class FightBehavior : BaseBehavior {
 
     public void Attack(bool isHand)
     {
-        if (isAttacking && nextAttack == null)
+        if (isAnimationPlaing && nextAttack == null)
         {
             nextAttack = new NextAttack (isHand);
         }
         else
         {
-            isAttacking = true;
+            isAnimationPlaing = true;
 
             if (!IsJumping)
             {
@@ -223,15 +235,17 @@ public class FightBehavior : BaseBehavior {
                 if (comboCount == 6 && comboSignal == 0x3C)
                 {
                     //ani.AniFlipKick();
+                    targetObject.NowAttackPower = 3.0f;
                     ani.SendMessage("AniFlipKick");
                     AttackColliderEnable(EAttackColliderIndex.ACI_LeftFoot);
                     AttackColliderEnable(EAttackColliderIndex.ACI_RightFoot);
-
+                    
                 }
                 else if (comboCount == 7 && comboSignal == 0x78)
                 {
                     //print(ComboCount + ", " + ComboSignal.ToString("x"));
                     //spacialKick
+                    targetObject.NowAttackPower = 4.0f;
                     AttackColliderEnable(EAttackColliderIndex.ACI_LeftFoot);
                     AttackColliderEnable(EAttackColliderIndex.ACI_RightFoot);
                     //ani.AniSpacialKick();
@@ -245,12 +259,13 @@ public class FightBehavior : BaseBehavior {
                         //애니메이션L
                         if (isHand)
                         {
-
+                            targetObject.NowAttackPower = 1.0f;
                             //애니메이션LH
                             AttackColliderEnable(EAttackColliderIndex.ACI_LeftHand);
                         }
                         else
                         {
+                            targetObject.NowAttackPower = 1.3f;
                             //애니메이션LF
                             AttackColliderEnable(EAttackColliderIndex.ACI_LeftFoot);
                         }
@@ -260,11 +275,13 @@ public class FightBehavior : BaseBehavior {
                         //애니메이션R
                         if (isHand)
                         {
+                            targetObject.NowAttackPower = 1.0f;
                             //애니메이션RH
                             AttackColliderEnable(EAttackColliderIndex.ACI_RightHand);
                         }
                         else
                         {
+                            targetObject.NowAttackPower = 1.3f;
                             //애니메이션RF
                             AttackColliderEnable(EAttackColliderIndex.ACI_RightFoot);
                         }
@@ -284,15 +301,20 @@ public class FightBehavior : BaseBehavior {
                 if (isHand)
                 {
                     //점프손
-                    targetObject.Move(Vector3.up * targetObject.JumpForce * 0.1f + Vector3.forward);
+                    targetObject.Move(Vector3.up * targetObject.JumpForce * 0.2f + Vector3.forward);
                     ani.SendMessage("AniJumpPunch");
+                    AttackColliderEnable(EAttackColliderIndex.ACI_RightFoot);
+                    AttackColliderEnable(EAttackColliderIndex.ACI_LeftFoot);
+                    targetObject.NowAttackPower = 2.0f;
                 }
                 else
                 {
                     targetObject.Move(Vector3.up * targetObject.JumpForce * 0.05f + Vector3.forward );
                     //ani.AniJumpKick();
                     ani.SendMessage("AniJumpKick");
-                    
+                    AttackColliderEnable(EAttackColliderIndex.ACI_RightFoot);
+                    AttackColliderEnable(EAttackColliderIndex.ACI_LeftFoot);
+                    targetObject.NowAttackPower = 3.0f;
                     //점프킥
 
 
@@ -305,6 +327,5 @@ public class FightBehavior : BaseBehavior {
     //{
     //    ani.AniJump();
     //}
-
-
+    
 }

@@ -28,9 +28,9 @@ public class Kamehameha : StateMachineBehaviour {
             instBeam.transform.position += animator.transform.up*0.5f;
             
         }
-        if (timer >= 5f)
+        if (timer >= 4.85f)
         {
-            Destroy(instBeam);
+            instBeam.GetComponent<BeamParam>().bEnd = true;
         }
     }
 
