@@ -183,8 +183,8 @@ ModelImporter:
     - serializedVersion: 16
       name: mixamo.com
       takeName: mixamo.com
-      firstFrame: 0
-      lastFrame: 472
+      firstFrame: 34
+      lastFrame: 391
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

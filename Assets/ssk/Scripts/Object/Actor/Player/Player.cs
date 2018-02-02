@@ -79,7 +79,10 @@ public class Player : Actor
     public override Vector3 Velocity
     {
         //get { print(moveDirection + "<=>" + CompCharCon.velocity); return moveDirection + CompCharCon.velocity; }
-        get {Vector3 vel= (transform.position- beforePos);return vel; }
+        get {
+            Vector3 vel = (transform.position - beforePos)/Time.deltaTime;
+                print(vel);
+                return vel; }
         set { moveDirection = value; }
     }
 
@@ -93,7 +96,7 @@ public class Player : Actor
 
         
         UpdatePlayer();
-        beforePos = gameObject.transform.position;
+        
     }
     private void LateUpdate()
     {
@@ -101,7 +104,9 @@ public class Player : Actor
     }
     void FixedUpdate()
     {
+
         FixedUpdatePlayer();
+        beforePos = gameObject.transform.position;
     }
 
     //업데이트
