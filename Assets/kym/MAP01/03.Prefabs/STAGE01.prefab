@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65857623221987790}
   m_Layer: 0
   m_Name: Bench (17)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 65651861775172674}
   m_Layer: 0
   m_Name: Bench (18)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 95005660613195132}
   m_Layer: 0
   m_Name: AD_C (7)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 65335151180796742}
   m_Layer: 0
   m_Name: colider_side2
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 4289526319217564}
   m_Layer: 0
   m_Name: Sky_platforms
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 4614377688691994}
   m_Layer: 0
   m_Name: Signs
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 65966324330509644}
   m_Layer: 0
   m_Name: 1floor_front_left
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 65370471628033204}
   m_Layer: 0
   m_Name: Barrel_BoxGreyS
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 2
   m_StaticEditorFlags: 40
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 65739314433681752}
   m_Layer: 0
   m_Name: AD_C (5)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 23380755567271088}
   m_Layer: 0
   m_Name: Wire_b
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 65352399546842978}
   m_Layer: 0
   m_Name: AD_B (3)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 65186348318659592}
   m_Layer: 0
   m_Name: Sign_arrow (8)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 65715590047098718}
   m_Layer: 0
   m_Name: 1floor_middle_right
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 65769048210222336}
   m_Layer: 0
   m_Name: colider_side2
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 65598465627932360}
   m_Layer: 0
   m_Name: ATM_Pink
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 40
@@ -560,7 +560,7 @@ GameObject:
   - component: {fileID: 65476839205244086}
   m_Layer: 0
   m_Name: sky_platform2
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967287
@@ -579,7 +579,7 @@ GameObject:
   - component: {fileID: 65880283263772526}
   m_Layer: 0
   m_Name: 1floor_back_right
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -613,7 +613,7 @@ GameObject:
   - component: {fileID: 23794355102925748}
   m_Layer: 0
   m_Name: Catwalk1
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -632,7 +632,7 @@ GameObject:
   - component: {fileID: 111228663632003178}
   m_Layer: 0
   m_Name: sky_platform1
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -650,7 +650,7 @@ GameObject:
   - component: {fileID: 65149870609926322}
   m_Layer: 0
   m_Name: Barrel_StandardS1
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 40
@@ -699,7 +699,7 @@ GameObject:
   - component: {fileID: 65773106063737866}
   m_Layer: 0
   m_Name: colider_side1
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -804,7 +804,7 @@ GameObject:
   - component: {fileID: 65599550300935306}
   m_Layer: 0
   m_Name: grass_round_planter
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 2
   m_StaticEditorFlags: 4294967295
@@ -875,7 +875,7 @@ GameObject:
   - component: {fileID: 65240947177074900}
   m_Layer: 0
   m_Name: lampost_lod1 (8)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 2
   m_StaticEditorFlags: 4294967295
@@ -893,7 +893,7 @@ GameObject:
   - component: {fileID: 65721998471874962}
   m_Layer: 0
   m_Name: Bin (5)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 2
   m_StaticEditorFlags: 4294967295
@@ -977,7 +977,7 @@ GameObject:
   - component: {fileID: 111023253540070874}
   m_Layer: 0
   m_Name: Landing_Straight2
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -1013,7 +1013,7 @@ GameObject:
   - component: {fileID: 65996811311039060}
   m_Layer: 0
   m_Name: Bench (20)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1028,7 +1028,7 @@ GameObject:
   - component: {fileID: 4117087425637832}
   m_Layer: 0
   m_Name: Bridges
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1100,7 +1100,7 @@ GameObject:
   - component: {fileID: 65692517909966758}
   m_Layer: 0
   m_Name: colider_floor
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -1166,7 +1166,7 @@ GameObject:
   - component: {fileID: 65019000807570066}
   m_Layer: 0
   m_Name: 3floor_left
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1185,7 +1185,7 @@ GameObject:
   - component: {fileID: 65628718504204540}
   m_Layer: 0
   m_Name: 1floor_middle_left
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1236,7 +1236,7 @@ GameObject:
   - component: {fileID: 65393320930423254}
   m_Layer: 0
   m_Name: ATM_Yellow
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 40
@@ -1321,7 +1321,7 @@ GameObject:
   - component: {fileID: 65040905841456490}
   m_Layer: 0
   m_Name: Bench (16)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1353,7 +1353,7 @@ GameObject:
   - component: {fileID: 65151097260838104}
   m_Layer: 0
   m_Name: colider_side1
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -1422,7 +1422,7 @@ GameObject:
   - component: {fileID: 64688601214789348}
   m_Layer: 0
   m_Name: AD_D
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1472,7 +1472,7 @@ GameObject:
   - component: {fileID: 65787324653483784}
   m_Layer: 0
   m_Name: 1floor_front_right
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1506,7 +1506,7 @@ GameObject:
   - component: {fileID: 65051602274156924}
   m_Layer: 0
   m_Name: 2floor
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1644,7 +1644,7 @@ GameObject:
   - component: {fileID: 65450423363195142}
   m_Layer: 0
   m_Name: Bin (4)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 2
   m_StaticEditorFlags: 4294967295
@@ -1661,7 +1661,7 @@ GameObject:
   - component: {fileID: 23010872616368182}
   m_Layer: 0
   m_Name: Wire (1)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1708,7 +1708,7 @@ GameObject:
   - component: {fileID: 4751588736670200}
   m_Layer: 0
   m_Name: Props
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1780,7 +1780,7 @@ GameObject:
   - component: {fileID: 65477015906391068}
   m_Layer: 0
   m_Name: lampost_lod1 (7)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
@@ -1867,7 +1867,7 @@ GameObject:
   - component: {fileID: 65205228380653830}
   m_Layer: 0
   m_Name: AD_B (4)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
@@ -1903,7 +1903,7 @@ GameObject:
   - component: {fileID: 65334188699129858}
   m_Layer: 0
   m_Name: Bench (19)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1921,7 +1921,7 @@ GameObject:
   - component: {fileID: 65715831532320618}
   m_Layer: 0
   m_Name: Sign_arrow (9)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
@@ -1972,7 +1972,7 @@ GameObject:
   - component: {fileID: 65837992268482598}
   m_Layer: 0
   m_Name: AD_C (4)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
@@ -2073,7 +2073,7 @@ GameObject:
   - component: {fileID: 4631966138457986}
   m_Layer: 0
   m_Name: Crates
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2106,7 +2106,7 @@ GameObject:
   - component: {fileID: 114764780617325534}
   m_Layer: 0
   m_Name: ItemSpawnPoints
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2124,7 +2124,7 @@ GameObject:
   - component: {fileID: 65905030939947938}
   m_Layer: 0
   m_Name: Sign_arrow (10)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2141,7 +2141,7 @@ GameObject:
   - component: {fileID: 23669062813709850}
   m_Layer: 0
   m_Name: Wire
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2228,7 +2228,7 @@ GameObject:
   - component: {fileID: 65311274915703350}
   m_Layer: 0
   m_Name: Barrel_StandardS2
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 40
@@ -2261,7 +2261,7 @@ GameObject:
   - component: {fileID: 65012952544778810}
   m_Layer: 0
   m_Name: Terminal (10)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
@@ -2365,7 +2365,7 @@ GameObject:
   - component: {fileID: 4513009163494920}
   m_Layer: 0
   m_Name: STAGE01
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2384,7 +2384,7 @@ GameObject:
   - component: {fileID: 65047850820512428}
   m_Layer: 0
   m_Name: 1floor_back_left
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2420,7 +2420,7 @@ GameObject:
   - component: {fileID: 65541505253815638}
   m_Layer: 0
   m_Name: ATM_Green
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 40
@@ -2455,7 +2455,7 @@ GameObject:
   - component: {fileID: 65499863332120060}
   m_Layer: 0
   m_Name: Barrel_CartMiniS
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -2474,7 +2474,7 @@ GameObject:
   - component: {fileID: 111955968132668160}
   m_Layer: 0
   m_Name: sky_platform3
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2492,7 +2492,7 @@ GameObject:
   - component: {fileID: 65140122290968102}
   m_Layer: 0
   m_Name: Bench (21)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2510,7 +2510,7 @@ GameObject:
   - component: {fileID: 111040992469362400}
   m_Layer: 0
   m_Name: Landing_Straight1
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -2528,7 +2528,7 @@ GameObject:
   - component: {fileID: 65876534429302988}
   m_Layer: 0
   m_Name: AD_C (3)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2543,7 +2543,7 @@ GameObject:
   - component: {fileID: 4875909292335708}
   m_Layer: 0
   m_Name: Floors
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2596,7 +2596,7 @@ GameObject:
   - component: {fileID: 65324969709644462}
   m_Layer: 0
   m_Name: lampost_lod1 (9)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
@@ -2650,7 +2650,7 @@ GameObject:
   - component: {fileID: 205842630684715180}
   m_Layer: 0
   m_Name: sky_platform4
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2684,7 +2684,7 @@ GameObject:
   - component: {fileID: 65003863659751814}
   m_Layer: 0
   m_Name: colider_floor
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -2702,7 +2702,7 @@ GameObject:
   - component: {fileID: 65949722593446604}
   m_Layer: 0
   m_Name: Plate_GreyS
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -2717,7 +2717,7 @@ GameObject:
   - component: {fileID: 4554554186796796}
   m_Layer: 0
   m_Name: ATMs
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2769,7 +2769,7 @@ GameObject:
   - component: {fileID: 23351579513754146}
   m_Layer: 0
   m_Name: Catwalk2
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -2784,7 +2784,7 @@ GameObject:
   - component: {fileID: 4332498259563546}
   m_Layer: 0
   m_Name: Ads
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2802,7 +2802,7 @@ GameObject:
   - component: {fileID: 65941581736027204}
   m_Layer: 0
   m_Name: Terminal (9)
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
@@ -2838,7 +2838,7 @@ GameObject:
   - component: {fileID: 65640583216460506}
   m_Layer: 0
   m_Name: 3floor_right
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4880,7 +4880,7 @@ Transform:
   m_GameObject: {fileID: 1142521355239522}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: -53.8, y: 15.3, z: 26.2}
-  m_LocalScale: {x: 100, y: 2, z: 100}
+  m_LocalScale: {x: 200, y: 2, z: 200}
   m_Children: []
   m_Father: {fileID: 4513009163494920}
   m_RootOrder: 15
@@ -11334,8 +11334,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d45af5aefbec34780be9b50ac714a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObject: {fileID: 0}
-  startPosition: {fileID: 4060133809267922}
 --- !u!114 &114864484797688288
 MonoBehaviour:
   m_ObjectHideFlags: 1
