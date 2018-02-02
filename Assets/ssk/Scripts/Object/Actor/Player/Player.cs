@@ -102,11 +102,11 @@ public class Player : Actor
     {
         
     }
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
 
         FixedUpdatePlayer();
-        beforePos = gameObject.transform.position;
+        beforePos = transform.position;
     }
 
     //업데이트
