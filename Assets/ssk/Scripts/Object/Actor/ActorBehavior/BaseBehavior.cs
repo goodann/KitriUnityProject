@@ -51,8 +51,9 @@ public abstract class BaseBehavior:MyBaseObejct
     public abstract void Dead();
     public abstract void AttackA();
     public abstract void AttackB();
-    public virtual  void onDamaged(int damage)
+    public virtual  void onDamage(int damage)
     {
+        
         ani.AniDamaged();
     }
     public virtual void Stop()
@@ -66,7 +67,7 @@ public abstract class BaseBehavior:MyBaseObejct
     }
     public void EndAttack()
     {
-
+        print("end Attack by BaseBehavior");
         isAnimationPlaing = false;
         for(int i=0; i<targetObject.ListAttackCollidersComp.Count;++i)
         {

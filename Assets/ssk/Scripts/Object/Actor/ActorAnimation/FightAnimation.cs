@@ -107,7 +107,9 @@ public class FightAnimation : BaseAnimation {
     }
     public void AniJumpPunch()
     {
+        
         CompAnimator.SetBool("JumpPunch", true);
+        CompAnimator.Play("JumpPunch");
         print("점프펀치");
     }
     public void AniJumpKick()
@@ -121,6 +123,7 @@ public class FightAnimation : BaseAnimation {
     }
     public override void AniStop()
     {
+        print("AniStop!!");
         CompAnimator.SetBool("Moving", false);
         CompAnimator.SetBool("Jump", false);
         CompAnimator.SetBool("JumpKick", false);

@@ -41,7 +41,7 @@ public class Player : Actor
     EEquipmentState NowEq;
 
     protected int TotalComboCount;
-    
+
 
     //components
     protected CharacterController CompCharCon;
@@ -173,8 +173,13 @@ public class Player : Actor
 
     public override void Move(Vector3 vec)
     {
+
+        
         moveDirection += vec * NowMoveSpeed; //transform.TransformDirection(vec)* MoveSpeed;
-        if (vel.y < 0.1f && IsGrounded)
+        Vector3 vel2d = vel;
+        vel2d.y = 0;
+        //print("player'sMove : " + vec + "2d vel" + vel2d);
+        if (vel.y < 0.1f && IsGrounded && vel2d.sqrMagnitude>0.1f)
         {
             if (vec.sqrMagnitude < 0.1f)
                 behavior.Stop();
@@ -207,12 +212,16 @@ public class Player : Actor
     }
     public override void onDamaged(int damage)
     {
-        behavior.onDamaged(damage);
-        base.onDamaged(damage);
+        if (isAlive == true)
+        {
+            behavior.onDamage(damage);
+            base.onDamaged(damage);
+        }
         
     }
     public override void onDead()
     {
+        behavior.Dead();
         base.onDead();
     }
 

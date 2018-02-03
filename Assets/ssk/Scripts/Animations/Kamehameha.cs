@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Kamehameha : StateMachineBehaviour {
+public class Kamehameha : AniStateAttack
+{
     static GameObject beamPrefab;
     GameObject instBeam;
     Vector3 beamPosition = new Vector3(0, 0.5f, 0.5f);
@@ -20,6 +21,7 @@ public class Kamehameha : StateMachineBehaviour {
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        base.OnStateUpdate(animator, stateInfo, layerIndex);
         StageManager.mainPlayer.Behavior.IsAnimationPlaing = false;
         timer += Time.deltaTime;
         if(timer>=0.3f && instBeam == null)

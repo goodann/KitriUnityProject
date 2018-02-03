@@ -38,18 +38,25 @@ public class Actor : MyBaseObejct {
     protected Vector3 attackDirction;
 
     // init status
+    [SerializeField]
     protected int hp;
+    [SerializeField]
     protected int mp;
+    [SerializeField]
     protected int power;
+    [SerializeField]
     protected float nowAttackPower;
-
+    [SerializeField]
     protected int nowHp;
+    [SerializeField]
     protected int nowMp;
+    [SerializeField]
     protected int nowPower;
 
     protected bool isAlive;
     //중복공격 방지
     public Dictionary<GameObject, bool> attackedObject= new Dictionary<GameObject, bool>();
+    
 
 
     public bool IsAlive
@@ -124,6 +131,7 @@ public class Actor : MyBaseObejct {
 
     public virtual void Init()
     {
+        NowAttackPower = 1.0f;
         isAlive = true;
         NowMoveSpeed = MoveSpeed;
     }

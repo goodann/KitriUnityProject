@@ -93,8 +93,8 @@ public partial class PlayablePlayer : Player
                 transform.transform.LookAt(transform.transform.position + moveVec);
                 if (moveVec.sqrMagnitude > 0.1f)
                     Move(moveVec);
-                else if (isGrounded && !behavior.IsJumping)
-                    Stop();
+                //else if (isGrounded && !behavior.IsJumping)
+                    //Stop();
             }
         }
         else
@@ -188,29 +188,35 @@ public partial class PlayablePlayer : Player
     }
     void SkillKeyDown()
     {
-        //charge
-        skill += Time.unscaledDeltaTime * 300;
-        if (skill > 100)
+        if (isGrounded == true)
         {
-            //암전
-            if (isDark == false)
+            attack1 = 0;
+            attack2 = 0;
+            jump = 0;
+            //charge
+            skill += Time.unscaledDeltaTime * 300;
+            if (skill > 100)
             {
-                if (LightSet == false)
+                //암전
+                if (isDark == false)
                 {
-                    LightColor = StageManager.MainLight.color;
-                    LightSet = true;
+                    if (LightSet == false)
+                    {
+                        LightColor = StageManager.MainLight.color;
+                        LightSet = true;
+                    }
+                    StageManager.MainLight.color = new Color(1f, 0.1f, 0.1f);
+                    StageManager.MainLight.intensity = 3;
+                    isDark = true;
                 }
-                StageManager.MainLight.color = new Color(1f, 0.1f, 0.1f);
-                StageManager.MainLight.intensity = 3;
-                isDark = true;
-            }
 
-            timeScale = Mathf.Lerp(timeScale, 0.01f, Time.unscaledDeltaTime * 3f);
-            Time.timeScale = timeScale;
+                timeScale = Mathf.Lerp(timeScale, 0.01f, Time.unscaledDeltaTime * 3f);
+                Time.timeScale = timeScale;
+            }
         }
     }
     void SkillKeyUp() { 
-        if (Input.GetKeyUp(KeyCode.C))
+        //if (Input.GetKeyUp(KeyCode.C))
         {
             //skill
             timeScale = 1;
