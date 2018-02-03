@@ -45,3 +45,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: New Layer
+    uniqueID: 4280423149
+    locked: 0
+  - name: New Layer
+    uniqueID: 3562303371
+    locked: 0
+  - name: Particle
+    uniqueID: 231399
+    locked: 0
+  - name: UI
+    uniqueID: 476840027
+    locked: 0
+  - name: AlwaysOnTop
+    uniqueID: 3669598421
+    locked: 0

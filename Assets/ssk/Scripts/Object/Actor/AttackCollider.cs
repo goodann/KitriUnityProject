@@ -9,35 +9,65 @@ public class AttackCollider : MyBaseObejct {
     GameObject fightAttackParticlePrefab;
     AudioSource audioSource;
     Actor actor;
-    
+    Collider col;
     float timer;
     bool isStop;
+    
     public int attackState;
     public int AttackState
     {
         get { return attackState; }
         set { attackState = value; }
     }
+    int i = 0;
 	// Use this for initialization
 	void Start () {
         //actor = FindInParentComp<Actor>();
+        col = GetComponent<Collider>();
         actor = GetComponentInParent<Actor>();
         StarParticlePrefab = Resources.Load("ssk/prefabs/StarParticle") as GameObject;
         fightAttackParticlePrefab = Resources.Load("ssk/prefabs/FightAttackParticle") as GameObject;
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip= Resources.Load("ssk/sound/Effect/fight/attack") as AudioClip;
         audioSource.playOnAwake = false;
-        
-    }
-	
-	// Update is called once per frame
-	void Update () {
 
+
+        trailRenderer = gameObject.AddComponent<TrailRenderer>();
+        trailRenderer.startWidth = 0.2f;
+        trailRenderer.endWidth = 0.2f;
+        trailRenderer.material = Resources.Load("ssk/Material/AlphaGr3") as Material;
+        //trailRenderer.material.SetColor("_TintColor", Color.yellow);
+        //trailRenderer.material.SetColor("_TintColor", new Color(0.1f, 1.0f, 1.0f));
+        trailRenderer.startColor = Color.red;
+        trailRenderer.endColor = new Color(0.1f, 1.0f, 1.0f);
+
+        //trailRenderer.time = 0.2f;
+        trailRenderer.time = 0.5f;
+
+    }
+    TrailRenderer trailRenderer;
+    
+    // Update is called once per frame
+    void Update () {
+        if (col.enabled == true)
+        {
+            trailRenderer.enabled = true;
+            trailRenderer.minVertexDistance = 0.1f;
+        }
+        else
+        {
+            trailRenderer.enabled = false;
+            //Invoke("TrailDisable", 0.5f);
+        }
         timer += Time.unscaledDeltaTime;
         if (isStop && timer > 0.05f)
         {
             ReturnTime();
         }
+    }
+    void TrailDisable()
+    {
+        trailRenderer.enabled = false;
     }
     private void OnTriggerEnter(Collider other)
     {
