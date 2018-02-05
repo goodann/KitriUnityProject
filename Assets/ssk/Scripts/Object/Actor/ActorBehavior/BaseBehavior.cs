@@ -65,17 +65,20 @@ public abstract class BaseBehavior:MyBaseObejct
     {
         ComboTimer += Time.deltaTime;
     }
+    public void EndAttackCollider()
+    {
+        for (int i = 0; i < targetObject.ListAttackCollidersComp.Count; ++i)
+        {
+            targetObject.EndAttack();
+            targetObject.ListAttackColliders[i].enabled = false;
+
+        }
+    }
     public void EndAttack()
     {
         print("end Attack by BaseBehavior");
         isAnimationPlaing = false;
-        for(int i=0; i<targetObject.ListAttackCollidersComp.Count;++i)
-        {
-            targetObject.EndAttack();
-            targetObject.ListAttackColliders[i].enabled = false;
-            
-        }
-
+        EndAttackCollider();
         if (nextAttack!=null)
         {
             if (nextAttack.isHand)

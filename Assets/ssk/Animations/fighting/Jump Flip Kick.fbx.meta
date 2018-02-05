@@ -204,8 +204,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.6157025
-        functionName: EndAttack
+      - time: 0.661157
+        functionName: EndAttackCollider
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 725f3e2e467dde940bda0b9dbf96fbaa,
           type: 3}

@@ -2622,7 +2622,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1863400010579130}
-  m_LocalRotation: {x: -0.0059114303, y: -0.67944837, z: 0.7336993, w: -0.00066563475}
+  m_LocalRotation: {x: -0.00591143, y: -0.67944837, z: 0.7336993, w: -0.00066563475}
   m_LocalPosition: {x: -0.14276123, y: 0.032653574, z: 0.13977996}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_Children: []
@@ -3137,8 +3137,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   JumpForce: 10
   MoveSpeed: 3
+  NowMoveSpeed: 2
   ListAttackColliders: []
   ListAttackCollidersComp: []
+  hp: 0
+  mp: 0
+  power: 0
+  nowAttackPower: 0
+  nowHp: 0
+  nowMp: 0
+  nowPower: 0
   CompAnimators:
   - {fileID: 9100000, guid: c52d1c9c48f6c5c409bf71e5a55054d9, type: 2}
   - {fileID: 9100000, guid: 0538e9323ad448449b739f27816b2167, type: 2}
