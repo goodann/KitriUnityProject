@@ -14,8 +14,8 @@ public class GetItem : MonoBehaviour {
     public bool isThrowingItemBtnDown = false;
 
     Rigidbody itemRigidbody;
-    public float throwItemSpeed = 100;
-    public float throwPower = 100;
+    public float throwItemSpeed = 10000;
+    public float throwPower = 8000;
 
     private void Start()
     {
@@ -40,13 +40,13 @@ public class GetItem : MonoBehaviour {
         itemRigidbody.isKinematic = false;
         itemRigidbody.useGravity = true;
         isTriggerStaying = false;
+        itemRigidbody.freezeRotation = false;
 
 
         //아이템을 날린다
         itemRigidbody.AddForce(transform.forward * throwItemSpeed);
         itemRigidbody.AddTorque(transform.forward * throwPower);
-        itemRigidbody.freezeRotation = false;
-       
+
 
         //부모연결을 끊는다 -> 오브젝트풀로 리턴
         takeItemObj.transform.parent = GameObject.Find("ObjectPool").transform;

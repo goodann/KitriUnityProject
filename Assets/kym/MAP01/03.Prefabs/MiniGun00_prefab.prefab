@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114047719932930432}
   - component: {fileID: 65268481114644962}
   - component: {fileID: 54940895326765772}
-  m_Layer: 10
+  m_Layer: 17
   m_Name: MiniGun00_prefab
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4145319562091502}
   - component: {fileID: 33394198587831530}
   - component: {fileID: 23442208078621654}
-  m_Layer: 10
+  m_Layer: 17
   m_Name: MiniGun00_mesh
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -155,4 +155,4 @@ MonoBehaviour:
   itemInitUpY: 1
   rotationSpeed: 120
   isPickedUp: 0
-  itemGenePointIndex: 1
+  itemGenePointIndex: 0

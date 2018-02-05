@@ -4031,7 +4031,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1873664653781338}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: -53.8, y: 0.2, z: 26.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10135,8 +10135,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.6, y: 11.091403, z: 1.649244}
-  m_Center: {x: -0.0020842552, y: -0.49137878, z: -0.66587937}
+  m_Size: {x: 10.6, y: 11.997562, z: 1.649244}
+  m_Center: {x: -0.0020842552, y: -0.9444585, z: -0.665877}
 --- !u!65 &65020344439968694
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -10699,8 +10699,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.6, y: 11.3, z: 1.42}
-  m_Center: {x: -0.0020842552, y: 0.6, z: -0.7452279}
+  m_Size: {x: 10.6, y: 11.769973, z: 1.4200001}
+  m_Center: {x: -0.0020842552, y: 0.8349867, z: -0.7452262}
 --- !u!65 &65651861775172674
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -10855,8 +10855,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 11, z: 1.7}
-  m_Center: {x: -0.0019495487, y: 4.48, z: -0.8}
+  m_Size: {x: 10, y: 11.901642, z: 1.7000002}
+  m_Center: {x: -0.0019493103, y: 4.0291796, z: -0.80000186}
 --- !u!65 &65788217034064994
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -11071,8 +11071,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.5, y: 11, z: 1.7}
-  m_Center: {x: -0.0019493103, y: 4.48, z: -0.8}
+  m_Size: {x: 10.5, y: 11.750146, z: 1.7}
+  m_Center: {x: -0.0019493103, y: 4.104927, z: -0.800001}
 --- !u!65 &65996811311039060
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -11378,16 +11378,11 @@ MonoBehaviour:
   - {fileID: 1831826917669962, guid: ae289f121251bfb449da4f9b4fefbac7, type: 2}
   - {fileID: 1430686385507942, guid: 241a5f2cda9c16542a7721635b5caabb, type: 2}
   - {fileID: 1994347068923592, guid: 0f1e60bc5f1dac74ba7e9b0872198e86, type: 2}
-  - {fileID: 1223353750521374, guid: 11cdb46911f6b214081563fce6c29411, type: 2}
-  - {fileID: 1297199065309990, guid: 26e084dabbda34a44ad60c703f0aac8e, type: 2}
-  - {fileID: 1831826917669962, guid: ae289f121251bfb449da4f9b4fefbac7, type: 2}
-  - {fileID: 1430686385507942, guid: 241a5f2cda9c16542a7721635b5caabb, type: 2}
-  - {fileID: 1994347068923592, guid: 0f1e60bc5f1dac74ba7e9b0872198e86, type: 2}
   points: []
   itemObjPool: []
   effObjPool: []
-  maxItemCnt: 15
-  createTime: 3
+  maxItemCnt: 10
+  createTime: 5
   isGameOver: 0
   itemGeneEffect: {fileID: 1298723850003286, guid: 08d4034e434e7104085b452f1c9509da,
     type: 2}

@@ -10,19 +10,23 @@ public class ItemRotate : MonoBehaviour {
     public bool isPickedUp;
 
     ItemGenerator itemGeneator;
+    BoxCollider _boxCollider;
+    Rigidbody _rigidbody;
     public int itemGenePointIndex = 0;
 
     Quaternion initRotation;
 
     private void Awake()
     {
-        initRotation = this.transform.rotation;
+        initRotation = this.transform.localRotation;
     }
 
     // Use this for initialization
     void Start ()
     {
-        transform.position += new Vector3(0, itemInitUpY, 0);
+        _boxCollider = GetComponent<BoxCollider>();
+        _rigidbody = GetComponent<Rigidbody>();
+
         itemGeneator = GameObject.Find("ItemSpawnPoints").GetComponent<ItemGenerator>();
         isPickedUp = false;
 
@@ -55,17 +59,18 @@ public class ItemRotate : MonoBehaviour {
     
     void HoldColliderStatement()
     {
-        GetComponent<BoxCollider>().isTrigger = true;
-        GetComponent<Rigidbody>().isKinematic = true;
-        GetComponent<Rigidbody>().useGravity = false;
+        _boxCollider.isTrigger = true;
+        _rigidbody.isKinematic = true;
+        _rigidbody.useGravity = false;
     }
 
-    public void SetInitRotation()
+    public void SetupActiveRotation()
     {
-        
+        HoldColliderStatement();
         transform.rotation = initRotation;
+        itemGenePointIndex = 0;
+        isPickedUp = false;
         gameObject.SetActive(false);
-        //isPickedUp = false;
-
+        
     }
 }

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33528456460520464}
   - component: {fileID: 23798771051133702}
   - component: {fileID: 64755235185346486}
-  m_Layer: 9
+  m_Layer: 16
   m_Name: Mace00_mesh(Clone)
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114044229114604324}
   - component: {fileID: 65666183526527906}
   - component: {fileID: 54173654097417650}
-  m_Layer: 9
+  m_Layer: 16
   m_Name: Mace00_prefab
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -170,4 +170,4 @@ MonoBehaviour:
   itemInitUpY: 0.5
   rotationSpeed: 120
   isPickedUp: 0
-  itemGenePointIndex: 1
+  itemGenePointIndex: 0

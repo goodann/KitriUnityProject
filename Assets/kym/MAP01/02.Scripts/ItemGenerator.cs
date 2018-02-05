@@ -17,7 +17,7 @@ public class ItemGenerator : MonoBehaviour {
 
     public int maxItemCnt = 10;
     int maxPointCnt = 0;
-    public float createTime = 2.5f;
+    public float createTime = 5f;
 
     public bool isGameOver = false;
 
@@ -51,6 +51,7 @@ public class ItemGenerator : MonoBehaviour {
         StartCoroutine("CreateItem");
     }
 
+
     IEnumerator CreateItem()
     {
         while(!isGameOver)
@@ -61,18 +62,23 @@ public class ItemGenerator : MonoBehaviour {
                 {
                     yield return new WaitForSeconds(createTime);
 
-                    int idx = CheckIndexNumber(Random.Range(1, points.Length));
-                    
-                    //geneOn == false면 건너뜀
+                    int idx = CheckIndexNumber();  //1~5
+
+                    //foreach (int num in indexList)
+                    //    Debug.Log(num);
+
+                    if (idx == 0) continue;
+
+                    //제너레이터 작동중이면 건너뜀
                     if (points[idx].GetComponent<ItemGeneInit>().GetGeneOn() == false) continue;
 
-                    item.transform.position = points[idx].position;
+                    item.transform.position = points[idx].position + new Vector3(0, item.GetComponent<ItemRotate>().itemInitUpY, 0);
                     
                     item.SetActive(true);
 
                     ItemRotate ir = item.GetComponent<ItemRotate>();
                     ir.itemGenePointIndex = idx;
-                    //item.transform.rotation = ir.i;
+                    
                     effObjPool[idx-1].SetActive(true);
                     points[idx].GetComponent<ItemGeneInit>().SetGeneOn(false);
                     
@@ -82,21 +88,49 @@ public class ItemGenerator : MonoBehaviour {
         yield return null;
     }
 
-    int CheckIndexNumber(int value)
+    int CheckIndexNumber()
     {
-        foreach(int num in indexList)
+        int value = 0;
+
+        if (indexList.Count == maxPointCnt)
+            return 0;
+
+        while (true)
         {
-            while(value == num)
+            int overlap = 0;
+            value = Random.Range(1, points.Length);
+
+            foreach(int num in indexList)
             {
-                value = Random.Range(1, points.Length);
-            } 
+                if(value == num)
+                {
+                    //충돌있음
+                    overlap = 1;
+                    break;
+                }
+            }
+
+            if(overlap == 1)
+            {
+                //충돌있음 -> 다시 검사
+                //Debug.Log("Continue");
+                continue;
+            }
+            else
+            {
+                //충돌없음 -> 탈출
+                break;                
+            }
+            
         }
         indexList.Add(value);
         return value;
+
     }
 
     public void RemoveIndexList(int value)
     {
+        Debug.Log("Remove value : " + value);
         indexList.Remove(value);
     }
 }

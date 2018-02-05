@@ -15,9 +15,6 @@ public class FallingDieTrigger : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        GameObject dyingEff = Instantiate(dyingEffect, col.transform.position, Quaternion.identity) as GameObject;
-        Destroy(dyingEff, 1.5f);
-
         if (col.gameObject.tag == "Player")
         {
             startPos.SendMessage("ResetPlayerPos", SendMessageOptions.DontRequireReceiver);
@@ -25,13 +22,17 @@ public class FallingDieTrigger : MonoBehaviour {
 
         if (col.gameObject.tag == "Enemy")
         {
-            Destroy(col.gameObject);
+            Debug.Log("Enemy Falling die");
+            //Destroy(col.gameObject);
         }
 
         if(col.gameObject.tag == "Item")
         {
-            col.gameObject.GetComponent<ItemRotate>().SetInitRotation();
+            col.gameObject.GetComponent<ItemRotate>().SetupActiveRotation();
         }
+
+        GameObject dyingEff = Instantiate(dyingEffect, col.transform.position, Quaternion.identity) as GameObject;
+        Destroy(dyingEff, 1.5f);
     }
 
 }

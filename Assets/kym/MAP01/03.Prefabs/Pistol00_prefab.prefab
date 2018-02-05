@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114013128244952374}
   - component: {fileID: 65962605263556424}
   - component: {fileID: 54339252497093200}
-  m_Layer: 11
+  m_Layer: 18
   m_Name: Pistol00_prefab
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4929892777855602}
   - component: {fileID: 33572687338595562}
   - component: {fileID: 23586405269355306}
-  m_Layer: 11
+  m_Layer: 18
   m_Name: default
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -155,4 +155,4 @@ MonoBehaviour:
   itemInitUpY: 1
   rotationSpeed: 120
   isPickedUp: 0
-  itemGenePointIndex: 1
+  itemGenePointIndex: 0

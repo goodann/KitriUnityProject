@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114059995822924610}
   - component: {fileID: 65419427266110806}
   - component: {fileID: 54273992895271024}
-  m_Layer: 12
+  m_Layer: 19
   m_Name: Shield00_prefab
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4386867086474362}
   - component: {fileID: 33468804720680594}
   - component: {fileID: 23821267513524430}
-  m_Layer: 12
+  m_Layer: 19
   m_Name: Shield00_mesh(Clone)
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -155,4 +155,4 @@ MonoBehaviour:
   itemInitUpY: 0.5
   rotationSpeed: 120
   isPickedUp: 0
-  itemGenePointIndex: 1
+  itemGenePointIndex: 0
