@@ -12,11 +12,15 @@ public class ItemRotate : MonoBehaviour {
     ItemGenerator itemGeneator;
     public int itemGenePointIndex = 0;
 
-   
+    Quaternion initRotation;
 
+    private void Awake()
+    {
+        initRotation = this.transform.rotation;
+    }
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         transform.position += new Vector3(0, itemInitUpY, 0);
         itemGeneator = GameObject.Find("ItemSpawnPoints").GetComponent<ItemGenerator>();
@@ -56,5 +60,12 @@ public class ItemRotate : MonoBehaviour {
         GetComponent<Rigidbody>().useGravity = false;
     }
 
+    public void SetInitRotation()
+    {
+        
+        transform.rotation = initRotation;
+        gameObject.SetActive(false);
+        //isPickedUp = false;
 
+    }
 }

@@ -54,7 +54,7 @@ public class ItemGenerator : MonoBehaviour {
     IEnumerator CreateItem()
     {
         while(!isGameOver)
-        {
+        { 
             foreach (GameObject item in itemObjPool)
             {
                 if (!item.activeSelf)
@@ -62,14 +62,17 @@ public class ItemGenerator : MonoBehaviour {
                     yield return new WaitForSeconds(createTime);
 
                     int idx = CheckIndexNumber(Random.Range(1, points.Length));
-
+                    
                     //geneOn == false면 건너뜀
                     if (points[idx].GetComponent<ItemGeneInit>().GetGeneOn() == false) continue;
 
                     item.transform.position = points[idx].position;
+                    
                     item.SetActive(true);
-                    item.GetComponent<ItemRotate>().itemGenePointIndex = idx;
 
+                    ItemRotate ir = item.GetComponent<ItemRotate>();
+                    ir.itemGenePointIndex = idx;
+                    //item.transform.rotation = ir.i;
                     effObjPool[idx-1].SetActive(true);
                     points[idx].GetComponent<ItemGeneInit>().SetGeneOn(false);
                     
