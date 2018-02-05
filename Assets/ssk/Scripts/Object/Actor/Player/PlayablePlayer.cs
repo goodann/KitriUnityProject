@@ -207,7 +207,11 @@ public partial class PlayablePlayer : Player
             attack2 = 0;
             jump = 0;
             //charge
-            skill += Time.unscaledDeltaTime * 300;
+            skill += Time.unscaledDeltaTime * mp;
+            if (skill > mp)
+            {
+                skill = mp;
+            }
             if (skill > 100)
             {
                 //암전
@@ -235,7 +239,8 @@ public partial class PlayablePlayer : Player
             timeScale = 1;
             Time.timeScale = timeScale;
             print(skill);
-            behavior.Skill((int)skill);
+            //behavior.Skill((int)skill);
+            base.Skill((int)skill);
             skill = 0;
             //원상복구
             if (isDark)

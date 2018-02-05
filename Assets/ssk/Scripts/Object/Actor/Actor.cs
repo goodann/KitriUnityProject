@@ -145,6 +145,22 @@ public class Actor : MyBaseObejct {
         isRolling = true;   
     }
 
+    public virtual void AttackRecoverMana()
+    {
+        print(gameObject.name + "의 공격 마나 회복!");
+        if (nowMp < mp)
+            nowMp += 5;
+        if (nowMp > mp)
+            nowMp = mp;
+    }
+    public virtual void DamagedRecoverMana()
+    {
+        print(gameObject.name + "의 피격 마나 회복!");
+        if (nowMp < mp)
+            nowMp += 5;
+        if (nowMp > mp)
+            nowMp = mp;
+    }
     public virtual void EndRolling()
     {
         print("end ROlling!");

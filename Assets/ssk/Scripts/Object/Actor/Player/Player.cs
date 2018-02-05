@@ -214,11 +214,12 @@ public class Player : Actor
     {
         behavior.AttackB();
     }
-    public void Skill(int charged)
+    public virtual void Skill(int charged)
     {
-        int useMp = charged% 100;
-        if (nowMp > useMp)
+        int useMp = (charged / 100)*100;
+        if (nowMp >= useMp)
         {
+            print("now MP : " + nowMp + "RemoveMP : " + useMp);
             nowMp -= useMp;
             behavior.Skill(charged);
         }
