@@ -29,10 +29,13 @@ public abstract class BaseBehavior:MyBaseObejct
     protected float ComboTimer;
     protected NextAttack nextAttack;
     protected bool isJumping;
+    protected bool isMoving;
     //property
     public virtual BaseAnimation Ani { get { return ani; } }
     public bool IsAnimationPlaing { get { return isAnimationPlaing; } set { isAnimationPlaing = value; } }
     public bool IsJumping { get { return isJumping; } }
+    public bool IsMoving { get {return isMoving; } }
+    
 
     public virtual void Init(Actor target, Animator animator)
     {
@@ -45,10 +48,23 @@ public abstract class BaseBehavior:MyBaseObejct
     public virtual void Move()
     {
         ani.AniMove();
+        isMoving = true;
+    }
+    public virtual void Rolling()
+    {
+        ani.AniRolling();
+         
     }
     public abstract void Skill(int charged);
-    public abstract void Damaged(int damage);
-    public abstract void Dead();
+    public virtual void Damaged(int damage)
+    {
+        ani.AniDamaged();
+    }
+
+    public virtual void Dead()
+    {
+        ani.AniDead();
+    }
     public abstract void AttackA();
     public abstract void AttackB();
     public virtual  void onDamage(int damage)
@@ -59,10 +75,15 @@ public abstract class BaseBehavior:MyBaseObejct
     public virtual void Stop()
     {
         ani.AniStop();
+        isMoving = false;
     }
 
     protected virtual void Update()
     {
+        if (targetObject.IsRolling)
+        {
+            //targetObject.Move(transform.forward);
+        }
         ComboTimer += Time.deltaTime;
     }
     public void EndAttackCollider()

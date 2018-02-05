@@ -54,6 +54,7 @@ public class Actor : MyBaseObejct {
     protected int nowPower;
 
     protected bool isAlive;
+    protected bool isRolling;
     //중복공격 방지
     public Dictionary<GameObject, bool> attackedObject= new Dictionary<GameObject, bool>();
     
@@ -120,6 +121,9 @@ public class Actor : MyBaseObejct {
         get{return isGrounded;}
         
     }
+
+    public bool IsRolling { get { return isRolling; } }
+    //method
     public virtual void StatusInit(Status st)
     {
         hp = st.hp;
@@ -136,6 +140,16 @@ public class Actor : MyBaseObejct {
         NowMoveSpeed = MoveSpeed;
     }
 
+    public virtual void Rolling()
+    {
+        isRolling = true;   
+    }
+
+    public virtual void EndRolling()
+    {
+        print("end ROlling!");
+        isRolling = false;
+    }
     public virtual void Move(Vector3 dir)
     {
         moveDirection += dir;
@@ -151,11 +165,13 @@ public class Actor : MyBaseObejct {
     }
     public virtual void onDamaged(int damage)
     {
-        
-        nowHp-=damage;
-        print(gameObject.ToString() + "의 HP = " + nowHp);
-        if (nowHp < 0)
-            onDead();
+        if (isRolling == false)
+        {
+            nowHp -= damage;
+            print(gameObject.ToString() + "의 HP = " + nowHp);
+            if (nowHp < 0)
+                onDead();
+        }
     }
     public virtual void onDead()
     {

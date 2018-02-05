@@ -37,6 +37,8 @@ public partial class PlayablePlayer : Player
     float timeScale = 1;
     //float lerpTime = 0;
     bool isDark;
+    
+    int moveButtonState = 0;
     private PlayablePlayer()
     {
 
@@ -66,6 +68,7 @@ public partial class PlayablePlayer : Player
     }
     void ControllInput()
     {
+
         if (isAlive == false)
             return;
         if (!behavior.IsAnimationPlaing)
@@ -92,7 +95,17 @@ public partial class PlayablePlayer : Player
                 moveVec += Vector3.forward * vInput * MoveSpeed;
                 transform.transform.LookAt(transform.transform.position + moveVec);
                 if (moveVec.sqrMagnitude > 0.1f)
-                    Move(moveVec);
+                {
+                    if (UIJoyStick.ClickCount == 2)
+                    {
+                        Rolling();
+                        UIJoyStick.ClickCount = 0;
+                    }
+                    else { 
+                        Move(moveVec);
+                    }
+                    
+                }
                 //else if (isGrounded && !behavior.IsJumping)
                     //Stop();
             }

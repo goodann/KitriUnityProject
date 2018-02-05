@@ -38,6 +38,10 @@ public class BaseAnimation:MyBaseObejct  {
     {
         CompAnimator.SetBool("Moving", true);
     }
+    public virtual void AniRolling()
+    {
+        CompAnimator.SetTrigger("Rolling");
+    }
     public virtual void AniDead()
     {
         CompAnimator.SetTrigger("Dying");

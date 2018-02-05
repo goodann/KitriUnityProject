@@ -86,15 +86,6 @@ public class FightBehavior : BaseBehavior {
             Attack(false);
         }
     }
-    public override void Damaged(int damage)
-    {
-        
-    }
-    public override void Dead()
-    {
-        ani.AniDead();
-        
-    }
     public void Upper()
     {
         targetObject.Move(Vector3.up * targetObject.JumpForce * 0.1f + Vector3.forward);
@@ -140,7 +131,7 @@ public class FightBehavior : BaseBehavior {
         isJumping = false;
         isDownnig = false;
         isJumpPunching = false;
-        ani.AniStop();
+        //ani.AniStop();
         
     }
 

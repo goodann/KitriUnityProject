@@ -50,7 +50,9 @@ public class Player : Actor
     //[Serializable]
     //public Animator[] CompAnimators;
     public List<RuntimeAnimatorController> CompAnimators;
-    
+
+    [SerializeField]
+    protected TrailRenderer trail;
     // Use this for initialization
     void Start () {
         
@@ -170,7 +172,18 @@ public class Player : Actor
     {
         
     }
-
+    public override void Rolling()
+    {
+        trail.enabled = true;
+        base.Rolling();
+        behavior.Rolling();
+        
+    }
+    public override void EndRolling()
+    {
+        base.EndRolling();
+        trail.enabled = false;
+    }
     public override void Move(Vector3 vec)
     {
 
@@ -214,8 +227,10 @@ public class Player : Actor
     {
         if (isAlive == true)
         {
-            behavior.onDamage(damage);
             base.onDamaged(damage);
+            if (isRolling==false)
+                behavior.onDamage(damage);
+            
         }
         
     }
