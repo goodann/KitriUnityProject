@@ -35,7 +35,7 @@ public abstract class BaseBehavior:MyBaseObejct
     public bool IsAnimationPlaing { get { return isAnimationPlaing; } set { isAnimationPlaing = value; } }
     public bool IsJumping { get { return isJumping; } }
     public bool IsMoving { get {return isMoving; } }
-    
+    protected bool isDownnig = false;
 
     public virtual void Init(Actor target, Animator animator)
     {
@@ -80,6 +80,23 @@ public abstract class BaseBehavior:MyBaseObejct
 
     protected virtual void Update()
     {
+        if (isJumping)
+        {
+            //print(targetObject.Velocity);
+
+            if (isDownnig && targetObject.IsGrounded)
+            {
+                Stop();
+                ani.AniJumpEnd();
+                isJumping = false;
+                isDownnig = false;
+
+            }
+            else if (targetObject.Velocity.y < -0.1f)
+            {
+                isDownnig = true;
+            }
+        }
         if (targetObject.IsRolling)
         {
             //targetObject.Move(transform.forward);
@@ -118,9 +135,9 @@ public abstract class BaseBehavior:MyBaseObejct
         ani.AniStop();
         ani.AniJump();
     }
-    public virtual void switchEq(EEquipmentState NowEq)
+    public virtual void switchEq(EEquipmentState NowEq, RuntimeAnimatorController NowAniCon)
     {
-        ani.AniSwitchEq( (targetObject as Player).CompAnimators[(int)NowEq]);
+        ani.AniSwitchEq(NowAniCon);
     }
 
 }

@@ -23,6 +23,7 @@ public class Player : Actor
 {
 
 
+    protected Dictionary<EEquipmentState, BaseBehavior> listBehavior;
     //유저 케릭터의 공격 클래스
     protected BaseBehavior behavior;
     public BaseBehavior Behavior
@@ -38,7 +39,7 @@ public class Player : Actor
     //public List<Vector3> DebugVector;
     //public List<bool> DebugBool;
     //ani state
-    EEquipmentState NowEq;
+    protected EEquipmentState NowEq;
 
     protected int TotalComboCount;
 
@@ -46,7 +47,7 @@ public class Player : Actor
     //components
     protected CharacterController CompCharCon;
 
-    
+
     //[Serializable]
     //public Animator[] CompAnimators;
     public List<RuntimeAnimatorController> CompAnimators;
@@ -54,14 +55,15 @@ public class Player : Actor
     [SerializeField]
     protected TrailRenderer trail;
     // Use this for initialization
-    void Start () {
-        
+    void Start()
+    {
+
         Init();
     }
     public override void Init()
     {
         base.Init();
-        
+        listBehavior = new Dictionary<EEquipmentState, BaseBehavior>();
         isG = new bool[2];
 
         beforePos = gameObject.transform.position;
@@ -79,6 +81,7 @@ public class Player : Actor
 
         Animator CompAnimator = gameObject.GetComponent<Animator>();
         behavior = gameObject.AddComponent<FightBehavior>();
+
         behavior.Init(this, CompAnimator);
         GetComponentsInit();
         power = 100;
@@ -89,67 +92,70 @@ public class Player : Actor
         nowMp = mp;
     }
     protected Vector3 beforePos;
-    protected Vector3 vel; 
+    protected Vector3 vel;
     public override Vector3 Velocity
     {
         //get { print(moveDirection + "<=>" + CompCharCon.velocity); return moveDirection + CompCharCon.velocity; }
-        get {
-            
-                //print(vel);
-                return vel; }
+        get
+        {
+
+            //print(vel);
+            return vel;
+        }
         set { moveDirection = value; }
     }
 
     protected void GetComponentsInit()
     {
         CompCharCon = GetComponent<CharacterController>();
-        
-    }
-	// Update is called once per frame
-	void Update () {
 
-        
+    }
+    // Update is called once per frame
+    void Update()
+    {
+
+
         UpdatePlayer();
-        
+
     }
     private void LateUpdate()
     {
-        
+
     }
     protected virtual void FixedUpdate()
     {
-        
+
         FixedUpdatePlayer();
-        
+
     }
 
     //업데이트
     protected virtual void UpdatePlayer()
     {
         //print("Power:" + nowPower);
-        
+
         vel = (transform.position - beforePos) / Time.deltaTime;
         beforePos = transform.position;
         if (CompCharCon.isGrounded)
         {
-            
+
             if (moveDirection.y < 0)
                 moveDirection.y = -0.001f;
         }
         else
         {
             // Apply gravity    
-            if(moveDirection.y>0)
-                moveDirection += Physics.gravity* Time.deltaTime;
-            
+            if (moveDirection.y > 0)
+                moveDirection += Physics.gravity * Time.deltaTime;
+
             //moveDirection.y = 0;
         }
 
-        
+
         // Move the controller    
         Vector3 dir = moveDirection * Time.deltaTime;
 
-        isG[0]=CompCharCon.isGrounded;
+        isG[0] = CompCharCon.isGrounded;
 
         Vector3 mry = moveDirection;
         mry.y = 0;
@@ -162,22 +168,22 @@ public class Player : Actor
 
         moveDirection.x = 0;
         moveDirection.z = 0;
-        
+
     }
 
-    
+
 
     //fixed업데이트
     protected virtual void FixedUpdatePlayer()
     {
-        
+
     }
     public override void Rolling()
     {
         trail.enabled = true;
         base.Rolling();
         behavior.Rolling();
-        
+
     }
     public override void EndRolling()
     {
@@ -187,12 +193,12 @@ public class Player : Actor
     public override void Move(Vector3 vec)
     {
 
-        
+
         moveDirection += vec * NowMoveSpeed; //transform.TransformDirection(vec)* MoveSpeed;
         Vector3 vel2d = vel;
         vel2d.y = 0;
         //print("player'sMove : " + vec + "2d vel" + vel2d);
-        if (vel.y < 0.1f && IsGrounded && vel2d.sqrMagnitude>0.1f)
+        if (vel.y < 0.1f && IsGrounded && vel2d.sqrMagnitude > 0.1f)
         {
             if (vec.sqrMagnitude < 0.1f)
                 behavior.Stop();
@@ -204,7 +210,7 @@ public class Player : Actor
     {
         moveDirection = Vector3.zero;
         behavior.Stop();
-        
+
     }
     public void AttackA()
     {
@@ -216,7 +222,7 @@ public class Player : Actor
     }
     public virtual void Skill(int charged)
     {
-        int useMp = (charged / 100)*100;
+        int useMp = (charged / 100) * 100;
         if (nowMp >= useMp)
         {
             print("now MP : " + nowMp + "RemoveMP : " + useMp);
@@ -229,11 +235,11 @@ public class Player : Actor
         if (isAlive == true)
         {
             base.onDamaged(damage);
-            if (isRolling==false)
+            if (isRolling == false)
                 behavior.onDamage(damage);
-            
+
         }
-        
+
     }
     public override void onDead()
     {
@@ -252,8 +258,41 @@ public class Player : Actor
             moveDirection += Vector3.up * JumpForce;
             behavior.Jump();
         }
-        
-    }
-   
 
+    }
+
+    public virtual void switchEq(EEquipmentState NowEq)
+    {
+        print("switchEq  = " + NowEq.ToString());
+        if (listBehavior.ContainsKey(this.NowEq) == false)
+        {
+            listBehavior.Add(this.NowEq, behavior);
+        }
+        
+        BaseBehavior be;
+        if (listBehavior.TryGetValue(NowEq, out be) == false)
+        {
+            AddEq(NowEq);
+        }
+        behavior.switchEq(NowEq, CompAnimators[(int)NowEq]);
+    }
+    public virtual void AddEq(EEquipmentState NowEq)
+    {
+        print("AddEQ  = " + NowEq.ToString());
+        switch (NowEq)
+        {
+            case EEquipmentState.CharEqState_Fight:
+                behavior=gameObject.AddComponent<FightBehavior>();
+                break;
+            case EEquipmentState.CharEqState_Sword:
+                behavior=gameObject.AddComponent<WeaponBehavior>();
+                break;
+            case EEquipmentState.CharEqState_End:
+                break;
+            default:
+                break;
+        }
+        behavior.Init(this, gameObject.GetComponent<Animator>());
+
+    }
 }

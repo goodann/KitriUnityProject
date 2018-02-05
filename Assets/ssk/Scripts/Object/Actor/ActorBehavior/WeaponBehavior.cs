@@ -20,24 +20,30 @@ public class WeaponBehavior : BaseBehavior {
         base.Init(target, animator);
 
 
-        ani = gameObject.AddComponent<FightAnimation>();
+        ani = gameObject.AddComponent<WeaponAnimation>();
         ani.AnimatorInit(target, this, animator);
         EndAttack();
 
     }
     public override void Skill(int charged)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
     public override void AttackA()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
+        ani.AniAttackA();
     }
     public override void AttackB()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
+        ani.AniAttackB();
     }
     public override void Damaged(int damage)
     {
+    }
+    public override void Jump()
+    {
+        base.Jump();
     }
 }

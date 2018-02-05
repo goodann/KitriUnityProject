@@ -6,6 +6,7 @@ using UnityEngine;
 //싱글턴
 public partial class PlayablePlayer : Player
 {
+    
     Color LightColor;
     bool LightSet = false;
     //singleton
@@ -195,6 +196,14 @@ public partial class PlayablePlayer : Player
         if (attack2 != 0)
         {
             behavior.AttackB();
+        }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            var eq = NowEq+1;
+            if ( eq == EEquipmentState.CharEqState_End)
+                eq = EEquipmentState.CharEqState_Fight;
+            switchEq(eq);
+            NowEq = eq;
         }
 
 

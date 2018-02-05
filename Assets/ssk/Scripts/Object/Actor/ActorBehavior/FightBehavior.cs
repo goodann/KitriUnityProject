@@ -135,28 +135,28 @@ public class FightBehavior : BaseBehavior {
         
     }
 
-    bool isDownnig = false;
+    
     protected override void Update()
     {
         base.Update();
         //print( "isJumping , isDowing : " + isJumping +isDownnig);
-        if (isJumping)
-        {
-            //print(targetObject.Velocity);
+        //if (isJumping)
+        //{
+        //    //print(targetObject.Velocity);
 
-            if (isDownnig && targetObject.IsGrounded)
-            {
-                Stop();
-                ani.AniJumpEnd();
-                //isJumping = false;
-                //isDownnig = false;
+        //    if (isDownnig && targetObject.IsGrounded)
+        //    {
+        //        Stop();
+        //        ani.AniJumpEnd();
+        //        //isJumping = false;
+        //        //isDownnig = false;
 
-            }
-            else if (targetObject.Velocity.y < -0.1f)
-            {
-                isDownnig = true;
-            }
-        }
+        //    }
+        //    else if (targetObject.Velocity.y < -0.1f)
+        //    {
+        //        isDownnig = true;
+        //    }
+        //}
         if (isJumpPunching)
         {
             //print("--");

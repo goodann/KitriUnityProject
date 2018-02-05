@@ -4,8 +4,10 @@ using UnityEngine;
 
 public enum EEquipmentState
 {
-    CharEqState_Fight = 0,
-    CharEqState_Sword = 1,
+    CharEqState_Fight ,
+    CharEqState_Sword ,
+    CharEqState_Gun,
+    CharEqState_End
 }
 public enum ECharaterState
 {

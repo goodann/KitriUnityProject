@@ -1816,8 +1816,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1835f9d1b22012e45a8b3cb9c1b85c02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceFromTarget: 4
-  camHeight: 4
+  distanceFromTarget: 1
+  camHeight: 1
   rotationDamp: 0
   posDamp: 1
 --- !u!1 &1114274723
@@ -2513,7 +2513,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4695771930418122, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.0059114294
+      value: -0.005911429
       objectReference: {fileID: 0}
     - target: {fileID: 4695771930418122, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
       propertyPath: m_LocalRotation.y
