@@ -42,7 +42,7 @@ public class UIJoyStick : MonoBehaviour {
         {
             ClickCount = 0;
         }
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && mouseIsInStick(clickPos,2.0f))
         {
             print(beforeCliickPos + "," + mousePosition);
             print("pos diff = "+ (beforeCliickPos - mousePosition).magnitude);

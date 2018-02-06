@@ -617,6 +617,7 @@ GameObject:
   - component: {fileID: 143198019824273544}
   - component: {fileID: 114686058095637014}
   - component: {fileID: 54145417754714776}
+  - component: {fileID: 114690296045544884}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -2652,7 +2653,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1863400010579130}
-  m_LocalRotation: {x: -0.005911429, y: -0.67944837, z: 0.7336993, w: -0.00066563475}
+  m_LocalRotation: {x: -0.0059114285, y: -0.67944837, z: 0.7336993, w: -0.00066563475}
   m_LocalPosition: {x: -0.14276123, y: 0.032653574, z: 0.13977996}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_Children: []
@@ -3269,6 +3270,23 @@ MonoBehaviour:
   - {fileID: 9100000, guid: a28c4ca19bd710048aa59527cc4f9b83, type: 2}
   - {fileID: 9100000, guid: 0538e9323ad448449b739f27816b2167, type: 2}
   trail: {fileID: 96104095274330046}
+--- !u!114 &114690296045544884
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1275070272109210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7461528c4edff384aa148dd5dbd2d28e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  takeItem: 0
+  isGetItemBtnDown: 0
+  isTriggerStaying: 0
+  isThrowingItemBtnDown: 0
+  throwItemSpeed: 10000
+  throwPower: 8000
 --- !u!136 &136527436499752998
 CapsuleCollider:
   m_ObjectHideFlags: 1

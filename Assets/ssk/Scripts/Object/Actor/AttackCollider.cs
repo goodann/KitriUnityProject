@@ -4,7 +4,8 @@ using UnityEngine;
 
 using UnityEngine.AI;
 
-public class AttackCollider : MyBaseObejct {
+public class AttackCollider : MyBaseObejct
+{
     GameObject StarParticlePrefab;
     GameObject fightAttackParticlePrefab;
     AudioSource audioSource;
@@ -12,7 +13,7 @@ public class AttackCollider : MyBaseObejct {
     Collider col;
     float timer;
     bool isStop;
-    
+
     public int attackState;
     public int AttackState
     {
@@ -20,15 +21,16 @@ public class AttackCollider : MyBaseObejct {
         set { attackState = value; }
     }
     int i = 0;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         //actor = FindInParentComp<Actor>();
         col = GetComponent<Collider>();
         actor = GetComponentInParent<Actor>();
         StarParticlePrefab = Resources.Load("ssk/prefabs/StarParticle") as GameObject;
         fightAttackParticlePrefab = Resources.Load("ssk/prefabs/FightAttackParticle") as GameObject;
         audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.clip= Resources.Load("ssk/sound/Effect/fight/attack") as AudioClip;
+        audioSource.clip = Resources.Load("ssk/sound/Effect/fight/attack") as AudioClip;
         audioSource.playOnAwake = false;
 
 
@@ -38,17 +40,26 @@ public class AttackCollider : MyBaseObejct {
         trailRenderer.material = Resources.Load("ssk/Material/AlphaGr3") as Material;
         //trailRenderer.material.SetColor("_TintColor", Color.yellow);
         //trailRenderer.material.SetColor("_TintColor", new Color(0.1f, 1.0f, 1.0f));
-        trailRenderer.startColor = Color.red;
-        trailRenderer.endColor = new Color(0.1f, 1.0f, 1.0f);
+        if (gameObject.tag == "Enemy")
+        {
+            trailRenderer.startColor = Color.red;
+            trailRenderer.endColor = Color.black;
+        }
+        else
+        {
+            trailRenderer.startColor = new Color(0.1f, 1.0f, 1.0f);
+            trailRenderer.endColor = Color.blue;
+        }
 
         //trailRenderer.time = 0.2f;
         trailRenderer.time = 0.5f;
 
     }
     TrailRenderer trailRenderer;
-    
+
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         if (col.enabled == true)
         {
             trailRenderer.enabled = true;
@@ -72,18 +83,20 @@ public class AttackCollider : MyBaseObejct {
     private void OnTriggerEnter(Collider other)
     {
 
-        print("Hit다 hit! 맞은놈 : " + other.ToString() + "데미지 : " + actor.NowPOWER * actor.NowAttackPower + " 밀리는 방향 " + actor.AttackDirction);
-        other.SendMessage("onDamaged", actor.NowPOWER * actor.NowAttackPower);
-        if (other.CompareTag("Enemy"))
+        
+        bool isinAttacked = false;
+        if (!actor.attackedObject.TryGetValue(other.gameObject, out isinAttacked))
         {
-            bool isinAttacked=false;
-            if (! actor.attackedObject.TryGetValue(other.gameObject, out isinAttacked))
+            actor.attackedObject.Add(other.gameObject, true);
+        }
+        actor.attackedObject[other.gameObject] = true;
+        if (isinAttacked == false)
+        {
+            print("Hit다 hit! 맞은놈 : " + other.ToString() + "데미지 : " + actor.NowPOWER * actor.NowAttackPower + " 밀리는 방향 " + actor.AttackDirction);
+            other.SendMessage("onDamaged", actor.NowPOWER * actor.NowAttackPower);
+            if (other.CompareTag("Enemy"))
             {
-                actor.attackedObject.Add(other.gameObject, true);
-            }
-            actor.attackedObject[other.gameObject] = true;
-            if (isinAttacked == false)
-            {
+
                 if (isStop == false)
                 {
                     //Time.timeScale = 0.01f;
@@ -92,26 +105,28 @@ public class AttackCollider : MyBaseObejct {
 
                     isStop = true;
                 }
-                
+
                 audioSource.Play();
                 //print(audioSource);
                 GameObject.Instantiate(StarParticlePrefab, other.transform.position, Quaternion.Euler(-45, 0, 0));
                 GameObject.Instantiate(fightAttackParticlePrefab, other.transform.position + Vector3.up * 0.5f, Quaternion.identity);
                 other.transform.position += actor.AttackDirction;
-                actor.AttackRecoverMana();
-                other.SendMessage("DamagedRecoverMana");
+
                 //print("Hit다 hit! 맞은놈 : " + other.ToString() + "데미지 : " + actor.NowPOWER * actor.NowAttackPower + " 밀리는 방향 " + actor.AttackDirction);
                 //other.SendMessage("onDamaged", actor.NowPOWER * actor.NowAttackPower);
 
             }
-        }
-        else
-        {
-            
-        }
-        
+            else
+            {
 
+            }
+
+            actor.AttackRecoverMana();
+            other.SendMessage("DamagedRecoverMana");
+        }
     }
+
+
     void ReturnTime()
     {
         isStop = false;

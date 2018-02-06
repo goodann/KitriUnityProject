@@ -134,7 +134,7 @@ public class FightAnimation : BaseAnimation {
     public override void AniSkill(int charged)
     {
         AniStop();
-        if (charged > 100 && charged<200)
+        if (charged >= 100 && charged<200)
         {
             CompAnimator.SetTrigger("Skill1");
             
@@ -143,7 +143,7 @@ public class FightAnimation : BaseAnimation {
         {
             CompAnimator.SetTrigger("Skill2");
         }
-        else if (charged > 300)
+        else if (charged >= 300)
         {
             CompAnimator.SetTrigger("Skill3");
         }

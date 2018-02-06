@@ -39,7 +39,7 @@ public partial class PlayablePlayer : Player
     //float lerpTime = 0;
     bool isDark;
     
-    int moveButtonState = 0;
+    
     private PlayablePlayer()
     {
 
@@ -117,9 +117,9 @@ public partial class PlayablePlayer : Player
             vInput = 0;
             //Stop();
         }
-        attack1 = Input.GetAxis("Fire1");
-        attack2 = Input.GetAxis("Fire2");
-        jump = Input.GetAxis("Jump");
+        //attack1 = Input.GetAxis("Fire1");
+        //attack2 = Input.GetAxis("Fire2");
+        //jump = Input.GetAxis("Jump");
 
         if (Input.GetKey(KeyCode.V))
         {
@@ -131,14 +131,14 @@ public partial class PlayablePlayer : Player
 
         }
 
-        attack1 = 0;
-        attack2 = 0;
-        jump = 0;
+        //attack1 = 0;
+        //attack2 = 0;
+        //jump = 0;
         if (Input.GetKeyDown(KeyCode.Space))
         {
             ButtonClick(EButtonList.EBL_Jump);
         }
-        else
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             ButtonRelease(EButtonList.EBL_Jump);
         }
@@ -146,7 +146,7 @@ public partial class PlayablePlayer : Player
         {
             attack2 = 1;
         }
-        else
+        if (Input.GetKeyUp(KeyCode.X))
         {
             attack2 = 0;
         }
@@ -156,7 +156,7 @@ public partial class PlayablePlayer : Player
 
             attack1 = 1;
         }
-        else
+        if (Input.GetKeyUp(KeyCode.Z))
         {
             attack1 = 0;
         }
@@ -271,6 +271,7 @@ public partial class PlayablePlayer : Player
 
     public void ButtonClick(EButtonList eButtonList)
     {
+        print("ButtonClick ! " + eButtonList);
         switch (eButtonList)
         {
             case EButtonList.EBL_AttackA:
@@ -292,6 +293,7 @@ public partial class PlayablePlayer : Player
     }
     public void ButtonRelease(EButtonList eButtonList)
     {
+        print("ButtonRelease ! " + eButtonList);
         switch (eButtonList)
         {
             case EButtonList.EBL_AttackA:
