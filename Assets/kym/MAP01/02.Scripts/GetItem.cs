@@ -17,8 +17,11 @@ public class GetItem : MonoBehaviour {
     public float throwItemSpeed = 10000;
     public float throwPower = 8000;
 
+    Animator playerAnimator;
+
     private void Start()
     {
+        playerAnimator = GetComponent<Animator>();
         leftHand_Weapon_Pos = GameObject.Find("LeftHand_Weapon_Pos").transform;
 
         takeItem = false;
@@ -44,6 +47,7 @@ public class GetItem : MonoBehaviour {
 
 
         //아이템을 날린다
+        playerAnimator.SetTrigger("Throwing");
         itemRigidbody.AddForce(transform.forward * throwItemSpeed);
         itemRigidbody.AddTorque(transform.forward * throwPower);
 
@@ -90,7 +94,7 @@ public class GetItem : MonoBehaviour {
 
             //아이템을 줍는다(부모연결)
             other.transform.parent = leftHand_Weapon_Pos;
-
+            playerAnimator.SetTrigger("Picking");
 
             //아이템을 들었다
             takeItem = true;

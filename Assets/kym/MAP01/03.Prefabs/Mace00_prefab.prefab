@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4810131895493200}
   - component: {fileID: 33528456460520464}
   - component: {fileID: 23798771051133702}
-  - component: {fileID: 64755235185346486}
   m_Layer: 16
   m_Name: Mace00_mesh(Clone)
   m_TagString: Item
@@ -130,20 +129,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!64 &64755235185346486
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1797222325646114}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: d2b89fec2501cbe4dbb75f50d1e6692f, type: 3}
 --- !u!65 &65666183526527906
 BoxCollider:
   m_ObjectHideFlags: 1
