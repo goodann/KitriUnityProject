@@ -2,17 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WanderState : IState
+public class ArrowAttackState : IState
 {
-    private float moveTime;
-    private Vector3 moveDir;
-    private Quaternion look = Quaternion.identity;
-
     public override void Enter(Enemy _parent)
     {
         parent = _parent;
-
-        SetTimeAndDir();
 
         coroutine = parent.StartCoroutine(CheckMobState());
     }
@@ -21,32 +15,21 @@ public class WanderState : IState
     {
         parent.StopCoroutine(coroutine);
 
-        moveTime = 0f;
-        moveDir = Vector3.zero;
-        look = Quaternion.identity;
+        parent.BReload = true;
     }
 
     public override void Update()
     {
-        moveTime -= Time.deltaTime;
+        base.Update();
 
-        if (moveTime > 0)
-        {
-            if (moveDir == Vector3.zero)
-                return;
+        Quaternion look = Quaternion.identity;
+        Vector3 dir = parent.PlayerTR.position- parent.MobTR.position;
+        dir.y = 0f;
+        dir = dir.normalized;
 
-            look.SetLookRotation(moveDir);
-
-            parent.MobTR.rotation = look;
-
-            parent.NavAgent.SetDestination(parent.MobTR.position + moveDir);
-            parent.NavAgent.isStopped = false;
-        }
-        else
-        {
-            parent.NavAgent.isStopped = true;
-            parent.AI.Idle();
-        }
+        look.SetLookRotation(dir);
+        
+        parent.MobTR.rotation = look;
     }
 
     public override IEnumerator CheckMobState()
@@ -58,6 +41,8 @@ public class WanderState : IState
             switch (parent.type)
             {
                 case EEnemyType.Enemy_Melee:
+                    break;
+                case EEnemyType.Enemy_Archor:
                     {
                         float dist = Vector3.Distance(parent.MobTR.position, parent.PlayerTR.position);
 
@@ -66,13 +51,12 @@ public class WanderState : IState
                             parent.AI.MeleeAttack();
                         }
 
-                        else if (dist < parent.aggroRadius)
+                        else if (normalizedTime >= 0.9f)
                         {
-                            parent.AI.Follow();
+                            Shoot();
+                            parent.AI.Idle();
                         }
                     }
-                    break;
-                case EEnemyType.Enemy_Archor:
                     break;
                 case EEnemyType.Enemy_Boss:
                     break;
@@ -82,12 +66,10 @@ public class WanderState : IState
         }
     }
 
-    public void SetTimeAndDir()
+    public void Shoot()
     {
-        moveTime = Random.Range(0.3f, 1.0f);
-        moveDir = new Vector3(Random.Range(-3, 3), 0, Random.Range(-3, 3)).normalized;
+        Debug.Log("Shoot");
 
-        //Debug.Log("moveTime : " + moveTime);
-        //Debug.Log("moveDir : " + moveDir);
+        parent.InstantiateArrow();
     }
 }

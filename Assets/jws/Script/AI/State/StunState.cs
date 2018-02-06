@@ -5,12 +5,13 @@ using UnityEngine;
 public class StunState : IState
 {
     private Quaternion preRotation;
+    private float stunTime = 0f;
 
     public override void Enter(Enemy _parent)
     {
         parent = _parent;
         
-        preRotation = parent.transform.rotation;
+        preRotation = parent.MobTR.rotation;
 
         coroutine = parent.StartCoroutine(CheckMobState());
     }
@@ -19,16 +20,18 @@ public class StunState : IState
     {
         parent.StopCoroutine(coroutine);
 
-        parent.transform.rotation = preRotation;
+        parent.MobTR.rotation = preRotation;
+
+        stunTime = 0f;
     }
 
     public override void Update()
     {
-        parent.transform.rotation = preRotation;
+        parent.MobTR.rotation = preRotation;
 
-        animatorStateInfo = parent.Animator.GetCurrentAnimatorStateInfo(0); // LayerMask 사용 불가?
+        stunTime += Time.deltaTime;
 
-        if (animatorStateInfo.normalizedTime >= 0.8f)
+        if (stunTime >= parent.recoveryTime)
             parent.AI.Idle();
     }
 
