@@ -23,7 +23,7 @@ public class Enemy : Actor
     private int arrowPower;
     private bool bReload = false;   // 쏘고나서 장전
     //public float runawayRange;
-    
+
     private Transform mobTR;
     private Transform playerTR;
     private Transform firePos;
@@ -47,12 +47,8 @@ public class Enemy : Actor
 
     public int ArrowPower { get { return arrowPower; } set { arrowPower = value; } }
     public bool BReload { get { return bReload; } set { bReload = value; } }
-
-    private void Awake()
-    {
-    }
-
-    void Start()
+    
+    private void Start()
     {
         mobTR = transform.parent.GetComponent<Transform>();
         playerTR = GameObject.FindWithTag("Player").GetComponent<Transform>();
@@ -64,7 +60,7 @@ public class Enemy : Actor
         _AI.Idle();
     }
 
-    void Update()
+    private void Update()
     {
         _AI.UpdateAI();
 
@@ -73,10 +69,10 @@ public class Enemy : Actor
             CalcReloadTime();
         }
 
-        //Vector3 tmp = transform.localPosition;
-        //tmp.x = 0f;
-        //tmp.z = 0f;
-        //transform.localPosition = tmp;
+        if (!CalcIsGround())
+        {
+            _AI.Die();
+        }
     }
 
     public override void Init()
@@ -159,17 +155,25 @@ public class Enemy : Actor
         }
     }
 
+    private bool CalcIsGround()
+    {
+        float tmp = mobTR.position.y - transform.position.y;
+
+        if (tmp < 0.1f && tmp > -0.1f)
+            isGrounded = true;
+        else
+            isGrounded = false;
+
+        return isGrounded;
+    }
+
     public override void onDamaged(int damage)
     {
         if (IsAlive == false)
             return;
-        
+
         Debug.Log(this + " onDamaged : " + damage);
         nowHp -= damage;
-
-        EnemyManager.Instance.lastHit.id = mobId;
-        EnemyManager.Instance.lastHit.hp = nowHp;
-        EnemyManager.Instance.UpdateMobInfo();
 
         if (nowHp <= 0)
         {
@@ -188,6 +192,11 @@ public class Enemy : Actor
                 _AI.Hit();
             }
         }
+
+        EnemyManager.Instance.lastHit.id = mobId;
+        EnemyManager.Instance.lastHit.hp = nowHp;
+        EnemyManager.Instance.lastHit.maxHp = hp;
+        EnemyManager.Instance.UpdateMobInfo();
     }
 
     public override void onDead()
@@ -253,8 +262,24 @@ public class Enemy : Actor
         }
 
         ListAttackColliders = new List<Collider>();
-        ListAttackColliders.Add(FindInChild("AttackColliderLeftArm").GetComponent<Collider>());
-        ListAttackColliders.Add(FindInChild("AttackColliderRightArm").GetComponent<Collider>());
+
+        switch (type)
+        {
+            case EEnemyType.Enemy_Melee:
+                //ListAttackColliders.Add(FindInChild("AttackColliderLeftArm").GetComponent<Collider>());
+                ListAttackColliders.Add(FindInChild("AttackColliderRightArm").GetComponent<Collider>());
+                break;
+            case EEnemyType.Enemy_Archor:
+                // ListAttackColliders.Add(FindInChild("AttackColliderLeftLeg").GetComponent<Collider>());
+                ListAttackColliders.Add(FindInChild("AttackColliderRightLeg").GetComponent<Collider>());
+                break;
+            case EEnemyType.Enemy_Boss:
+                break;
+            case EEnemyType.MAX:
+                break;
+            default:
+                break;
+        }
 
         foreach (Collider coll in ListAttackColliders)
         {
