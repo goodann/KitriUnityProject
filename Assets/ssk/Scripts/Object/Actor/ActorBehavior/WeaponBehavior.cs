@@ -16,7 +16,7 @@ public class WeaponBehavior : BaseBehavior {
 	}
     public override void Init(Actor target, Animator animator)
     {
-
+        ComboInit();
         base.Init(target, animator);
 
 
@@ -28,11 +28,49 @@ public class WeaponBehavior : BaseBehavior {
     public override void Skill(int charged)
     {
         //throw new System.NotImplementedException();
+
+        if (charged >= 300)
+        {
+            //3필
+            targetObject.NowAttackPower = 1.0f;
+            targetObject.NowMoveSpeed = 0;
+
+        }
+        else if (charged >= 200)
+        {
+
+            //2필
+            targetObject.PowerUp(2f);
+            targetObject.Invoke("PowerReset", 10.0f);
+        }
+        else if (charged >= 100)
+        {
+            //1필
+            targetObject.NowAttackPower = 5.0f;
+            AttackColliderEnable(EAttackColliderIndex.ACI_LeftHand);
+        }
+        else
+        {
+            return;
+        }
+        Stop();
+
+        ani.AniSkill(charged);
+        isAnimationPlaing = true;
     }
     public override void AttackA()
     {
         //throw new System.NotImplementedException();
-        ani.AniAttackA();
+        if (!isAnimationPlaing)
+        {
+            isAnimationPlaing = true;
+            ani.AniAttackA();
+            comboCount++;
+            if (comboCount >= 3)
+                comboCount = 0;
+
+        }
+        
     }
     public override void AttackB()
     {
@@ -46,4 +84,11 @@ public class WeaponBehavior : BaseBehavior {
     {
         base.Jump();
     }
+    public void ComboInit()
+    {
+        //콤보초기화
+        comboCount = 0;
+        ComboTimer = 0.0f;
+    }
 }
+

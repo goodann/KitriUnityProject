@@ -36,6 +36,7 @@ public class BaseAnimation:MyBaseObejct  {
     }
     public virtual void AniMove()
     {
+        print("AniMove!");
         CompAnimator.SetBool("Moving", true);
     }
     public virtual void AniRolling()
@@ -56,7 +57,9 @@ public class BaseAnimation:MyBaseObejct  {
     }
     public virtual void AniStop()
     {
-
+        print("Base AniStop!!");
+        CompAnimator.SetBool("Moving", false);
+        CompAnimator.SetBool("Jump", false);
     }
     public virtual void AniSwitchEq(RuntimeAnimatorController newAnimatior)
     {

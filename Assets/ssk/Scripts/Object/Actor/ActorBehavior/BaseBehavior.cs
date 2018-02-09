@@ -30,7 +30,9 @@ public abstract class BaseBehavior:MyBaseObejct
     protected NextAttack nextAttack;
     protected bool isJumping;
     protected bool isMoving;
+    protected int comboCount;
     //property
+    public int ComboCount { get { return comboCount; } }
     public virtual BaseAnimation Ani { get { return ani; } }
     public bool IsAnimationPlaing { get { return isAnimationPlaing; } set { isAnimationPlaing = value; } }
     public bool IsJumping { get { return isJumping; } }
@@ -43,8 +45,14 @@ public abstract class BaseBehavior:MyBaseObejct
         //CompAnimator = animator;
         EndAttack();
     }
-
-
+    public void AttackColliderEnable(EAttackColliderIndex index)
+    {
+        targetObject.ListAttackColliders[(int)index].enabled = true;
+    }
+    public void AniPlayStart()
+    {
+        isAnimationPlaing = true;
+    }
     public virtual void Move()
     {
         ani.AniMove();
@@ -76,6 +84,8 @@ public abstract class BaseBehavior:MyBaseObejct
     {
         ani.AniStop();
         isMoving = false;
+        isJumping = false;
+        isDownnig = false;
     }
 
     protected virtual void Update()

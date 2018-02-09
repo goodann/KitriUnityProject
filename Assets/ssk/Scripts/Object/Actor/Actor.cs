@@ -57,9 +57,11 @@ public class Actor : MyBaseObejct {
     protected bool isRolling;
     //중복공격 방지
     public Dictionary<GameObject, bool> attackedObject= new Dictionary<GameObject, bool>();
-    
 
+    //띄우기 공격
+    protected bool isUpperAttack;
 
+    public bool IsUpperAttack { get { return isUpperAttack; }  set { isUpperAttack = value; } }
     public bool IsAlive
     {
         get { return isAlive; }
@@ -212,7 +214,11 @@ public class Actor : MyBaseObejct {
         {
             attackedObject[attacked[i]] = false;
         }
-
+        isUpperAttack = false;
         //print("Attackend!");
+    }
+    public virtual void UpperHit(int _power)
+    {
+
     }
 }

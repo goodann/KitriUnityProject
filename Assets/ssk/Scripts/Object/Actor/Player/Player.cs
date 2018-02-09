@@ -62,6 +62,7 @@ public class Player : Actor
     }
     public override void Init()
     {
+        
         base.Init();
         listBehavior = new Dictionary<EEquipmentState, BaseBehavior>();
         isG = new bool[2];
@@ -108,6 +109,9 @@ public class Player : Actor
     protected void GetComponentsInit()
     {
         CompCharCon = GetComponent<CharacterController>();
+        Rigidbody rigid = GetComponent<Rigidbody>();
+        print(rigid);
+
 
     }
     // Update is called once per frame
@@ -198,10 +202,15 @@ public class Player : Actor
         Vector3 vel2d = vel;
         vel2d.y = 0;
         //print("player'sMove : " + vec + "2d vel" + vel2d);
-        if (vel.y < 0.1f && IsGrounded && vel2d.sqrMagnitude > 0.1f)
+        //if (vel.y < 0.1f && IsGrounded && vel2d.sqrMagnitude > 0.1f)
+        if (vel.y < 0.0f && IsGrounded && vel2d.sqrMagnitude > 0.1f)
         {
+            print("vel.y" + vel.y + "vel2d.sqrMagnitude"+ vel2d.sqrMagnitude);
             if (vec.sqrMagnitude < 0.1f)
+            {
+                print("Behavior.stop()");
                 behavior.Stop();
+            }
             else
                 behavior.Move();
         }

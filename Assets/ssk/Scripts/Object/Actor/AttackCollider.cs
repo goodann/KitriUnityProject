@@ -82,7 +82,7 @@ public class AttackCollider : MyBaseObejct
     }
     private void OnTriggerEnter(Collider other)
     {
-
+        //print("OnTiriggerEnter");
         
         bool isinAttacked = false;
         if (!actor.attackedObject.TryGetValue(other.gameObject, out isinAttacked))
@@ -93,7 +93,16 @@ public class AttackCollider : MyBaseObejct
         if (isinAttacked == false)
         {
             print("Hit다 hit! 맞은놈 : " + other.ToString() + "데미지 : " + actor.NowPOWER * actor.NowAttackPower + " 밀리는 방향 " + actor.AttackDirction);
-            other.SendMessage("onDamaged", actor.NowPOWER * actor.NowAttackPower);
+
+            
+            if (actor.IsUpperAttack)
+            {
+                other.SendMessage("UpperHit", actor.NowPOWER * actor.NowAttackPower);
+            }
+            else
+            {
+                other.SendMessage("onDamaged", actor.NowPOWER * actor.NowAttackPower);
+            }
             if (other.CompareTag("Enemy"))
             {
 

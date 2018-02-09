@@ -19,7 +19,7 @@ public class FightBehavior : BaseBehavior {
     protected bool isJumpKicking;
     protected bool isJumpKickDowning;
     protected bool isJumpPunching;
-    protected int comboCount;
+    
     protected uint comboSignal;
     
     public bool IsJumpKicking
@@ -36,10 +36,7 @@ public class FightBehavior : BaseBehavior {
     Quaternion jumpKickQua;
     Quaternion jumpKickQuaOrign;
     
-    public void AniPlayStart()
-    {
-        isAnimationPlaing = true;
-    }
+    
     public void jumpKickStart()
     {
 
@@ -98,8 +95,7 @@ public class FightBehavior : BaseBehavior {
             //3필
             targetObject.NowAttackPower = 1.0f;
             targetObject.NowMoveSpeed = 0;
-
-
+            
         }
         else if (charged >= 200)
         {
@@ -128,8 +124,7 @@ public class FightBehavior : BaseBehavior {
         base.Stop();
         isJumpKickDowning = false;
         isJumpKicking = false;
-        isJumping = false;
-        isDownnig = false;
+
         isJumpPunching = false;
         //ani.AniStop();
         
@@ -211,10 +206,7 @@ public class FightBehavior : BaseBehavior {
         //Time.timeScale = 0.1f;
     }
     
-    public void AttackColliderEnable(EAttackColliderIndex index)
-    {
-        targetObject.ListAttackColliders[(int)index].enabled = true;
-    }
+
 
 
     public void Attack(bool isHand)

@@ -124,8 +124,7 @@ public class FightAnimation : BaseAnimation {
     public override void AniStop()
     {
         print("AniStop!!");
-        CompAnimator.SetBool("Moving", false);
-        CompAnimator.SetBool("Jump", false);
+    
         CompAnimator.SetBool("JumpKick", false);
         CompAnimator.SetBool("JumpPunch", false);
         base.AniStop();
@@ -137,6 +136,7 @@ public class FightAnimation : BaseAnimation {
         if (charged >= 100 && charged<200)
         {
             CompAnimator.SetTrigger("Skill1");
+            targetObject.IsUpperAttack = true;
             
         }
         else if (charged >= 200 && charged<300)

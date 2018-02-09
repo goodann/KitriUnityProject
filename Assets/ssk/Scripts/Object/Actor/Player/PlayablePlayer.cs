@@ -192,10 +192,12 @@ public partial class PlayablePlayer : Player
         {
             //behavior.Attack(true);
             behavior.AttackA();
+            attack1 = 0;
         }
         if (attack2 != 0)
         {
             behavior.AttackB();
+            attack2 = 0;
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
@@ -217,6 +219,7 @@ public partial class PlayablePlayer : Player
             jump = 0;
             //charge
             skill += Time.unscaledDeltaTime * mp;
+            //Debug.Log(skill);
             if (skill > mp)
             {
                 skill = mp;
@@ -271,7 +274,7 @@ public partial class PlayablePlayer : Player
 
     public void ButtonClick(EButtonList eButtonList)
     {
-        print("ButtonClick ! " + eButtonList);
+        //print("ButtonClick ! " + eButtonList);
         switch (eButtonList)
         {
             case EButtonList.EBL_AttackA:
