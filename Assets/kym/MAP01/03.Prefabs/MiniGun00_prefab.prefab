@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114047719932930432}
   - component: {fileID: 65268481114644962}
   - component: {fileID: 54940895326765772}
+  - component: {fileID: 114393867358352382}
   m_Layer: 17
   m_Name: MiniGun00_prefab
   m_TagString: Item
@@ -156,3 +157,18 @@ MonoBehaviour:
   rotationSpeed: 120
   isPickedUp: 0
   itemGenePointIndex: 0
+--- !u!114 &114393867358352382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1430686385507942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2f71245715ceb24c843e53afa190928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPower: 0
+  itemSpeed: 0
+  NowXP: 0
+  useXP: 0

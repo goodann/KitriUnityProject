@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIButtonController : MonoBehaviour {
+
+
+public class UIButtonController : MonoBehaviour
+{
 
     PlayablePlayer playable;
     GetItem getItem;
+    bool skillBtnPressed = false;
 
     private void Start()
     {
@@ -13,6 +17,16 @@ public class UIButtonController : MonoBehaviour {
         getItem = GameObject.FindWithTag("Player").GetComponent<GetItem>();
     }
 
+    private void Update()
+    {
+        if(skillBtnPressed)
+        {
+            Debug.Log("isPressed");
+            playable.ButtonClick(EButtonList.EBL_Skill);
+        }
+    }
+
+    //펀치 버튼
     public void OnPunchBtnDown()
     {
         if (getItem.isTriggerStaying && getItem.takeItem == false)
@@ -24,6 +38,7 @@ public class UIButtonController : MonoBehaviour {
         }       
     }
 
+    //킥 버튼
     public void OnKickBtnDown()
     {
         if (getItem.takeItem)
@@ -36,14 +51,35 @@ public class UIButtonController : MonoBehaviour {
 
     }
 
+    //점프 버튼
     public void OnJumpBtnDown()
     {
         StartCoroutine("JumpCoroutine");
     }
 
+    //스킬 버튼 누름
+    public void OnSkillBtnDown()
+    {
+        skillBtnPressed = true;
+    }
+
+    //스킬 버튼 뗌
+    public void OnSkillBtnUp()
+    {
+        skillBtnPressed = false;
+        playable.ButtonRelease(EButtonList.EBL_Skill);
+    }
+
+
     IEnumerator PunchCoroutine()
     {
         playable.ButtonClick(EButtonList.EBL_AttackA);
+
+        if (getItem.takeItem == true)
+        {
+            getItem.UsingItemXP();
+            getItem.GetItemState();
+        }
 
         yield return new WaitForSeconds(0.3f);
         playable.ButtonRelease(EButtonList.EBL_AttackA);
