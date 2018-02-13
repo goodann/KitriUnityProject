@@ -30,31 +30,31 @@ public class ItemState : MonoBehaviour {
             case "Mace":
                 itemPower = 200;
                 itemSpeed = 15;
-                useXP = 12;
+                useXP = 3;
                 break;
 
             case "Sword":
                 itemPower = 150;
                 itemSpeed = 30;
-                useXP = 8;
+                useXP = 2;
                 break;
 
             case "Pistol":
                 itemPower = 400;
                 itemSpeed = 5;
-                useXP = 20;
+                useXP = 10;
                 break;
 
             case "Minigun":
                 itemPower = 200;
                 itemSpeed = 15;
-                useXP = 15;
+                useXP = 8;
                 break;
 
             case "Shield":
                 itemPower = 120;
                 itemSpeed = 25;
-                useXP = 5;
+                useXP = 1;
                 break;
         }
     }

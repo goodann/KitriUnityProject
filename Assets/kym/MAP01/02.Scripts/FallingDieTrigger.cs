@@ -5,12 +5,14 @@ using UnityEngine;
 public class FallingDieTrigger : MonoBehaviour {
 
     public GameObject dyingEffect = null;
+    GetItem getItem;
 
     StartPos startPos;
 
     void Start()
     {
         startPos = GameObject.Find("StartPos").GetComponent<StartPos>();
+        getItem = GameObject.FindWithTag("Player").GetComponent<GetItem>();
     }
 
     void OnTriggerEnter(Collider col)
@@ -18,6 +20,7 @@ public class FallingDieTrigger : MonoBehaviour {
         if (col.gameObject.tag == "Player")
         {
             startPos.SendMessage("ResetPlayerPos", SendMessageOptions.DontRequireReceiver);
+            getItem.ResetItemState();
         }
 
         if (col.gameObject.tag == "Enemy")

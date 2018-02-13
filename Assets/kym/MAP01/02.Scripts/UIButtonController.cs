@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 
 public class UIButtonController : MonoBehaviour
@@ -10,18 +10,27 @@ public class UIButtonController : MonoBehaviour
     PlayablePlayer playable;
     GetItem getItem;
     bool skillBtnPressed = false;
+    [SerializeField]
+    bool isAttacking = false;
+
+    Image Attack_Arms_Converter;
+
+    public Sprite PunchSprite = null;
+    public Sprite ArmsSprite = null;
 
     private void Start()
     {
         playable = GameObject.FindWithTag("Player").GetComponent<PlayablePlayer>();
         getItem = GameObject.FindWithTag("Player").GetComponent<GetItem>();
+        Attack_Arms_Converter = transform.Find("PunchBtn").GetComponent<Image>();
+        Attack_Arms_Converter.sprite = PunchSprite;
     }
 
     private void Update()
     {
         if(skillBtnPressed)
         {
-            Debug.Log("isPressed");
+            //Debug.Log("isPressed");
             playable.ButtonClick(EButtonList.EBL_Skill);
         }
     }
@@ -34,7 +43,21 @@ public class UIButtonController : MonoBehaviour
         else
         {
             getItem.isGetItemBtnDown = false;
-            StartCoroutine("PunchCoroutine");
+            //StartCoroutine("PunchCoroutine");
+
+            if(isAttacking == false)
+            {
+                playable.ButtonClick(EButtonList.EBL_AttackA);
+                isAttacking = true;
+
+                if (getItem.takeItem == true)
+                {
+                    getItem.UsingItemXP();
+                    getItem.GetItemState();
+                }
+                Invoke("PunchOff", 0.6f);
+            }
+            
         }       
     }
 
@@ -71,27 +94,35 @@ public class UIButtonController : MonoBehaviour
     }
 
 
-    IEnumerator PunchCoroutine()
+    void PunchOff()
     {
-        playable.ButtonClick(EButtonList.EBL_AttackA);
-
-        if (getItem.takeItem == true)
-        {
-            getItem.UsingItemXP();
-            getItem.GetItemState();
-        }
-
-        yield return new WaitForSeconds(0.3f);
         playable.ButtonRelease(EButtonList.EBL_AttackA);
-
-        yield break;
+        isAttacking = false;
     }
+
+    //IEnumerator PunchCoroutine()
+    //{
+    //    playable.ButtonClick(EButtonList.EBL_AttackA);
+
+    //    if (getItem.takeItem == true && isAttacking == false)
+    //    {
+    //        getItem.UsingItemXP();
+    //        getItem.GetItemState();
+    //        isAttacking = true;
+    //    }
+
+    //    yield return new WaitForSeconds(0.6f);
+    //    playable.ButtonRelease(EButtonList.EBL_AttackA);
+    //    isAttacking = false;
+
+    //    yield break;
+    //}
 
     IEnumerator KickCoroutine()
     {
         playable.ButtonClick(EButtonList.EBL_AttackB);
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.6f);
         playable.ButtonRelease(EButtonList.EBL_AttackB);
 
         yield break;
@@ -107,5 +138,13 @@ public class UIButtonController : MonoBehaviour
         yield break;
     }
 
+
+    public void ConvertAttackBtnImages()
+    {
+        if (getItem.takeItem)
+            Attack_Arms_Converter.sprite = ArmsSprite;
+        else
+            Attack_Arms_Converter.sprite = PunchSprite;
+    }
 
 }

@@ -19,7 +19,8 @@ public class GetItem : MonoBehaviour {
 
     Animator playerAnimator;
 
-    UIPCSliderController pcXPController;
+    UIButtonController btnController;
+    UIPCSliderController pcUIController;
 
     [SerializeField]
     float itemPower = 0;
@@ -43,10 +44,10 @@ public class GetItem : MonoBehaviour {
     {
         playerAnimator = GetComponent<Animator>();
         leftHand_Weapon_Pos = GameObject.Find("LeftHand_Weapon_Pos").transform;
-        pcXPController = GameObject.Find("PCPanel").GetComponent<UIPCSliderController>();
+        pcUIController = GameObject.Find("PCPanel").GetComponent<UIPCSliderController>();
+        btnController = GameObject.Find("ButtonController").GetComponent<UIButtonController>();
 
         takeItem = false;
-
     }
 
     private void Update()
@@ -112,6 +113,8 @@ public class GetItem : MonoBehaviour {
             //아이템을 들었다
             takeItem = true;
 
+            btnController.ConvertAttackBtnImages();
+
             //픽킹 불가능한 상태로 만든다
             isTriggerStaying = false;
 
@@ -176,7 +179,7 @@ public class GetItem : MonoBehaviour {
 
     void SetItemState()
     {
-        pcXPController.GetItemState(MaxXP, NowXP);
+        pcUIController.GetItemState(MaxXP, NowXP);
     }
 
     public void UsingItemXP()
@@ -217,6 +220,9 @@ public class GetItem : MonoBehaviour {
         isThrowingItemBtnDown = false;
         isGetItemBtnDown = false;
         takeItem = false;
+
+
+        btnController.ConvertAttackBtnImages();
     }
 
     void SetupActiveRotation()
