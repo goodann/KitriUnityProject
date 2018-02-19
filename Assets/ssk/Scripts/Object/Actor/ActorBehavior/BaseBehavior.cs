@@ -31,6 +31,9 @@ public abstract class BaseBehavior:MyBaseObejct
     protected bool isJumping;
     protected bool isMoving;
     protected int comboCount;
+    protected int attackCombo;
+    public int AttackCombo { get { return attackCombo; } }
+    public int MaxCombo { get; set; }
     //property
     public int ComboCount { get { return comboCount; } }
     public virtual BaseAnimation Ani { get { return ani; } }
@@ -39,6 +42,20 @@ public abstract class BaseBehavior:MyBaseObejct
     public bool IsMoving { get {return isMoving; } }
     protected bool isDownnig = false;
     
+    public void ComboAdd()
+    {
+        attackCombo++;
+    }
+    public virtual void ComboInit()
+    {
+        //콤보초기화
+        if (attackCombo > MaxCombo)
+            MaxCombo = attackCombo;
+        attackCombo = 0;
+        comboCount = 0;
+        ComboTimer = 0.0f;
+        
+    }
     public virtual void Init(Actor target, Animator animator,string name)
     {
         targetObject = target;
@@ -146,7 +163,7 @@ public abstract class BaseBehavior:MyBaseObejct
             
         }
         targetObject.AttackDirction = transform.forward*0.1f;
-
+        
 
     }
     public virtual void Jump()

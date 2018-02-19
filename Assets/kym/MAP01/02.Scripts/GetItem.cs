@@ -168,6 +168,7 @@ public class GetItem : MonoBehaviour {
 
 
             StageManager.mainPlayer.SetWeapon(other);
+            other.gameObject.layer = LayerMask.NameToLayer("PlayerAttackCollider");
         }
     }
 
@@ -210,6 +211,7 @@ public class GetItem : MonoBehaviour {
         StageManager.mainPlayer.SetWeapon(null);
         StageManager.mainPlayer.switchEq(EEquipmentState.CharEqState_Fight);
         StageManager.mainPlayer.EndAttack();
+        
         if (takeItemObj == null) return;
 
         itemPower = 0;
@@ -219,7 +221,10 @@ public class GetItem : MonoBehaviour {
         useXP = 0;
 
         SetItemState();
-
+        
+        string LayerName = takeItemObj.name.Substring(0, takeItemObj.name.IndexOf('0'));
+        print("LayerName = " + LayerName);
+        takeItemObj.gameObject.layer = LayerMask.NameToLayer(LayerName);
         //부모연결을 끊는다 -> 오브젝트풀로 리턴
         takeItemObj.transform.parent = GameObject.Find("ObjectPool").transform;
 

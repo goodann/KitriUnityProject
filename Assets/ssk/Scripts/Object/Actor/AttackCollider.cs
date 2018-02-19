@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class AttackCollider : MyBaseObejct
 {
     GameObject StarParticlePrefab;
+    GameObject SkullParticlePrefab;
     GameObject fightAttackParticlePrefab;
     GameObject trail;
     AudioSource audioSource;
@@ -29,6 +30,7 @@ public class AttackCollider : MyBaseObejct
         col = GetComponent<Collider>();
         actor = GetComponentInParent<Actor>();
         StarParticlePrefab = Resources.Load("ssk/prefabs/StarParticle") as GameObject;
+        SkullParticlePrefab = Resources.Load("ssk/prefabs/SkullParticle") as GameObject;
         fightAttackParticlePrefab = Resources.Load("ssk/prefabs/FightAttackParticle") as GameObject;
         
         
@@ -98,7 +100,7 @@ public class AttackCollider : MyBaseObejct
         if (isinAttacked == false)
         {
             print("Hit다 hit! 맞은놈 : " + other.ToString() + "데미지 : " + actor.NowPOWER * actor.NowAttackPower + " 밀리는 방향 " + actor.AttackDirction);
-
+            
             
             if (actor.IsUpperAttack)
             {
@@ -110,7 +112,7 @@ public class AttackCollider : MyBaseObejct
             }
             if (other.CompareTag("Enemy"))
             {
-
+                StageManager.mainPlayer.Behavior.ComboAdd();
                 if (isStop == false)
                 {
                     //Time.timeScale = 0.01f;
@@ -129,6 +131,12 @@ public class AttackCollider : MyBaseObejct
                 //print("Hit다 hit! 맞은놈 : " + other.ToString() + "데미지 : " + actor.NowPOWER * actor.NowAttackPower + " 밀리는 방향 " + actor.AttackDirction);
                 //other.SendMessage("onDamaged", actor.NowPOWER * actor.NowAttackPower);
 
+            }
+            else if (other.CompareTag("Player"))
+            {
+                GameObject.Instantiate(SkullParticlePrefab, other.transform.position, Quaternion.Euler(-90, 0, 0));
+                GameObject.Instantiate(fightAttackParticlePrefab, other.transform.position + Vector3.up * 0.5f, Quaternion.identity);
+                StageManager.mainPlayer.AttackedCount++;
             }
             else
             {

@@ -285,11 +285,16 @@ public class Player : Actor
         {
             AddEq(Eq);
         }
+        else
+        {
+            behavior = be;
+        }
         behavior.switchEq(Eq, CompAnimators[(int)Eq]);
         this.NowEq = Eq;
     }
     public virtual void AddEq(EEquipmentState NowEq)
     {
+        EndAttack();
         print("AddEQ  = " + NowEq.ToString());
         string beName = "";
         switch (NowEq)

@@ -189,12 +189,11 @@ public class FightBehavior : BaseBehavior {
             ComboInit();
         }
     }
-    public void ComboInit()
+    public override void ComboInit()
     {
+        base.ComboInit();
         //콤보초기화
         comboSignal = 0;
-        comboCount = 0;
-        ComboTimer = 0.0f;
         isLeft = true;
     }
     public void JumpKick()

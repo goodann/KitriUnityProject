@@ -14,7 +14,9 @@ public struct Status
 [RequireComponent(typeof(Animator))]
 public class Actor : MyBaseObejct {
     //public 변수
-    
+    public int AttackedCount { get; set; }
+    public int MaxCombo { get; set; }
+
     public float JumpForce = 100;
 
     public float MoveSpeed = 2;
@@ -138,7 +140,7 @@ public class Actor : MyBaseObejct {
         power = st.power;
         isAlive = true;
     }
-
+    
 
     public virtual void Init()
     {
