@@ -40,7 +40,7 @@ public class RunawayState : IState
             {
                 runTime = 0f;
                 bDest = true;
-                parent.NavAgent.SetDestination(Vector3.zero);
+                parent.NavAgent.SetDestination(Vector3.zero);   // todo : 도망가게하기
                 parent.NavAgent.isStopped = true;
             }
         }
@@ -75,7 +75,7 @@ public class RunawayState : IState
         Vector3 dest = parent.NavTR.position - parent.PlayerTR.position;
         dest.y = 0;
 
-        parent.NavAgent.SetDestination(dest.normalized);
+        parent.NavAgent.SetDestination(dest.normalized + parent.NavTR.position);
         parent.NavAgent.isStopped = false;
     }
 }

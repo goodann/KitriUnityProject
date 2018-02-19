@@ -7,9 +7,9 @@ public class Enemy : Actor
 {
     #region Variables
     public bool StatusInit = false;
-    public Vector3 NavTRPos;
-    public Vector3 transformPos;
-    public Vector3 localPos;
+    //public Vector3 NavTRPos;
+    //public Vector3 transformPos;
+    //public Vector3 localPos;
 
     public int mobId = 0;
     public float skillPoint = 0f;
@@ -28,7 +28,8 @@ public class Enemy : Actor
     // Archer
     public float reloadTime;
     public float runawayDist;
-    private float OldReloadTime;
+    private float runawayResetTime = 3f;
+    private float oldReloadTime;
     private int arrowPower;
     private bool bReload = false;
     private bool bRunaway = true;
@@ -100,9 +101,9 @@ public class Enemy : Actor
 
     private void Update()
     {
-        NavTRPos = navTR.position;
-        transformPos = transform.position;
-        localPos = transform.localPosition;
+        //NavTRPos = navTR.position;
+        //transformPos = transform.position;
+        //localPos = transform.localPosition;
 
         if (IsAlive == false)
             return;
@@ -114,6 +115,17 @@ public class Enemy : Actor
         {
             skillPoint = 100f;
             bSkillReady = true;
+        }
+
+        if (bRunaway == false && _AI.CurrentState is RunawayState == false)
+        {
+            runawayResetTime -= Time.deltaTime;
+
+            if (runawayResetTime <= 0f)
+            {
+                runawayResetTime = 3f;
+                bRunaway = true;
+            }
         }
 
         _AI.UpdateAI();
@@ -160,7 +172,7 @@ public class Enemy : Actor
                     arrow = FindInChild("Elven Long Bow Arrow").gameObject;
                     arrow.SetActive(false);
 
-                    OldReloadTime = reloadTime;
+                    oldReloadTime = reloadTime;
 
                     if (StatusInit)
                     {
@@ -306,7 +318,7 @@ public class Enemy : Actor
             if (reloadTime <= 0)
             {
                 bReload = false;
-                reloadTime = OldReloadTime;
+                reloadTime = oldReloadTime;
             }
         }
     }
