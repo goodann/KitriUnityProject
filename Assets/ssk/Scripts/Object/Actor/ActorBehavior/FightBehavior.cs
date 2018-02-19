@@ -197,6 +197,14 @@ public class FightBehavior : BaseBehavior {
         comboSignal = 0;
         isLeft = true;
     }
+    public void ComboReset()
+    {
+        //콤보초기화
+        comboCount = 0;
+        ComboTimer = 0.0f;
+        comboSignal = 0;
+        isLeft = true;
+    }
     public void JumpKick()
     {
         isJumpKickDowning = true;
@@ -249,7 +257,7 @@ public class FightBehavior : BaseBehavior {
                     AttackColliderEnable(EAttackColliderIndex.ACI_RightFoot);
                     //ani.AniSpacialKick();
                     ani.SendMessage("AniSpacialKick");
-                    ComboInit();
+                    ComboReset();
                 }
                 else
                 {
