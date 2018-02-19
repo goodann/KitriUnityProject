@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyGenerator : MonoBehaviour {
 
+    StageManager stageManager;
     public GameObject[] enemyObjects;
 
     [SerializeField]
@@ -16,6 +17,11 @@ public class EnemyGenerator : MonoBehaviour {
 
     public bool isGameOver;
 
+    private void Awake()
+    {
+        stageManager = GameObject.Find("StageManager").GetComponent<StageManager>();
+    }
+
     private void Start()
     {
         isGameOver = false;
@@ -23,6 +29,7 @@ public class EnemyGenerator : MonoBehaviour {
         points = GetComponentsInChildren<Transform>();
         _objectPool = GameObject.Find("ObjectPool");
         maxEnemyCnt = points.Length - 1;
+        stageManager.EnemyCount = maxEnemyCnt;
 
         for(int i=0; i<maxEnemyCnt; i++)
         {
