@@ -8,6 +8,7 @@ public class UIPCSliderController : MonoBehaviour {
     Slider pcHpSlider;
     Slider pcMpSlider;
     Slider pcXpSlider;
+    Slider pcSpSlider;
 
     PlayablePlayer playable;
 
@@ -21,6 +22,7 @@ public class UIPCSliderController : MonoBehaviour {
         pcHpSlider = GameObject.Find("PC_HPbar").GetComponent<Slider>();
         pcMpSlider = GameObject.Find("PC_MPbar").GetComponent<Slider>();
         pcXpSlider = GameObject.Find("PC_XPbar").GetComponent<Slider>();
+        pcSpSlider = GameObject.Find("PC_SPbar").GetComponent<Slider>();
     }
 
     private void Update()
@@ -36,6 +38,8 @@ public class UIPCSliderController : MonoBehaviour {
         pcMpSlider.maxValue = playable.MP;
         pcMpSlider.value = playable.NowMP;
 
+        pcSpSlider.maxValue = 300f;
+        pcSpSlider.value = playable.SkillCharged;
     }
 
     public void GetItemState(float maxXP, float nowXP)
