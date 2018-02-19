@@ -3222,6 +3222,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1555490614}
     m_Modifications:
+    - target: {fileID: 114686058095637014, guid: 363a8c80923b51043a5ea4ec1103b9cb,
+        type: 2}
+      propertyPath: CompAnimators.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4638095001835220, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -3317,6 +3322,16 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114686058095637014, guid: 363a8c80923b51043a5ea4ec1103b9cb,
+        type: 2}
+      propertyPath: CompAnimators.Array.data[2]
+      value: 
+      objectReference: {fileID: 9100000, guid: ae1c669af601b4248bca672a73b3f673, type: 2}
+    - target: {fileID: 114686058095637014, guid: 363a8c80923b51043a5ea4ec1103b9cb,
+        type: 2}
+      propertyPath: CompAnimators.Array.data[3]
+      value: 
+      objectReference: {fileID: 9100000, guid: 630d3c5fe9046314ca2ef8975072a34d, type: 2}
     m_RemovedComponents:
     - {fileID: 54145417754714776, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}

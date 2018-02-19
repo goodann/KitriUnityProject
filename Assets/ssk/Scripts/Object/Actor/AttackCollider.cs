@@ -8,6 +8,7 @@ public class AttackCollider : MyBaseObejct
 {
     GameObject StarParticlePrefab;
     GameObject fightAttackParticlePrefab;
+    GameObject trail;
     AudioSource audioSource;
     Actor actor;
     Collider col;
@@ -29,12 +30,16 @@ public class AttackCollider : MyBaseObejct
         actor = GetComponentInParent<Actor>();
         StarParticlePrefab = Resources.Load("ssk/prefabs/StarParticle") as GameObject;
         fightAttackParticlePrefab = Resources.Load("ssk/prefabs/FightAttackParticle") as GameObject;
+        
+        
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = Resources.Load("ssk/sound/Effect/fight/attack") as AudioClip;
         audioSource.playOnAwake = false;
 
-
-        trailRenderer = gameObject.AddComponent<TrailRenderer>();
+        trail = new GameObject(this.name + "Trail");
+        trail.transform.parent = transform;
+        trail.transform.position = transform.position + transform.right * 0.15f;
+        trailRenderer = trail.AddComponent<TrailRenderer>();
         trailRenderer.startWidth = 0.2f;
         trailRenderer.endWidth = 0.2f;
         trailRenderer.material = Resources.Load("ssk/Material/AlphaGr3") as Material;

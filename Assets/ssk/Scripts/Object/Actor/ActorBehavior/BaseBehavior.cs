@@ -38,8 +38,8 @@ public abstract class BaseBehavior:MyBaseObejct
     public bool IsJumping { get { return isJumping; } }
     public bool IsMoving { get {return isMoving; } }
     protected bool isDownnig = false;
-
-    public virtual void Init(Actor target, Animator animator)
+    
+    public virtual void Init(Actor target, Animator animator,string name)
     {
         targetObject = target;
         //CompAnimator = animator;
