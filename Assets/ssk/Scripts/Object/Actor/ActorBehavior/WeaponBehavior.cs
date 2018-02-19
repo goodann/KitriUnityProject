@@ -94,8 +94,9 @@ public class WeaponBehavior : BaseBehavior {
     {
         base.Jump();
     }
-    public void ComboInit()
+    public override void ComboInit()
     {
+        base.ComboInit();
         //콤보초기화
         comboCount = 0;
         ComboTimer = 0.0f;

@@ -56,7 +56,7 @@ public class FightBehavior : BaseBehavior {
 
     public override void Init(Actor target, Animator animator,string name)
     {
-        ComboInit();
+        
         isLeft = true;
         
         base.Init(target,animator,name);
@@ -65,6 +65,7 @@ public class FightBehavior : BaseBehavior {
         ani = gameObject.AddComponent<FightAnimation>();
         ani.AnimatorInit(target, this, animator);
         EndAttack();
+        ComboInit();
 
     }
     public override void AttackA()

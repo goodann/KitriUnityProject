@@ -6,7 +6,7 @@ public class Kamehameha : AniStateAttack
 {
     static GameObject beamPrefab;
     GameObject instBeam;
-    Vector3 beamPosition = new Vector3(0, 0.5f, 0.5f);
+
     float timer = 0;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

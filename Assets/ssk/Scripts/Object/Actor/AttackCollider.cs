@@ -22,7 +22,7 @@ public class AttackCollider : MyBaseObejct
         get { return attackState; }
         set { attackState = value; }
     }
-    int i = 0;
+
     // Use this for initialization
     void Start()
     {

@@ -33,7 +33,7 @@ public abstract class BaseBehavior:MyBaseObejct
     protected int comboCount;
     protected int attackCombo;
     public int AttackCombo { get { return attackCombo; } }
-    public int MaxCombo { get; set; }
+    
     //property
     public int ComboCount { get { return comboCount; } }
     public virtual BaseAnimation Ani { get { return ani; } }
@@ -49,8 +49,8 @@ public abstract class BaseBehavior:MyBaseObejct
     public virtual void ComboInit()
     {
         //콤보초기화
-        if (attackCombo > MaxCombo)
-            MaxCombo = attackCombo;
+        if (attackCombo > targetObject.MaxCombo)
+            targetObject.MaxCombo = attackCombo;
         attackCombo = 0;
         comboCount = 0;
         ComboTimer = 0.0f;

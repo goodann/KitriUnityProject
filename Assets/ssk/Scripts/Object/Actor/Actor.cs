@@ -38,7 +38,7 @@ public class Actor : MyBaseObejct {
 
     //공격으로 밀쳐질 방향
     protected Vector3 attackDirction;
-
+    
 
     //무기
     protected Collider weapon;
