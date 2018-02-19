@@ -33,12 +33,14 @@ public partial class PlayablePlayer : Player
     float attack1 = 0;
     float attack2 = 0;
     float jump = 0;
+    
     float skill = 0;
 
     float timeScale = 1;
     //float lerpTime = 0;
     bool isDark;
     
+    public float SkillCharged{get { return skill; } }
     
     private PlayablePlayer()
     {

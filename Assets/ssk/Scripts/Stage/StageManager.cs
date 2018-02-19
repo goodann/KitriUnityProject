@@ -9,7 +9,7 @@ public class StageManager:MyBaseObejct{
 	void Start () {
         MainLight = GetComponentInChildren<Light>();
         print("Set Light = "+MainLight);
-        mainPlayer = FindObjectOfType<PlayablePlayer>();
+        mainPlayer = GetComponentInChildren<PlayablePlayer>();
         print(mainPlayer);
     }
 

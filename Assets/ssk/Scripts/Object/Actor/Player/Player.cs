@@ -83,7 +83,7 @@ public class Player : Actor
         Animator CompAnimator = gameObject.GetComponent<Animator>();
         behavior = gameObject.AddComponent<FightBehavior>();
 
-        behavior.Init(this, CompAnimator);
+        behavior.Init(this, CompAnimator,name);
         GetComponentsInit();
         power = 100;
         hp = 10000;
@@ -270,24 +270,26 @@ public class Player : Actor
 
     }
 
-    public virtual void switchEq(EEquipmentState NowEq)
+    public virtual void switchEq(EEquipmentState Eq)
     {
-        print("switchEq  = " + NowEq.ToString());
+        print("switchEq  = " + Eq.ToString());
         if (listBehavior.ContainsKey(this.NowEq) == false)
         {
             listBehavior.Add(this.NowEq, behavior);
         }
         
         BaseBehavior be;
-        if (listBehavior.TryGetValue(NowEq, out be) == false)
+        if (listBehavior.TryGetValue(Eq, out be) == false)
         {
-            AddEq(NowEq);
+            AddEq(Eq);
         }
-        behavior.switchEq(NowEq, CompAnimators[(int)NowEq]);
+        behavior.switchEq(Eq, CompAnimators[(int)Eq]);
+        this.NowEq = Eq;
     }
     public virtual void AddEq(EEquipmentState NowEq)
     {
         print("AddEQ  = " + NowEq.ToString());
+        string beName = "";
         switch (NowEq)
         {
             case EEquipmentState.CharEqState_Fight:
@@ -296,12 +298,22 @@ public class Player : Actor
             case EEquipmentState.CharEqState_Sword:
                 behavior=gameObject.AddComponent<WeaponBehavior>();
                 break;
+            case EEquipmentState.CharEqState_Gun:
+                behavior = gameObject.AddComponent<WeaponBehavior>();
+                beName = "Gun";
+                break;
+            case EEquipmentState.CharEqState_Pistol:
+                behavior = gameObject.AddComponent<WeaponBehavior>();
+                beName = "Pistol";
+                break;
             case EEquipmentState.CharEqState_End:
                 break;
+            
+                
             default:
                 break;
         }
-        behavior.Init(this, gameObject.GetComponent<Animator>());
+        behavior.Init(this, gameObject.GetComponent<Animator>(),beName);
 
     }
 }

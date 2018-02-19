@@ -14,13 +14,24 @@ public class WeaponBehavior : BaseBehavior {
         base.Update();
 
 	}
-    public override void Init(Actor target, Animator animator)
+    public override void Init(Actor target, Animator animator,string name)
     {
         ComboInit();
-        base.Init(target, animator);
+        base.Init(target, animator,name);
 
-
-        ani = gameObject.AddComponent<WeaponAnimation>();
+        switch (name)
+        {
+            case "Pistol":
+                ani = gameObject.AddComponent<PistolAnimation>();
+                break;
+            case "Gun":
+                ani = gameObject.AddComponent<GunAnimation>();
+                break;
+            default:
+                ani = gameObject.AddComponent<WeaponAnimation>();
+                break;
+        }
+        //ani = gameObject.AddComponent<WeaponAnimation>();
         ani.AnimatorInit(target, this, animator);
         EndAttack();
 
@@ -70,15 +81,13 @@ public class WeaponBehavior : BaseBehavior {
                 comboCount = 0;
 
         }
+        //bullet make
         
     }
     public override void AttackB()
     {
         //throw new System.NotImplementedException();
         ani.AniAttackB();
-    }
-    public override void Damaged(int damage)
-    {
     }
     public override void Jump()
     {
