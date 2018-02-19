@@ -136,7 +136,9 @@ public class AttackCollider : MyBaseObejct
             {
                 GameObject.Instantiate(SkullParticlePrefab, other.transform.position, Quaternion.Euler(-90, 0, 0));
                 GameObject.Instantiate(fightAttackParticlePrefab, other.transform.position + Vector3.up * 0.5f, Quaternion.identity);
-                StageManager.mainPlayer.AttackedCount++;
+                StageManager.mainPlayer.AttackCombo();
+
+                
             }
             else
             {

@@ -118,15 +118,15 @@ public partial class PlayablePlayer : Player
         //attack2 = Input.GetAxis("Fire2");
         //jump = Input.GetAxis("Jump");
 
-        if (Input.GetKey(KeyCode.V))
-        {
-            Time.timeScale = 0.1f;
-        }
-        else
-        {
-            Time.timeScale = timeScale;
+        //if (Input.GetKey(KeyCode.V))
+        //{
+        //    Time.timeScale = 0.1f;
+        //}
+        //else
+        //{
+        //    Time.timeScale = timeScale;
 
-        }
+        //}
 
         //attack1 = 0;
         //attack2 = 0;

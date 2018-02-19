@@ -14,7 +14,17 @@ public struct Status
 [RequireComponent(typeof(Animator))]
 public class Actor : MyBaseObejct {
     //public 변수
-    public int AttackedCount { get; set; }
+    protected int attackedCount;
+    public int AttackedCount { get { return attackedCount; } }
+    public void AttackCombo()
+    {
+        if (attackedCount == 0)
+        {
+            GameObject.Find("ComboText").SendMessage("SetComboOnAnim");
+        }
+        attackedCount++;
+        GameObject.Find("ComboText").SendMessage("SetCombo", AttackedCount);
+    }
     public int MaxCombo { get; set; }
 
     public float JumpForce = 100;

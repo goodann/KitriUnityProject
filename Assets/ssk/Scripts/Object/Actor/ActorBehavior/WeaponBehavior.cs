@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponBehavior : BaseBehavior {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
+    string WeaponName;
+    GameObject bullet;
+    GameObject fire;
+    Transform pos;
+    // Use this for initialization
+    void Start () {
+        bullet = Resources.Load("ssk/prefabs/MachinePistol_Shell") as GameObject;
+        fire = Resources.Load("ssk/prefabs/MachinePistol_MuzzleFlash") as GameObject;
+        
+    }
 	
 	// Update is called once per frame
 	protected override void Update () {
@@ -16,7 +21,7 @@ public class WeaponBehavior : BaseBehavior {
 	}
     public override void Init(Actor target, Animator animator,string name)
     {
-        ComboInit();
+        WeaponName = name;
         base.Init(target, animator,name);
 
         switch (name)
@@ -34,7 +39,7 @@ public class WeaponBehavior : BaseBehavior {
         //ani = gameObject.AddComponent<WeaponAnimation>();
         ani.AnimatorInit(target, this, animator);
         EndAttack();
-
+        ComboInit();
     }
     public override void Skill(int charged)
     {
@@ -72,7 +77,7 @@ public class WeaponBehavior : BaseBehavior {
     public override void AttackA()
     {
         //throw new System.NotImplementedException();
-        if (!isAnimationPlaing)
+        if (!isAnimationPlaing && targetObject.IsGrounded)
         {
             AttackColliderEnable(EAttackColliderIndex.ACI_Weapon);
             isAnimationPlaing = true;
@@ -100,6 +105,17 @@ public class WeaponBehavior : BaseBehavior {
         //콤보초기화
         comboCount = 0;
         ComboTimer = 0.0f;
+    }
+    public void Shot() {
+
+        //MachinePistol_Shell
+        
+        pos = StageManager.mainPlayer.FindInChild("FirePos");
+        print("Fire : " + pos);
+        GameObject.Instantiate(bullet, pos.localToWorldMatrix* pos.position, transform.rotation);
+        GameObject.Instantiate(fire, pos.localToWorldMatrix*pos.position, transform.rotation);
+        Rigidbody rigid = bullet.GetComponent<Rigidbody>();
+        rigid.AddForce(transform.forward * 100);
     }
 }
 
