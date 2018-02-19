@@ -20,10 +20,12 @@ public enum ECharaterState
 
 public enum EAttackColliderIndex
 {
-    ACI_LeftFoot = 0,
-    ACI_RightFoot = 1,
-    ACI_LeftHand = 2,
-    ACI_RightHand = 3,
+    ACI_LeftFoot,
+    ACI_RightFoot,
+    ACI_LeftHand,
+    ACI_RightHand,
+    ACI_Weapon,
+    ACI_MAX
 }
 public enum EBaseObjectState
 {

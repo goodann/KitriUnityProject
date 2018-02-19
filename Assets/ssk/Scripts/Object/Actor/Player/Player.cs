@@ -66,7 +66,7 @@ public class Player : Actor
         base.Init();
         listBehavior = new Dictionary<EEquipmentState, BaseBehavior>();
         isG = new bool[2];
-
+        
         beforePos = gameObject.transform.position;
         ListAttackColliders = new List<Collider>();
         ListAttackColliders.Add(FindInChild("Character1_LeftFoot").GetComponent<Collider>());
@@ -205,7 +205,7 @@ public class Player : Actor
         //if (vel.y < 0.1f && IsGrounded && vel2d.sqrMagnitude > 0.1f)
         if (vel.y < 0.0f && IsGrounded && vel2d.sqrMagnitude > 0.1f)
         {
-            print("vel.y" + vel.y + "vel2d.sqrMagnitude"+ vel2d.sqrMagnitude);
+            //print("vel.y" + vel.y + "vel2d.sqrMagnitude"+ vel2d.sqrMagnitude);
             if (vec.sqrMagnitude < 0.1f)
             {
                 print("Behavior.stop()");
@@ -316,6 +316,26 @@ public class Player : Actor
                 break;
         }
         behavior.Init(this, gameObject.GetComponent<Animator>(),beName);
+        EndAttack();
+    }
+    public void SetWeapon(Collider weaponCol)
+    {
+        if (weaponCol == null)
+        {
+            if (weapon != null) {
+                AttackCollider attCol = weapon.GetComponent<AttackCollider>();
+                if (attCol!=null)
+                    attCol.enabled = false;
+            }
+        }
+        else
+        {
+            weapon = weaponCol;
+            AttackCollider attCol = weapon.GetComponent<AttackCollider>();
+            if (attCol == null)
+                attCol = weapon.gameObject.AddComponent<AttackCollider>();
+            attCol.enabled = true;
+        }
 
     }
 }

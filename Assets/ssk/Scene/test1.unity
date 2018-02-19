@@ -3077,6 +3077,7 @@ MonoBehaviour:
   lastHitMobID: 0
   lastHitMobHP: 0
   lastHitMobMaxHP: 0
+  lastHitMobSkillPoint: 0
 --- !u!1 &1560888550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3222,11 +3223,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1555490614}
     m_Modifications:
-    - target: {fileID: 114686058095637014, guid: 363a8c80923b51043a5ea4ec1103b9cb,
-        type: 2}
-      propertyPath: CompAnimators.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4638095001835220, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -3259,81 +3255,55 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4437462046959640, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0.7071077
-      objectReference: {fileID: 0}
-    - target: {fileID: 4437462046959640, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0.00028154056
-      objectReference: {fileID: 0}
-    - target: {fileID: 4437462046959640, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0.70710576
-      objectReference: {fileID: 0}
-    - target: {fileID: 4437462046959640, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: -0.00028154135
-      objectReference: {fileID: 0}
-    - target: {fileID: 4913647604559148, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0.7071077
-      objectReference: {fileID: 0}
-    - target: {fileID: 4913647604559148, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0.00028154056
-      objectReference: {fileID: 0}
-    - target: {fileID: 4913647604559148, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0.70710576
-      objectReference: {fileID: 0}
-    - target: {fileID: 4913647604559148, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.00028154135
-      objectReference: {fileID: 0}
     - target: {fileID: 4695771930418122, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.0059114285
+      value: -0.0059114266
       objectReference: {fileID: 0}
     - target: {fileID: 4695771930418122, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.67944837
+      value: -0.6794483
       objectReference: {fileID: 0}
     - target: {fileID: 4695771930418122, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.7336993
+      value: 0.73369926
       objectReference: {fileID: 0}
     - target: {fileID: 4695771930418122, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -0.00066563475
+      value: -0.0006656347
       objectReference: {fileID: 0}
-    - target: {fileID: 143198019824273544, guid: 363a8c80923b51043a5ea4ec1103b9cb,
-        type: 2}
-      propertyPath: m_MinMoveDistance
-      value: 0
+    - target: {fileID: 4913647604559148, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071078
       objectReference: {fileID: 0}
-    - target: {fileID: 143198019824273544, guid: 363a8c80923b51043a5ea4ec1103b9cb,
-        type: 2}
-      propertyPath: m_SkinWidth
-      value: 0.1
+    - target: {fileID: 4913647604559148, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.0002815406
       objectReference: {fileID: 0}
-    - target: {fileID: 143198019824273544, guid: 363a8c80923b51043a5ea4ec1103b9cb,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 4913647604559148, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071058
       objectReference: {fileID: 0}
-    - target: {fileID: 114686058095637014, guid: 363a8c80923b51043a5ea4ec1103b9cb,
-        type: 2}
-      propertyPath: CompAnimators.Array.data[2]
-      value: 
-      objectReference: {fileID: 9100000, guid: ae1c669af601b4248bca672a73b3f673, type: 2}
-    - target: {fileID: 114686058095637014, guid: 363a8c80923b51043a5ea4ec1103b9cb,
-        type: 2}
-      propertyPath: CompAnimators.Array.data[3]
-      value: 
-      objectReference: {fileID: 9100000, guid: 630d3c5fe9046314ca2ef8975072a34d, type: 2}
-    m_RemovedComponents:
-    - {fileID: 54145417754714776, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
+    - target: {fileID: 4913647604559148, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.00028154138
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437462046959640, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071078
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437462046959640, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.0002815406
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437462046959640, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071058
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437462046959640, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: -0.00028154138
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 363a8c80923b51043a5ea4ec1103b9cb, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1670619923
@@ -3473,7 +3443,7 @@ MonoBehaviour:
   nowMp: 0
   nowPower: 0
   StatusInit: 0
-  MobTRPos: {x: 0, y: 0, z: 0}
+  NavTRPos: {x: 0, y: 0, z: 0}
   transformPos: {x: 0, y: 0, z: 0}
   localPos: {x: 0, y: 0, z: 0}
   mobId: 0
@@ -3489,6 +3459,8 @@ MonoBehaviour:
   reloadTime: 2
   physicsCollider: {fileID: 0}
   triggerCollider: {fileID: 0}
+  sparkEffect: {fileID: 0}
+  meleeSkillCollider: {fileID: 0}
 --- !u!95 &1671640484
 Animator:
   serializedVersion: 3

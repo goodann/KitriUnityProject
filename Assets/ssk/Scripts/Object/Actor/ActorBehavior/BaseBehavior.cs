@@ -47,7 +47,14 @@ public abstract class BaseBehavior:MyBaseObejct
     }
     public void AttackColliderEnable(EAttackColliderIndex index)
     {
-        targetObject.ListAttackColliders[(int)index].enabled = true;
+        if (index == EAttackColliderIndex.ACI_Weapon)
+        {
+            targetObject.Weapon.enabled = true;
+        }
+        else
+        {
+            targetObject.ListAttackColliders[(int)index].enabled = true;
+        }
     }
     public void AniPlayStart()
     {
@@ -121,6 +128,9 @@ public abstract class BaseBehavior:MyBaseObejct
             targetObject.ListAttackColliders[i].enabled = false;
 
         }
+        if(targetObject.Weapon!=null)
+            targetObject.Weapon.enabled = false;
+        
     }
     public void EndAttack()
     {

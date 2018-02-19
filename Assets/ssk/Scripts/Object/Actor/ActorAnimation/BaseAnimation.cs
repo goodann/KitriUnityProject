@@ -17,13 +17,13 @@ public class BaseAnimation:MyBaseObejct  {
 
     public virtual void AniJump()
     {
-        print("AniJump!!");
+        //print("AniJump!!");
         CompAnimator.SetBool("Jump", true);
 
     }
     public virtual void AniJumpEnd()
     {
-        print("AniJumpEnd!!");
+        //print("AniJumpEnd!!");
         CompAnimator.SetBool("Jump", false);
     }
     public virtual void AniAttackA()
@@ -36,7 +36,7 @@ public class BaseAnimation:MyBaseObejct  {
     }
     public virtual void AniMove()
     {
-        print("AniMove!");
+        //print("AniMove!");
         CompAnimator.SetBool("Moving", true);
     }
     public virtual void AniRolling()
@@ -57,7 +57,7 @@ public class BaseAnimation:MyBaseObejct  {
     }
     public virtual void AniStop()
     {
-        print("Base AniStop!!");
+        //print("Base AniStop!!");
         CompAnimator.SetBool("Moving", false);
         CompAnimator.SetBool("Jump", false);
     }

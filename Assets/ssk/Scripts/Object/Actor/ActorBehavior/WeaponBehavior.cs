@@ -58,7 +58,7 @@ public class WeaponBehavior : BaseBehavior {
         {
             //1필
             targetObject.NowAttackPower = 5.0f;
-            AttackColliderEnable(EAttackColliderIndex.ACI_LeftHand);
+            AttackColliderEnable(EAttackColliderIndex.ACI_Weapon);
         }
         else
         {
@@ -74,6 +74,7 @@ public class WeaponBehavior : BaseBehavior {
         //throw new System.NotImplementedException();
         if (!isAnimationPlaing)
         {
+            AttackColliderEnable(EAttackColliderIndex.ACI_Weapon);
             isAnimationPlaing = true;
             ani.AniAttackA();
             comboCount++;

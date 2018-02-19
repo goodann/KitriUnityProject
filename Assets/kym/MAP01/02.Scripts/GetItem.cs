@@ -124,30 +124,35 @@ public class GetItem : MonoBehaviour {
                     other.transform.localPosition = new Vector3(-0.05f, 0.07f, 0.12f);
                     other.transform.localRotation = Quaternion.Euler(-57, -150, 170);
                     other.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                    StageManager.mainPlayer.switchEq(EEquipmentState.CharEqState_Sword);
                     break;
 
                 case "Sword":
                     other.transform.localPosition = new Vector3(-0.03f, 0.07f, 0.1f);
                     other.transform.localRotation = Quaternion.Euler(-32, -60, 114);
                     other.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                    StageManager.mainPlayer.switchEq(EEquipmentState.CharEqState_Sword);
                     break;
 
                 case "Pistol":
                     other.transform.localPosition = new Vector3(-0.28f, -0.17f, 0.05f);
                     other.transform.localRotation = Quaternion.Euler(118, 253, 59);
                     other.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                    StageManager.mainPlayer.switchEq(EEquipmentState.CharEqState_Pistol);
                     break;
 
                 case "Minigun":
                     other.transform.localPosition = new Vector3(-0.19f, -0.07f, 0.1f);
                     other.transform.localRotation = Quaternion.Euler(150, 113, -61);
                     other.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                    StageManager.mainPlayer.switchEq(EEquipmentState.CharEqState_Gun);
                     break;
 
                 case "Shield":
                     other.transform.localPosition = new Vector3(-0.11f, 0.1f, 0.21f);
                     other.transform.localRotation = Quaternion.Euler(56, 58, -130);
                     other.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+                    StageManager.mainPlayer.switchEq(EEquipmentState.CharEqState_Sword);
                     break;
 
             }
@@ -158,6 +163,8 @@ public class GetItem : MonoBehaviour {
             //아이템 제너레이터를 갱신시킨다
             other.gameObject.GetComponent<ItemRotate>().ItemGenePointReset();
 
+
+            StageManager.mainPlayer.SetWeapon(other);
         }
     }
 
@@ -196,6 +203,10 @@ public class GetItem : MonoBehaviour {
 
     public void ResetItemState()
     {
+        print("ResetItemState!!");
+        StageManager.mainPlayer.SetWeapon(null);
+        StageManager.mainPlayer.switchEq(EEquipmentState.CharEqState_Fight);
+        StageManager.mainPlayer.EndAttack();
         if (takeItemObj == null) return;
 
         itemPower = 0;

@@ -37,6 +37,11 @@ public class Actor : MyBaseObejct {
     //공격으로 밀쳐질 방향
     protected Vector3 attackDirction;
 
+
+    //무기
+    protected Collider weapon;
+    public Collider Weapon { get { return weapon; } }
+
     // init status
     [SerializeField]
     protected int hp;
@@ -149,7 +154,7 @@ public class Actor : MyBaseObejct {
 
     public virtual void AttackRecoverMana()
     {
-        print(gameObject.name + "의 공격 마나 회복!");
+        //print(gameObject.name + "의 공격 마나 회복!");
         if (nowMp < mp)
             nowMp += 5;
         if (nowMp > mp)
@@ -157,7 +162,7 @@ public class Actor : MyBaseObejct {
     }
     public virtual void DamagedRecoverMana()
     {
-        print(gameObject.name + "의 피격 마나 회복!");
+        //print(gameObject.name + "의 피격 마나 회복!");
         if (nowMp < mp)
             nowMp += 5;
         if (nowMp > mp)
@@ -165,7 +170,7 @@ public class Actor : MyBaseObejct {
     }
     public virtual void EndRolling()
     {
-        print("end ROlling!");
+        //print("end ROlling!");
         isRolling = false;
     }
     public virtual void Move(Vector3 dir)
@@ -216,6 +221,8 @@ public class Actor : MyBaseObejct {
         }
         isUpperAttack = false;
         //print("Attackend!");
+        if (weapon != null)
+            weapon.enabled = false;
     }
     public virtual void UpperHit(int _power)
     {

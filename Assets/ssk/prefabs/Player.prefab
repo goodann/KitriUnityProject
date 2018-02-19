@@ -616,7 +616,6 @@ GameObject:
   - component: {fileID: 95081248736510620}
   - component: {fileID: 143198019824273544}
   - component: {fileID: 114686058095637014}
-  - component: {fileID: 54145417754714776}
   - component: {fileID: 114690296045544884}
   m_Layer: 10
   m_Name: Player
@@ -2184,7 +2183,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1882588055932100}
-  m_LocalRotation: {x: 0.7071077, y: 0.00028154056, z: 0.70710576, w: -0.00028154135}
+  m_LocalRotation: {x: 0.7071078, y: 0.0002815406, z: 0.7071058, w: -0.00028154138}
   m_LocalPosition: {x: -0.10417484, y: -0.047148738, z: -0.02673168}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2572,7 +2571,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1275070272109210}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: -50}
+  m_LocalPosition: {x: -7, y: -8, z: -28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4173391491203216}
@@ -2653,7 +2652,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1863400010579130}
-  m_LocalRotation: {x: -0.0059114285, y: -0.67944837, z: 0.7336993, w: -0.00066563475}
+  m_LocalRotation: {x: -0.0059114266, y: -0.6794483, z: 0.73369926, w: -0.0006656347}
   m_LocalPosition: {x: -0.14276123, y: 0.032653574, z: 0.13977996}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_Children: []
@@ -2902,7 +2901,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1228948321414064}
-  m_LocalRotation: {x: 0.7071077, y: 0.00028154056, z: -0.70710576, w: 0.00028154135}
+  m_LocalRotation: {x: 0.7071078, y: 0.0002815406, z: -0.7071058, w: 0.00028154138}
   m_LocalPosition: {x: -0.10417484, y: -0.047148883, z: 0.026731417}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3075,21 +3074,6 @@ Transform:
   m_Father: {fileID: 4554154231970216}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &54145417754714776
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1275070272109210}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &95081248736510620
 Animator:
   serializedVersion: 3
@@ -3268,7 +3252,8 @@ MonoBehaviour:
   CompAnimators:
   - {fileID: 9100000, guid: c52d1c9c48f6c5c409bf71e5a55054d9, type: 2}
   - {fileID: 9100000, guid: a28c4ca19bd710048aa59527cc4f9b83, type: 2}
-  - {fileID: 9100000, guid: 0538e9323ad448449b739f27816b2167, type: 2}
+  - {fileID: 9100000, guid: ae1c669af601b4248bca672a73b3f673, type: 2}
+  - {fileID: 9100000, guid: 630d3c5fe9046314ca2ef8975072a34d, type: 2}
   trail: {fileID: 96104095274330046}
 --- !u!114 &114690296045544884
 MonoBehaviour:
@@ -3287,6 +3272,11 @@ MonoBehaviour:
   isThrowingItemBtnDown: 0
   throwItemSpeed: 10000
   throwPower: 8000
+  itemPower: 0
+  itemSpeed: 0
+  MaxXP: 0
+  NowXP: 0
+  useXP: 0
 --- !u!136 &136527436499752998
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -3614,6 +3604,6 @@ CharacterController:
   m_Radius: 0.2
   m_SlopeLimit: 90
   m_StepOffset: 0.15
-  m_SkinWidth: 0.04
+  m_SkinWidth: 0.1
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0.75, z: 0}

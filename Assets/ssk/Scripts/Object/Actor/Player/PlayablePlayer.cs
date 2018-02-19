@@ -58,11 +58,7 @@ public partial class PlayablePlayer : Player
     {
         ControllInput();
         UpdatePlayer();
-        //DebugFloat[0] = hInput;
-        //DebugFloat[1] = vInput;
-        //DebugFloat[2] = attack1;
-        //DebugFloat[3] = attack2;
-        //DebugFloat[4] = jump;
+
     }
     protected override void FixedUpdate()
     {
@@ -76,8 +72,7 @@ public partial class PlayablePlayer : Player
             return;
         if (!behavior.IsAnimationPlaing)
         {
-            //hInput = Input.GetAxis("Horizontal");
-            //vInput = Input.GetAxis("Vertical");
+
             hInput = UIJoyStick.InputValue.x;
             vInput = UIJoyStick.InputValue.y;
             if (NowMoveSpeed == 0)
