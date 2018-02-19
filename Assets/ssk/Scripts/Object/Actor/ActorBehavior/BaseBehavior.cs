@@ -55,6 +55,7 @@ public abstract class BaseBehavior:MyBaseObejct
         comboCount = 0;
         ComboTimer = 0.0f;
         GameObject.Find("ComboText").SendMessage("SetComboOffAnim");
+        GameObject.Find("ComboText").SendMessage("SetCombo", 0);
     }
     public virtual void Init(Actor target, Animator animator,string name)
     {

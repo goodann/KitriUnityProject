@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class WeaponBehavior : BaseBehavior {
     string WeaponName;
-    GameObject bullet;
-    GameObject fire;
-    Transform pos;
+
     // Use this for initialization
     void Start () {
-        bullet = Resources.Load("ssk/prefabs/MachinePistol_Shell") as GameObject;
-        fire = Resources.Load("ssk/prefabs/MachinePistol_MuzzleFlash") as GameObject;
+
         
     }
 	
@@ -105,17 +102,6 @@ public class WeaponBehavior : BaseBehavior {
         //콤보초기화
         comboCount = 0;
         ComboTimer = 0.0f;
-    }
-    public void Shot() {
-
-        //MachinePistol_Shell
-        
-        pos = StageManager.mainPlayer.FindInChild("FirePos");
-        print("Fire : " + pos);
-        GameObject.Instantiate(bullet, pos.localToWorldMatrix* pos.position, transform.rotation);
-        GameObject.Instantiate(fire, pos.localToWorldMatrix*pos.position, transform.rotation);
-        Rigidbody rigid = bullet.GetComponent<Rigidbody>();
-        rigid.AddForce(transform.forward * 100);
     }
 }
 

@@ -127,7 +127,7 @@ public class AttackCollider : MyBaseObejct
                 GameObject.Instantiate(StarParticlePrefab, other.transform.position, Quaternion.Euler(-45, 0, 0));
                 GameObject.Instantiate(fightAttackParticlePrefab, other.transform.position + Vector3.up * 0.5f, Quaternion.identity);
                 other.transform.position += actor.AttackDirction;
-
+                StageManager.mainPlayer.AttackCombo();
                 //print("Hit다 hit! 맞은놈 : " + other.ToString() + "데미지 : " + actor.NowPOWER * actor.NowAttackPower + " 밀리는 방향 " + actor.AttackDirction);
                 //other.SendMessage("onDamaged", actor.NowPOWER * actor.NowAttackPower);
 
@@ -136,7 +136,7 @@ public class AttackCollider : MyBaseObejct
             {
                 GameObject.Instantiate(SkullParticlePrefab, other.transform.position, Quaternion.Euler(-90, 0, 0));
                 GameObject.Instantiate(fightAttackParticlePrefab, other.transform.position + Vector3.up * 0.5f, Quaternion.identity);
-                StageManager.mainPlayer.AttackCombo();
+                
 
                 
             }

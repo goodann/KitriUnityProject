@@ -157,6 +157,8 @@ public class Actor : MyBaseObejct {
         NowAttackPower = 1.0f;
         isAlive = true;
         NowMoveSpeed = MoveSpeed;
+        bullet = Resources.Load("ssk/prefabs/MachinePistol_Shell") as GameObject;
+        fire = Resources.Load("ssk/prefabs/MachinePistol_MuzzleFlash") as GameObject;
     }
 
     public virtual void Rolling()
@@ -239,5 +241,23 @@ public class Actor : MyBaseObejct {
     public virtual void UpperHit(int _power)
     {
 
+    }
+    GameObject bullet;
+    GameObject fire;
+    Transform pos;
+
+    public void Shot()
+    {
+
+        //MachinePistol_Shell
+        print("1");
+        pos = StageManager.mainPlayer.FindInChild("FirePos");
+        print("Fire : " + pos.position);
+        GameObject.Instantiate(bullet, pos.position, transform.rotation);
+        GameObject.Instantiate(fire, pos.position, transform.rotation);
+        Rigidbody rigid = bullet.GetComponent<Rigidbody>();
+        print("2");
+        rigid.AddForce(transform.forward * 100);
+        print("3");
     }
 }
