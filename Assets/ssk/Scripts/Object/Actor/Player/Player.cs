@@ -214,6 +214,8 @@ public class Player : Actor
             else
                 behavior.Move();
         }
+        else
+            behavior.Move();
     }
     public void Stop()
     {

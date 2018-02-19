@@ -222,9 +222,9 @@ public partial class PlayablePlayer : Player
             //charge
             skill += Time.unscaledDeltaTime * mp;
             //Debug.Log(skill);
-            if (skill > mp)
+            if (skill > nowMp)
             {
-                skill = mp;
+                skill = nowMp;
             }
             if (skill > 100)
             {
