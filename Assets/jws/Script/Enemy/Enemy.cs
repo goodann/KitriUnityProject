@@ -27,7 +27,6 @@ public class Enemy : Actor
 
     // Archer
     public float reloadTime;
-    public float runawayDist;
     private float runawayResetTime = 3f;
     private float oldReloadTime;
     private int arrowPower;

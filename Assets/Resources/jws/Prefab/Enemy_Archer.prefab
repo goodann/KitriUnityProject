@@ -1878,7 +1878,7 @@ MonoBehaviour:
   skillPoint: 0
   skillChargeTime: 5
   type: 1
-  meleeAttackRange: 2
+  meleeAttackRange: 1
   arrowAttackRange: 20
   recoveryTime: 2
   aggroRadius: 5
