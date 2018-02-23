@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: cfd0a25dfa280f74fb767fb4919d35cc
+timeCreated: 1519094690
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Capricus 3D Italic
+  fontNames:
+  - Capricus 3D Italic
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
