@@ -38,8 +38,8 @@ public class UIPCSliderController : MonoBehaviour {
         pcMpSlider.maxValue = playable.MP;
         pcMpSlider.value = playable.NowMP;
 
-        //pcSpSlider.maxValue = 300f;
-        //pcSpSlider.value = playable.SkillCharged;
+        pcSpSlider.maxValue = 300f;
+        pcSpSlider.value = playable.SkillCharged;
     }
 
     public void GetItemState(float maxXP, float nowXP)

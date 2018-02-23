@@ -8,18 +8,21 @@ public class UINPCSliderController : MonoBehaviour {
 
     EnemyManager enemyMgr;
     Slider npcHpSlider;
+    Slider npcSpSlider;
+
     Image[] images;
 
     public bool isActive = false;
 
     private void Awake()
     {
-        enemyMgr = GameObject.Find("StageManager").GetComponent<EnemyManager>();
+        enemyMgr = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
     }
 
     private void OnEnable()
     {
         npcHpSlider = GameObject.Find("NPC_HPbar").GetComponent<Slider>();
+        npcSpSlider = GameObject.Find("NPC_SPbar").GetComponent<Slider>();
         images = GetComponentsInChildren<Image>();
 
         HideLastHitMobInfo();
@@ -41,6 +44,8 @@ public class UINPCSliderController : MonoBehaviour {
     {
         npcHpSlider.maxValue = enemyMgr.LastHitMobMaxHP;
         npcHpSlider.value = enemyMgr.LastHitMobHP;
+        
+        npcSpSlider.value = enemyMgr.LastHitMobSkillPoint;
     }
 
     void ActiveLastHitMobInfo()
@@ -73,7 +78,9 @@ public class UINPCSliderController : MonoBehaviour {
 
             if(currHP == enemyMgr.LastHitMobHP)
             {
+                enemyMgr.lastHitMob = null;
                 enemyMgr.ResetMobInfo();
+                
                 HideLastHitMobInfo();
                 yield break;
             }
