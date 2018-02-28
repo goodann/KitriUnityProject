@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5aea7fb12a80918418d08f106659d9fd
+guid: c4bd281b393d886458aa26fea41af495
 timeCreated: 1517796616
 licenseType: Free
 ModelImporter:
@@ -168,8 +168,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: Event EndRolling has a time (1.370464) outside the clip's
-      valid range (0.000000..1.316667). It will never be fired
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0

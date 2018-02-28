@@ -41,6 +41,8 @@ public class ArrowAttackState : IState
                     break;
                 case EEnemyType.Enemy_Archer:
                     {
+                        float dist = Vector3.Distance(parent.NavTR.position, parent.PlayerTR.position);
+                        
                         if (normalizedTime >= 0.9f)
                         {
                             Shoot();

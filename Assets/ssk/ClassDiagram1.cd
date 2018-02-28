@@ -1,724 +1,149 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="ArcherAI" Collapsed="true">
-    <Position X="16" Y="2.75" Width="1.5" />
+  <Class Name="CamControl" Collapsed="true">
+    <Position X="10.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\jws\Script\AI\ArcherAI.cs</FileName>
+      <HashCode>AAWQBCBABAAAAAEAIACAIBAIAAAAAAEABAAAAgAAAiA=</HashCode>
+      <FileName>Assets\ssk\External\theNotes\Script\CamControl.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ArchorAI" Collapsed="true">
-    <Position X="18.25" Y="2.75" Width="1.5" />
+  <Class Name="GUIConrtol_note" Collapsed="true">
+    <Position X="14.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\jws\Script\AI\ArchorAI.cs</FileName>
+      <HashCode>ARAAJoAAACBBAAAAAEgKIAEQQggABgAAhCQoAklCAIk=</HashCode>
+      <FileName>Assets\ssk\External\theNotes\Script\GUIConrtol_note.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BaseAI" Collapsed="true">
-    <Position X="18.25" Y="1.5" Width="1.5" />
+  <Class Name="NoteAnimatorControl" Collapsed="true">
+    <Position X="14.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EEGAggBAAAAABAAoIAIAACAAAAAgAQgAAAAAAAAAAAM=</HashCode>
-      <FileName>Assets\jws\Script\AI\BaseAI.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="MeleeAI" Collapsed="true">
-    <Position X="20.5" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAAAAABAAAAAAAAgAAIAAAAAAAAgAQgAAAAAAAAAAAE=</HashCode>
-      <FileName>Assets\jws\Script\AI\MeleeAI.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ArrowAttackState" Collapsed="true">
-    <Position X="3.5" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAABAAAAAAAAAAAAAAEAAAAIAAQAAAAAAA=</HashCode>
-      <FileName>Assets\jws\Script\AI\State\ArrowAttackState.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CriticalHitState" Collapsed="true">
-    <Position X="4.5" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAEAAAAIAAQAAAAAAA=</HashCode>
-      <FileName>Assets\jws\Script\AI\State\CriticalHitState.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DieState" Collapsed="true">
-    <Position X="7.5" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAEAAAAIAAQAAAAAAA=</HashCode>
-      <FileName>Assets\jws\Script\AI\State\DieState.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="FollowState" Collapsed="true">
-    <Position X="9.5" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAEAAAAIAAQAAAAAAA=</HashCode>
-      <FileName>Assets\jws\Script\AI\State\FollowState.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="HitState" Collapsed="true">
-    <Position X="8.5" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAEAAAAIAAQAAAAAAA=</HashCode>
-      <FileName>Assets\jws\Script\AI\State\HitState.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="IdleState" Collapsed="true">
-    <Position X="1" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAEAAAAIAAQAAAQAAA=</HashCode>
-      <FileName>Assets\jws\Script\AI\State\IdleState.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="IState" Collapsed="true">
-    <Position X="1.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAEAAAAAACBBAAAAAAAAAAAAEAAAAIAAQAAAAAAA=</HashCode>
-      <FileName>Assets\jws\Script\AI\State\IState.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="MeleeAttackState" Collapsed="true">
-    <Position X="1.75" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAEAAAAIAAQAAAAAAA=</HashCode>
-      <FileName>Assets\jws\Script\AI\State\MeleeAttackState.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SkillState" Collapsed="true">
-    <Position X="5.5" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAEAAAAIAAQAAAAAAA=</HashCode>
-      <FileName>Assets\jws\Script\AI\State\SkillState.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="UpperHitState" Collapsed="true">
-    <Position X="2.75" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAQAAAAGAAAAAAAAAAQAAEEAAAIAARACAAAAA=</HashCode>
-      <FileName>Assets\jws\Script\AI\State\UpperHitState.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="WanderState" Collapsed="true">
-    <Position X="6.5" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>IAQAAAAAEAAAIAAAAAAAAAAAAACEAAAAIAAQAAAAAAA=</HashCode>
-      <FileName>Assets\jws\Script\AI\State\WanderState.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Arrow" Collapsed="true">
-    <Position X="32.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAiAAQAAAAAAAAAAAAAEAAQAAQAAAAAAAAAA=</HashCode>
-      <FileName>Assets\jws\Script\Arrow.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Enemy" Collapsed="true">
-    <Position X="4" Y="8" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>DUwMAwgCzGABUgDYQCIYIEIkgCAjECrIQjpqAAVYCEI=</HashCode>
-      <FileName>Assets\jws\Script\Enemy\Enemy.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="EnemyColliders" Collapsed="true">
-    <Position X="35.75" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\jws\Script\Enemy\EnemyColliders.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="EnemyManager" Collapsed="true">
-    <Position X="24" Y="6.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQQAEAAACEAAQAEQAFAAIgAAACAICAMACghCQAAAAg=</HashCode>
-      <FileName>Assets\jws\Script\Enemy\EnemyManager.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="GenSetting" Collapsed="true">
-    <Position X="28.75" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAQAAAAAECAAICAAgAAAAAAAAIAAAAAAAAAAgKAAAAA=</HashCode>
-      <FileName>Assets\jws\Script\GenSetting.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CamFollow" Collapsed="true">
-    <Position X="37.5" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AABAAAAAAAABAAAAYACAIAAAAAAAAQAAAAAAAAAAAEA=</HashCode>
-      <FileName>Assets\kym\MAP01\02.Scripts\CamFollow.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="EnemyGenerator" Collapsed="true">
-    <Position X="37.5" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AIAAAACAQCEAAAAAAAAAAACAAAAAAQgAAAAAAABACEA=</HashCode>
-      <FileName>Assets\kym\MAP01\02.Scripts\EnemyGenerator.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="FallingDieTrigger" Collapsed="true">
-    <Position X="39.25" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAwCAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAI=</HashCode>
-      <FileName>Assets\kym\MAP01\02.Scripts\FallingDieTrigger.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="GetItem" Collapsed="true">
-    <Position X="39.25" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>IARAIEAACiBAEBAAgDgAAAYACBBAgAQAAgYCAFAAAAA=</HashCode>
-      <FileName>Assets\kym\MAP01\02.Scripts\GetItem.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ItemGeneInit" Collapsed="true">
-    <Position X="41" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAQAQAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
-      <FileName>Assets\kym\MAP01\02.Scripts\ItemGeneInit.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ItemGenerator" Collapsed="true">
-    <Position X="28.75" Y="4.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AIBAEIHAQCEAgAAAAAAEAACAgAAAAAAAAAAAAAAAAAI=</HashCode>
-      <FileName>Assets\kym\MAP01\02.Scripts\ItemGenerator.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ItemRotate" Collapsed="true">
-    <Position X="30.5" Y="4.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQACAAAICEAAAAAAAAAAgQAAEACAAAIAABCACAAAEA=</HashCode>
-      <FileName>Assets\kym\MAP01\02.Scripts\ItemRotate.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ItemState" Collapsed="true">
-    <Position X="32.25" Y="4.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AARAAAAAACAAEAAAgDgAAAYAAABAgAAAAAAAAEAAAAA=</HashCode>
-      <FileName>Assets\kym\MAP01\02.Scripts\ItemState.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="LobbyStageBtn" Collapsed="true">
-    <Position X="35.75" Y="4.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\kym\MAP01\02.Scripts\LobbyStageBtn.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="MergeStage" Collapsed="true">
-    <Position X="37.5" Y="4.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
-      <FileName>Assets\kym\MAP01\02.Scripts\MergeStage.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Stage_BUILDING_Btn" Collapsed="true">
-    <Position X="30.5" Y="6.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
-      <FileName>Assets\kym\MAP01\02.Scripts\Stage_BUILDING_Btn.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Stage_SCI_FI_Btn" Collapsed="true">
-    <Position X="32.25" Y="6.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\kym\MAP01\02.Scripts\Stage_SCI_FI_Btn.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="StartPos" Collapsed="true">
-    <Position X="34" Y="6.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAABACAAAAAAAAAAAIAAAAAAAAAQAAAEA=</HashCode>
-      <FileName>Assets\kym\MAP01\02.Scripts\StartPos.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TitleStartBtn" Collapsed="true">
-    <Position X="35.75" Y="6.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\kym\MAP01\02.Scripts\TitleStartBtn.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="UIButtonController" Collapsed="true">
-    <Position X="37.5" Y="6.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAEAAQCAAAAAIQogAAAAwAIAAAAAhAAAAgAAAQAA=</HashCode>
-      <FileName>Assets\kym\MAP01\02.Scripts\UIButtonController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="UINPCSliderController" Collapsed="true">
-    <Position X="41" Y="6.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>gAQAAAAAAAAAAAABAQAAABIEEAAAAAQAAAAAAAAACEA=</HashCode>
-      <FileName>Assets\kym\MAP01\02.Scripts\UINPCSliderController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="UIPCSliderController" Collapsed="true">
-    <Position X="28.75" Y="7.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>ACQAAEAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAACFA=</HashCode>
-      <FileName>Assets\kym\MAP01\02.Scripts\UIPCSliderController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="UISkillButton" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="30.5" Y="7.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AACAAAAAACAIAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\kym\MAP01\02.Scripts\UISkillButton.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="CFX_AutoDestructShuriken" Collapsed="true">
-    <Position X="39.25" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAACAAAAAAAAACAA=</HashCode>
-      <FileName>Assets\kym\MAP01\07.Others\JMO Assets\Cartoon FX\Scripts\CFX_AutoDestructShuriken.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CFX_AutoRotate" Collapsed="true">
-    <Position X="41" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAgAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\kym\MAP01\07.Others\JMO Assets\Cartoon FX\Scripts\CFX_AutoRotate.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CFX_LightFlicker" Collapsed="true">
-    <Position X="28.75" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQACAAEAAAACAAAAAAAAAAAAAAAAAAAAAAAoAAACEg=</HashCode>
-      <FileName>Assets\kym\MAP01\07.Others\JMO Assets\Cartoon FX\Scripts\CFX_LightFlicker.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CFX_LightIntensityFade" Collapsed="true">
-    <Position X="30.5" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAIAACAAAIAQABAAAAgAAAAAAAAAAAAAgAAACAA=</HashCode>
-      <FileName>Assets\kym\MAP01\07.Others\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="MouseLook" Collapsed="true">
-    <Position X="39.25" Y="4.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAABAEACAAAAAAAAGAAAAAAIAAAAAAAAAAAAAAABA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Character Controllers\Sources\Scripts\MouseLook.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="AutoDestroy" Collapsed="true">
-    <Position X="34" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\AutoDestroy.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="BasicBullet" Collapsed="true">
-    <Position X="35.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAACAAIAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\BasicBullet.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="BeamCollision" Collapsed="true">
-    <Position X="37.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAQACQAABAAAAAAAAABAQAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\BeamCollision.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="BeamLine" Collapsed="true">
-    <Position X="39.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAUABAgAAGIAAAIBBAAAQAAAAAAAAAAQAAAQAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\BeamLine.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="BeamParam" Collapsed="true">
-    <Position X="41" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAgAAGAAAAAAAAIAAAAAAAAAAAAQAAQQAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\BeamParam.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="BeamWave" Collapsed="true">
-    <Position X="28.75" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAQAIAACAAAAAAAAAAAQAAAAACAAAQAAAAAAAIAAA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\BeamWave.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="BillBoard" Collapsed="true">
-    <Position X="30.5" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAIEAACAAAAAAAAAAABAAAAAAAAAAAEA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\BillBoard.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="BM_WaveEffect" Collapsed="true">
-    <Position X="32.25" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAABCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\BM_WaveEffect.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Create_MyLineMesh" Collapsed="true">
-    <Position X="34" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\Create_MyLineMesh.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Flash" Collapsed="true">
-    <Position X="41" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAACAAAAAAAAAAQAAAAAAAAAAQAgQAQAAAAAA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\Flash.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="GeroBeam" Collapsed="true">
-    <Position X="30.5" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAQAAICYIAACAACAAgEAAAQAQCgAAAQAQAAAIAAA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\GeroBeam.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="GeroBeamHit" Collapsed="true">
-    <Position X="32.25" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAEJACABCAAAAAAAAQAAAAABAAAAAgAAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\GeroBeamHit.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="GetColor_BeamLine" Collapsed="true">
-    <Position X="34" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\GetColor_BeamLine.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="GetColor_Flash" Collapsed="true">
-    <Position X="35.75" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\GetColor_Flash.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="GetColor_Particle" Collapsed="true">
-    <Position X="37.5" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\GetColor_Particle.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="JumpScene" Collapsed="true">
-    <Position X="34" Y="4.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\JumpScene.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="MouseTgt" Collapsed="true">
-    <Position X="41" Y="4.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\MouseTgt.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="MultiShooter" Collapsed="true">
-    <Position X="28.75" Y="5.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AEQAAAAAACAAAAAAAAAAAAAAAAAACAAAAAAAACQEAAA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\MultiShooter.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="RandomRotate" Collapsed="true">
-    <Position X="32.25" Y="5.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAACAAAAAAAAAAAAACAAAAAAAAAAAAAAAABAA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\RandomRotate.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ScaleWiggle" Collapsed="true">
-    <Position X="34" Y="5.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAACAAAgAAAAAAIAAAAAAAAEAAEAQAAAQAAAA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\ScaleWiggle.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SceneMaster" Collapsed="true">
-    <Position X="35.75" Y="5.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\SceneMaster.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShooterRotate" Collapsed="true">
-    <Position X="37.5" Y="5.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\ShooterRotate.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShotBase" Collapsed="true">
-    <Position X="39.25" Y="5.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAgAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\ShotBase.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShotParticle_Scale" Collapsed="true">
-    <Position X="41" Y="5.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQBAAAAACAAAAAAQEAgAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\ShotParticle_Scale.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShotParticleEmitter" Collapsed="true">
-    <Position X="28.75" Y="6.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>QAQAAAAAACAAAAAAAAAAAQAAAAAAAAAQAAAQACAACAA=</HashCode>
-      <FileName>Assets\ssk\External\BasicBeamShot\Script\ShotParticleEmitter.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CameraMovement" Collapsed="true">
-    <Position X="35.75" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAACAAAAAAAAAAAAAEAAAAAAAAAAGAAAAABAA=</HashCode>
-      <FileName>Assets\ssk\External\UETools\Magic_Particle_Effects\Scripts\CameraMovement.cs</FileName>
+      <HashCode>AAQAAAgAAABAKQAAAAAgAACAAAAAKAAApAgECAAAAAE=</HashCode>
+      <FileName>Assets\ssk\External\theNotes\Script\NoteAnimatorControl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AniStateAttack" Collapsed="true">
-    <Position X="11.5" Y="11.75" Width="1.5" />
+    <Position X="4.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAkAAAAAAAAAAAAAAAAYAAAAAAAAAAAIAAAAA=</HashCode>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAYAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>Assets\ssk\Scripts\Animations\AniStateAttack.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AniStateFlyingKick" Collapsed="true">
-    <Position X="11.5" Y="13.25" Width="1.5" />
+    <Position X="8.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\ssk\Scripts\Animations\AniStateFlyingKick.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AniStateIdle" Collapsed="true">
-    <Position X="28.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\Scripts\Animations\AniStateIdle.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="AniStateJumpKick" Collapsed="true">
-    <Position X="13.75" Y="13.25" Width="1.5" />
+  <Class Name="Const" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\Scripts\Animations\AniStateJumpKick.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="AniStateRun" Collapsed="true">
-    <Position X="30.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\Scripts\Animations\AniStateRun.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Kamehameha" Collapsed="true">
-    <Position X="9.25" Y="13.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAYAAAAgAIAAAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\Scripts\Animations\Kamehameha.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Const" Collapsed="true">
-    <Position X="32.25" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>CCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
       <FileName>Assets\ssk\Scripts\Global\Const.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Actor" Collapsed="true">
-    <Position X="3" Y="6.5" Width="1.5" />
+    <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EUQSAABFAoAAAhCICAEkSeCBSoEIAAoIZBFGSQEHCAA=</HashCode>
+      <HashCode>EAAAAAAAAIAAAhCAAAEAAACAQoEAAAAIQAFCCQAFAAA=</HashCode>
       <FileName>Assets\ssk\Scripts\Object\Actor\Actor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BaseAnimation" Collapsed="true">
-    <Position X="5" Y="9" Width="1.5" />
+    <Position X="5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BQQAQAAAAAAAAAAACAEAAEAAEAAAABYQAACAhAAAAAA=</HashCode>
+      <HashCode>AQQAQCAAAAAEAAAACAEAAEAAAAAAABYQAACAAAAAAAA=</HashCode>
       <FileName>Assets\ssk\Scripts\Object\Actor\ActorAnimation\BaseAnimation.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FightAnimation" Collapsed="true">
-    <Position X="5" Y="10.25" Width="1.5" />
+    <Position X="4.5" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAhQAAAAgAAAAAACAAAAEAQCAAAABAAAACAAAAAAAA=</HashCode>
+      <HashCode>AQAhQAAAAAAEAAAACAAAAAAQCAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\ssk\Scripts\Object\Actor\ActorAnimation\FightAnimation.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GunAnimation" Collapsed="true">
-    <Position X="6.75" Y="10.25" Width="1.5" />
+  <Class Name="BaseBehavior">
+    <Position X="7.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAYAAACAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\Scripts\Object\Actor\ActorAnimation\GunAnimation.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="PistolAnimation" Collapsed="true">
-    <Position X="8.5" Y="10.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAYAAACAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\Scripts\Object\Actor\ActorAnimation\PistolAnimation.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="WeaponAnimation" Collapsed="true">
-    <Position X="10.25" Y="10.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAYAAACAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\Scripts\Object\Actor\ActorAnimation\WeaponAnimation.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="NextAttack" Collapsed="true">
-    <Position X="30.5" Y="5.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
-      <FileName>Assets\ssk\Scripts\Object\Actor\ActorBehavior\BaseBehavior.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="BaseBehavior" Collapsed="true">
-    <Position X="7" Y="6.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>MAzQAiAAAoIAAAAAIAAgQAMAAAAAQAMY6AALSAgAAAA=</HashCode>
-      <FileName>Assets\ssk\Scripts\Object\Actor\ActorBehavior\BaseBehavior.cs</FileName>
+      <HashCode>MAQQACAAAggAAAAIAAEAQAMAAAAAAAAQoAAKCAAAAAA=</HashCode>
+      <FileName>Assets\ssk\Scripts\Object\Actor\ActorCombat\BaseCombat.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FightBehavior" Collapsed="true">
-    <Position X="6" Y="8" Width="1.5" />
+    <Position X="7.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAQACIAAAEAAIAAAAABAQAKAEIAgAQAIaBACACBCAAA=</HashCode>
-      <FileName>Assets\ssk\Scripts\Object\Actor\ActorBehavior\FightBehavior.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="WeaponBehavior" Collapsed="true">
-    <Position X="8.25" Y="8" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EIQAAAAAAiAAAAAAAAAAQAIAAAAAAAAAQAACAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\Scripts\Object\Actor\ActorBehavior\WeaponBehavior.cs</FileName>
+      <HashCode>MASACKAAAkAAIAAAAABAQAKAEIAgAAIIYBAKCCBAAAA=</HashCode>
+      <FileName>Assets\ssk\Scripts\Object\Actor\ActorCombat\FightCombat.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AttackCollider" Collapsed="true">
-    <Position X="21.5" Y="5.25" Width="1.5" />
+    <Position X="10.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAACCAAAAIAAIAAAwAIgAAAEGAAQAAAAAAAAoA=</HashCode>
-      <FileName>Assets\ssk\Scripts\Object\Actor\AttackCollider.cs</FileName>
+      <HashCode>AAQAAAAAACAAAAIAAAAAAAAAAAAAAAAAQAAAAAAAAgA=</HashCode>
+      <FileName>Assets\ssk\Scripts\Object\Actor\Enemy\AttackCollider.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PlayablePlayer" Collapsed="true">
-    <Position X="2.25" Y="9.5" Width="1.5" />
+    <Position X="0.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQQCABMAAiEACAAAAAAAAABQBgAAEAAAQAAAAAEFCAQ=</HashCode>
+      <HashCode>AAQCAAEAAiAAAAAAAAAAAABABgAAAAAAQAAAAAABAAQ=</HashCode>
       <FileName>Assets\ssk\Scripts\Object\Actor\Player\PlayablePlayer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Player" Collapsed="true">
-    <Position X="2.25" Y="8" Width="1.5" />
+    <Position X="0.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EKQAAAAAAqAAAAiAKCggYEoCEAAAAAAIoAACAAEEAKA=</HashCode>
+      <HashCode>MCQAAAAAAqAAAAiAIAgAQAIAEAAAAAAIIAACACEAAIA=</HashCode>
       <FileName>Assets\ssk\Scripts\Object\Actor\Player\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BulletBehavior" Collapsed="true">
-    <Position X="34" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\Scripts\Object\BulletBehavior.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="MyBaseObejct" Collapsed="true">
-    <Position X="3" Y="5.25" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAgAAAAAMAAAQAAAAAAAAAEACAAABAAAAAAAiBCKAAA=</HashCode>
+      <HashCode>CAgAAAAAMAAAQAAAAAAAAAEACAAAIAAAAAAAiACKEAA=</HashCode>
       <FileName>Assets\ssk\Scripts\Object\MyBaseObejct.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SingletonObejct&lt;T&gt;" Collapsed="true">
-    <Position X="24" Y="5.25" Width="1.5" />
+    <Position X="2.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAFABAAAEAAAAAAAAAAAAAAAAAAAAAAQCACAAAAAAA=</HashCode>
       <FileName>Assets\ssk\Scripts\Object\SingletonObejct.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StageManager" Collapsed="true">
-    <Position X="25.75" Y="5.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AgRAAgAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\Scripts\Stage\StageManager.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="UIJoyStick" Collapsed="true">
-    <Position X="39.25" Y="6.5" Width="1.5" />
+    <Position X="10.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAQIAAAAECAAACAAAEAAAAGCgAACAAAAAAAAAAAAABA=</HashCode>
+      <HashCode>BAQIAAAAACAAACAAAAAAAAECgAACAAAAAAAAAAAAABA=</HashCode>
       <FileName>Assets\ssk\Scripts\UI\UIJoyStick.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Struct Name="MobInfo" Collapsed="true">
-    <Position X="28.75" Y="8.75" Width="1.5" />
+  <Enum Name="EEquipmentState">
+    <Position X="13" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAgA=</HashCode>
-      <FileName>Assets\jws\Script\Enemy\EnemyManager.cs</FileName>
-    </TypeIdentifier>
-  </Struct>
-  <Struct Name="Status" Collapsed="true">
-    <Position X="30.5" Y="8.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAABCAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\Scripts\Object\Actor\Actor.cs</FileName>
-    </TypeIdentifier>
-  </Struct>
-  <Enum Name="EEquipmentState" Collapsed="true">
-    <Position X="39.25" Y="10" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AACAAAAAAAAAAAAAAAABAABAAgAAAAAAEAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAEAAAAAAAAAA=</HashCode>
       <FileName>Assets\ssk\Scripts\Global\Enum.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="ECharaterState" Collapsed="true">
-    <Position X="34" Y="10" Width="1.5" />
+  <Enum Name="ECharaterState">
+    <Position X="11.25" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAFgAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\ssk\Scripts\Global\Enum.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="EAttackColliderIndex" Collapsed="true">
-    <Position X="28.75" Y="10" Width="1.5" />
+  <Enum Name="EAttackColliderIndex">
+    <Position X="11.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACAgAAAAkAAAAAAAAAAAAAQAAAgAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAgAAAAAAAAAAAAAQAAAgAAA=</HashCode>
       <FileName>Assets\ssk\Scripts\Global\Enum.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="EBaseObjectState" Collapsed="true">
-    <Position X="30.5" Y="10" Width="1.5" />
+  <Enum Name="EBaseObjectState">
+    <Position X="11.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\Scripts\Global\Enum.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
-  <Enum Name="EButtonList" Collapsed="true">
-    <Position X="32.25" Y="10" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAiAAAAAAAAAAAAAARAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\Scripts\Global\Enum.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
-  <Enum Name="EEnemyType" Collapsed="true">
-    <Position X="37.5" Y="10" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>CCAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
-      <FileName>Assets\ssk\Scripts\Global\Enum.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
-  <Enum Name="EEnemyState" Collapsed="true">
-    <Position X="35.75" Y="10" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAARABAAQBAAABAAAAAAAAAAgAgCAAAAAgAAAAAAAMA=</HashCode>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\ssk\Scripts\Global\Enum.cs</FileName>
     </TypeIdentifier>
   </Enum>

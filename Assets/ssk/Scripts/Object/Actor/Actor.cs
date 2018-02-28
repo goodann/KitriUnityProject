@@ -250,12 +250,14 @@ public class Actor : MyBaseObejct {
     {
 
         //MachinePistol_Shell
+        print("1");
         pos = StageManager.mainPlayer.FindInChild("FirePos");
-        
+        print("Fire : " + pos.position);
         GameObject.Instantiate(bullet, pos.position, transform.rotation);
         GameObject.Instantiate(fire, pos.position, transform.rotation);
         Rigidbody rigid = bullet.GetComponent<Rigidbody>();
-        rigid.AddForce(Vector3.forward* 500);
-        print("Fire : " + pos.position + "dir = " +transform.forward+ rigid);
+        print("2");
+        rigid.AddForce(transform.forward * 100);
+        print("3");
     }
 }

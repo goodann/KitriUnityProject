@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b25cb815ba5264a428c5f65470c4eb05
+guid: a0b7fd780e9d70d41befac5d758e96ef
 timeCreated: 1517528003
 licenseType: Free
 ModelImporter:
@@ -203,15 +203,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0
-        functionName: Shot
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 7a6d65cc6c5265c4685837eaa0f29c95,
-          type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
