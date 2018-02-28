@@ -19,7 +19,7 @@ public class UINPCSliderController : MonoBehaviour {
         enemyMgr = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
     }
 
-    private void OnEnable()
+    private void Start()
     {
         npcHpSlider = GameObject.Find("NPC_HPbar").GetComponent<Slider>();
         npcSpSlider = GameObject.Find("NPC_SPbar").GetComponent<Slider>();
