@@ -18,6 +18,7 @@ public class GetItem : MonoBehaviour {
     public float throwPower = 8000;
 
     Animator playerAnimator;
+    int ItemAnimState = 0;
 
     UIButtonController btnController;
     UIPCSliderController pcUIController;
@@ -127,38 +128,41 @@ public class GetItem : MonoBehaviour {
                     other.transform.localPosition = new Vector3(-0.05f, 0.07f, 0.12f);
                     other.transform.localRotation = Quaternion.Euler(-57, -150, 170);
                     other.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-                    StageManager.mainPlayer.switchEq(EEquipmentState.CharEqState_Sword);
+                    ItemAnimState = 1;
                     break;
 
                 case "Sword":
                     other.transform.localPosition = new Vector3(-0.03f, 0.07f, 0.1f);
                     other.transform.localRotation = Quaternion.Euler(-32, -60, 114);
                     other.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-                    StageManager.mainPlayer.switchEq(EEquipmentState.CharEqState_Sword);
+                    ItemAnimState = 1;
                     break;
 
                 case "Pistol":
                     other.transform.localPosition = new Vector3(-0.28f, -0.17f, 0.05f);
                     other.transform.localRotation = Quaternion.Euler(118, 253, 59);
                     other.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-                    StageManager.mainPlayer.switchEq(EEquipmentState.CharEqState_Pistol);
+                    ItemAnimState = 2;
                     break;
 
                 case "Minigun":
                     other.transform.localPosition = new Vector3(-0.19f, -0.07f, 0.1f);
                     other.transform.localRotation = Quaternion.Euler(150, 113, -61);
                     other.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-                    StageManager.mainPlayer.switchEq(EEquipmentState.CharEqState_Gun);
+                    ItemAnimState = 3;
                     break;
 
                 case "Shield":
                     other.transform.localPosition = new Vector3(-0.11f, 0.1f, 0.21f);
                     other.transform.localRotation = Quaternion.Euler(56, 58, -130);
                     other.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
-                    StageManager.mainPlayer.switchEq(EEquipmentState.CharEqState_Sword);
+                    ItemAnimState = 1;
                     break;
 
             }
+
+            //애니메이션 컨트롤러 체인지
+            Invoke("SwitchItemAnim", 0.5f);
 
             //다시 주운 아이템이면 제너레이터 작동 패스
             if (takeItemObj.GetComponent<ItemRotate>().isPickedUp) return;
@@ -170,6 +174,31 @@ public class GetItem : MonoBehaviour {
             StageManager.mainPlayer.SetWeapon(other);
             other.gameObject.layer = LayerMask.NameToLayer("PlayerAttackCollider");
         }
+    }
+
+    void SwitchItemAnim()
+    {
+        switch(ItemAnimState)
+        {
+            case 0:
+                StageManager.mainPlayer.SetWeapon(null);
+                StageManager.mainPlayer.switchEq(EEquipmentState.CharEqState_Fight);
+                StageManager.mainPlayer.EndAttack();
+                break;
+            case 1:
+                StageManager.mainPlayer.switchEq(EEquipmentState.CharEqState_Sword);
+                break;
+            case 2:
+                StageManager.mainPlayer.switchEq(EEquipmentState.CharEqState_Pistol);
+                break;
+            case 3:
+                StageManager.mainPlayer.switchEq(EEquipmentState.CharEqState_Gun);
+                break;
+
+            default: break;
+        }
+
+        playerAnimator = GetComponent<Animator>();
     }
 
     public void GetItemState()
@@ -207,11 +236,6 @@ public class GetItem : MonoBehaviour {
 
     public void ResetItemState()
     {
-        print("ResetItemState!!");
-        StageManager.mainPlayer.SetWeapon(null);
-        StageManager.mainPlayer.switchEq(EEquipmentState.CharEqState_Fight);
-        StageManager.mainPlayer.EndAttack();
-        
         if (takeItemObj == null) return;
 
         itemPower = 0;
@@ -221,9 +245,12 @@ public class GetItem : MonoBehaviour {
         useXP = 0;
 
         SetItemState();
-        
+
+        ItemAnimState = 0;
+        Invoke("SwitchItemAnim", 0.5f);
+
         string LayerName = takeItemObj.name.Substring(0, takeItemObj.name.IndexOf('0'));
-        print("LayerName = " + LayerName);
+
         takeItemObj.gameObject.layer = LayerMask.NameToLayer(LayerName);
         //부모연결을 끊는다 -> 오브젝트풀로 리턴
         takeItemObj.transform.parent = GameObject.Find("ObjectPool").transform;

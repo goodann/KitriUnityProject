@@ -6,10 +6,6 @@ public class ClearPanel : MonoBehaviour {
 
     public GameObject clearBackground = null;
 
-    private void Start()
-    {
-        gameObject.SetActive(false);
-    }
 
     public void OnClickCancleBtn()
     {
